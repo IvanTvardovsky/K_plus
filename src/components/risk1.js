@@ -27,7 +27,7 @@ class Risk1 extends React.Component{
         {
             number: 3,
             question: 'ThirdQuestion in FirstRisk',
-            answer: 'SecondAnswer in FirstRisk',
+            answer: 'ThirdAnswer in FirstRisk',
             ansCheck: false,
             help: false
         }
@@ -53,7 +53,7 @@ class Risk1 extends React.Component{
                     </div>
                 ) : (
                     <div>
-                        <p>Risk1[currentQuestion].answer</p>
+                        <p>{this.quests[currentQuestion].answer}</p>
                     </div>
                  )}
             </div>
