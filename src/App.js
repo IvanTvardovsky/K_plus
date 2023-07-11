@@ -1,29 +1,36 @@
 import React from "react"
-import Image from "./components/image"
-import logo from "./images/logo.webp"
-
+import Navbar from "./components/navbar"
+import Blocks from "./components/blocks"
 
 class App extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+          showBlocks: true,
+        };
+        this.handleContinue = this.handleContinue.bind(this)
+    }
+
+    handleContinue = () => {
+        this.setState({ showBlocks: false });
+    };
+
     render(){
+        const { showBlocks } = this.state;
         return(
-            <div class="navbar">
-                <div class="navbar-wrapper">
-                    <div class="navbar-logo">
-                        <Image image={logo} />
-                    </div>
-                    <nav role="navigation" class="navbar-menu">
-                        <ul role="list" class="navbar-menu-list">
-                            <li>
-                                <a href="#">Инструмент</a>
-                            </li>
-                            <li>
-                                <a href="#">Калькулятор</a>
-                            </li>
-                            <li>
-                                <a href="#">Справочник</a>
-                            </li>
-                        </ul>
-                    </nav>
+            <div>
+                <Navbar /> 
+                <div className="App">
+                    {showBlocks ? (
+                        <div>
+                            <h1>Добро пожаловать!</h1>
+                            <button onClick={this.handleContinue}>Продолжить</button>
+                        </div>
+                    ) : (
+                        <div>
+                            <Blocks />
+                        </div>
+                    )}
                 </div>
             </div>
         )
