@@ -55,3 +55,30 @@
 .navbar-menu-list li a:hover {
     color: #000;
 }
+
+.Risk{
+    border: 1px solid #000;
+    padding: 3px;
+    margin: 10px;
+}
+
+.Risks{
+    border: 2px solid #992020;
+    padding: 5px;
+    margin: 40px;
+}
+
+.Answer{
+    border: 2px solid #39db62;
+    margin: 10px;
+}
+
+.Question{
+    border: 2px solid #2531d3;
+    margin: 10px;
+    padding: 10px;
+}
+
+button.active {
+    background-color: yellow;
+}
