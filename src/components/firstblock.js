@@ -1,6 +1,6 @@
 import React from "react";
 import Risk1 from "./risk1";
-import Risk2 from "./risk2";
+import Risk10 from "./risk10";
 
 class FirstBlock extends React.Component{
     constructor(props) {
@@ -14,8 +14,9 @@ class FirstBlock extends React.Component{
     render(){
         return(
             <div class="Risks">
+                <h2>Блок №1 : Документы.</h2>
                 <Risk1 />
-                <Risk2 />
+                <Risk10 />
             </div>
         )
     }

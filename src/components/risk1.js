@@ -4,58 +4,112 @@ class Risk1 extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-          currentQuestion: 0,
-          nextQuestion: true
+          ans: [false, false],
+          click: [false, false]
         };
-        this.handleAnswer = this.handleAnswer.bind(this)
+        this.handleAnswer1 = this.handleAnswer1.bind(this)
+        this.handleAnswer2 = this.handleAnswer2.bind(this)
     }
     quests = [
         {
             number: 1,
-            question: 'FirstQuestion in FirstRisk',
-            answer: 'FirstAnswer in FirstRisk',
+            question: 'Есть ли штамп в паспорте, указывающий на брачный статус?',
+            answer: 'Согласие супруга не требуется.',
             ansCheck: false,
             help: false
         },
         {
             number: 2,
-            question: 'SecondQuestion in FirstRisk',
-            answer: 'SecondAnswer in FirstRisk',
-            ansCheck: false,
-            help: false
-        },
-        {
-            number: 3,
-            question: 'ThirdQuestion in FirstRisk',
-            answer: 'ThirdAnswer in FirstRisk',
+            question: 'Предоставлено ли нотариальное согласие второго супруга?',
+            answer: 'Риска нет.',
             ansCheck: false,
             help: false
         }
     ]
-    handleAnswer = (answer) => {
-        const { currentQuestion } = this.state;
-        if (answer === 'да' && currentQuestion < this.quests.length - 1) {
-          this.setState({ currentQuestion: currentQuestion + 1 });
+    handleAnswer1 = (answer) => {
+        this.setState(prevState => ({
+            click: prevState.click.map((item, index) =>
+              index === 0 ? true : item
+            )
+          }));
+        if (answer === 'да') {
+            this.setState(prevState => ({
+                ans: prevState.ans.map((item, index) =>
+                  index === 0 ? false : item
+                )
+            }));
+        } 
+        else {
+            this.setState(prevState => ({
+                ans: prevState.ans.map((item, index) =>
+                  index === 0 ? true : item
+                )
+            }));
+
+        }
+    };
+    handleAnswer2 = (answer) => {
+        this.setState(prevState => ({
+            click: prevState.click.map((item, index) =>
+              index === 1 ? true : item
+            )
+          }));
+        if (answer === 'да') {
+            this.setState(prevState => ({
+                ans: prevState.ans.map((item, index) =>
+                  index === 1 ? false : item
+                )
+            }));
         } else {
-          this.setState({ nextQuestion: false });
+            this.setState(prevState => ({
+                ans: prevState.ans.map((item, index) =>
+                  index === 1 ? true : item
+                )
+            }));
+            
         }
     };
 
     render(){
-        const { currentQuestion, nextQuestion } = this.state;
+        const { ans, click } = this.state;
         return(
             <div className="Risk">
-                {nextQuestion ? (
-                    <div className="Question">
-                        <p>{this.quests[currentQuestion].question}</p>
-                        <button onClick={() => this.handleAnswer('да')}>Да</button>
-                        <button onClick={() => this.handleAnswer('нет')}>Нет</button>
-                    </div>
-                ) : (
+                <div className="RiskName">
+                    <h3>Риск №1: Претензии супруга на земельный участок</h3>
+                </div>
+                <div className="Question">
+                    <p>{this.quests[0].question}</p>
+                    <button className={click[0] && !ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('да')}>Да</button>
+                    <button className={click[0] && ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('нет')}>Нет</button>
+                </div>
+                {click[0] && (
                     <div>
-                        <p>{this.quests[currentQuestion].answer}</p>
+                    {!ans[0] ? (
+                        <div className="Question">
+                            <p>{this.quests[1].question}</p>
+                            <button className={click[1] && !ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('да')}>Да</button>
+                            <button className={click[1]&& ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('нет')}>Нет</button>
+                        </div>
+                    ) : (
+                        <div className="Answer">
+                            <p>{this.quests[0].answer}</p>
+                        </div>
+                    )}
                     </div>
-                 )}
+                )}
+                {click[1] && !ans[0] && (
+                    <div>
+                    {!ans[1] ? (
+                        <div className="Answer">
+                            <p>{this.quests[1].answer}</p>
+                        </div>
+                    ) : (
+                        <div className="Answer">
+                            <p>Риск есть.</p>
+                        </div>
+                    )}
+                    </div>
+                )}
             </div>
         )
     }

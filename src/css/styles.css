@@ -67,3 +67,18 @@
     padding: 5px;
     margin: 40px;
 }
+
+.Answer{
+    border: 2px solid #39db62;
+    margin: 10px;
+}
+
+.Question{
+    border: 2px solid #2531d3;
+    margin: 10px;
+    padding: 10px;
+}
+
+button.active {
+    background-color: yellow;
+}
