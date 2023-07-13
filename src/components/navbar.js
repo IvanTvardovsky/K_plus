@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../images/logo.webp"
 import Image from "./image"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 class Navbar extends React.Component{
     render(){

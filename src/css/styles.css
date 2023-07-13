@@ -82,3 +82,31 @@
 button.active {
     background-color: yellow;
 }
+
+.Docs{
+    margin:10px;
+}
+
+.DocCheckBox{
+    padding:15px;
+    margin:30px;
+}
+
+.QuestIcon {
+    display: inline-block;
+    transform: scale(2);
+}
+  
+.QuestIcon:hover {
+    opacity: 0.5;
+}
+  
+.Tooltip {
+    position: absolute;
+    z-index: 999;
+    background-color: #f9f9f9;
+    color: #000;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
