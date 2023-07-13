@@ -97,7 +97,7 @@ class Risk1 extends React.Component{
                                     <div className="Question">
                                         <p>{this.quests[1].question}</p>
                                         <button className={click[1] && !ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('да')}>Да</button>
-                                        <button className={click[1]&& ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('нет')}>Нет</button>
+                                        <button className={click[1] && ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('нет')}>Нет</button>
                                     </div>
                                 ) : (
                                     <div className="Answer">

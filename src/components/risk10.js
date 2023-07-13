@@ -66,13 +66,17 @@ class Risk10 extends React.Component{
                             <div>
                             {!ans[0] ? (
                                 <div className="Answer">
-                                    <p>Нотариус обеспечит проверку действительности права собственности.</p>
-                                    <p>Проверьте отметки Росреестра на документе.</p>
-                                    <p>Сверить документы со справочной информацией Росреестра по ссылке: https://lk.rosreestr.ru/eservices/real-estate-objects-online</p>
+                                    <p> Риска нет. </p>
                                 </div>
                             ) : (
                                 <div className="Answer">
                                     <p>{this.quests[0].answer}</p>
+                                    <div className="Rec">
+                                        <h4>Рекомендации:</h4>
+                                        <p>Нотариус обеспечит проверку действительности права собственности.</p>
+                                        <p>Проверьте отметки Росреестра на документе.</p>
+                                        <p>Сверить документы со справочной информацией Росреестра по ссылке: https://lk.rosreestr.ru/eservices/real-estate-objects-online</p>
+                                    </div>
                                 </div>
                             )}
                             </div>
