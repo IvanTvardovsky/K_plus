@@ -1,45 +1,59 @@
 import React from "react";
+import {BsQuestionCircleFill} from 'react-icons/bs'
 
 class Risk3 extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-          ans: [false, false, false],
-          click: [false, false, false],
-          isClicked: false
+          ans: [false, false, false, false],
+          click: [false, false, false, false],
+          isClicked: false,
+          visible: [false, false]
         };
         this.handleAnswer1 = this.handleAnswer1.bind(this)
         this.handleAnswer2 = this.handleAnswer2.bind(this)
         this.handleAnswer3 = this.handleAnswer3.bind(this)
+        this.handleAnswer4 = this.handleAnswer4.bind(this)
         this.ClickToBlock = this.ClickToBlock.bind(this)
+        this.handleMouseEnter = this.handleMouseEnter.bind(this)
+        this.handleMouseLeave = this.handleMouseLeave.bind(this)
     }
     quests = [
         {
             number: 1,
-            question: 'Определены ли границы земельного участка?',
-            answer: 'Риск есть.',
+            question: 'Попадает ли земельный участок под целевое использование?',
+            answer: 'Риска нет.',
             ansCheck: false,
             help: false
         },
         {
             number: 2,
-            question: 'Проведено ли межевание участка?',
+            question: 'Разрешено ли использование участка для ваших нужд?',
             answer: 'Риск есть.',
             ansCheck: false,
             help: false
         },
         {
             number: 3,
-            question: 'Вы уверены, что межевание соответствует выписке ЕГРН?',
+            question: 'Подтверждено ли это официально?',
             answer: 'Риск есть',
+            ansCheck: false,
+            help: false
+        },
+        {
+            number: 4,
+            question: 'Попадает ли земля в зону особого назначения?',
+            answer: 'Риска нет',
             ansCheck: false,
             help: false
         }
     ]
-    ClickToBlock = () => {
-        this.setState(prevState => ({
-          isClicked: !prevState.isClicked
-        }));
+    ClickToBlock = (event) => {
+        if (event.target.tagName !== 'BUTTON') {
+            this.setState(prevState => ({
+                isClicked: !prevState.isClicked
+            }));
+        }
     };
     handleAnswer1 = (answer) => {
         this.setState(prevState => ({
@@ -106,14 +120,74 @@ class Risk3 extends React.Component{
         }
     };
 
+    handleAnswer4 = (answer) => {
+        this.setState(prevState => ({
+            click: prevState.click.map((item, index) =>
+              index === 3 ? true : item
+            )
+          }));
+        if (answer === 'да') {
+            this.setState(prevState => ({
+                ans: prevState.ans.map((item, index) =>
+                  index === 3 ? false : item
+                )
+            }));
+        } else {
+            this.setState(prevState => ({
+                ans: prevState.ans.map((item, index) =>
+                  index === 3 ? true : item
+                )
+            }));
+            
+        }
+    };
+
+    handleMouseEnter= (index) => {
+        const updatedVisible = [...this.state.visible];
+        updatedVisible[index] = true;
+        this.setState({ visible: updatedVisible });
+    };
+
+    handleMouseLeave= (index) => {
+        const updatedVisible = [...this.state.visible];
+        updatedVisible[index] = false;
+        this.setState({ visible: updatedVisible });
+    };
+
+
     render(){
-        const { ans, click } = this.state;
+        const { ans, click, visible } = this.state;
+        const tooltips = [
+            `земли сельскохозяйственного назначения;
+             земли населенных пунктов; 
+             земли промышленности, энергетики, транспорта, связи, радиовещания, телевидения, информатики, земли для обеспечения космической деятельности, земли обороны, безопасности и земли иного специального назначения;
+             земли особо охраняемых территорий и объектов;
+             земли лесного фонда;
+             земли водного фонда;
+             земли запаса.`,
+            'Публичная кадастровая карта Росреестра; \n  Выписка из ЕГРН,  \n Генеральный план земельного участка,  \n Правила землепользования и застройки'
+        ];
         return(
-            <div className="Risk">
-                <h3 onClick={this.ClickToBlock}>Риск №3: Целевое использование земельного участка</h3>
+            <div className="Risk" onClick={this.ClickToBlock}>
+                <h3>Риск №3: Целевое использование земельного участка</h3>
                 {this.state.isClicked && (
                     <div>
                         <div className="Question">
+                            <div
+                                className="Tooltip"
+                                onMouseEnter={() => this.handleMouseEnter(0)}
+                                onMouseLeave={() => this.handleMouseLeave(0)}
+                                style={{
+                                    display: visible[0] ? "block" : "none"
+                                }}
+                            >
+                                {tooltips[0]}
+                            </div>
+                            <BsQuestionCircleFill
+                                className="QuestIcon"
+                                onMouseEnter={() => this.handleMouseEnter(0)}
+                                onMouseLeave={() => this.handleMouseLeave(0)}
+                            />
                             <p>{this.quests[0].question}</p>
                             <button className={click[0] && !ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('да')}>Да</button>
                             <button className={click[0] && ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('нет')}>Нет</button>
@@ -129,10 +203,6 @@ class Risk3 extends React.Component{
                             ) : (
                                 <div className="Answer">
                                     <p>{this.quests[0].answer}</p>
-                                    <div className="Rec">
-                                        <h4>Рекомендации:</h4>
-                                        <p>Вам стоит лично убедиться, что границы земельного участка соответствуют выписке из ЕГРН.</p>
-                                    </div>
                                 </div>
                             )}
                             </div>
@@ -141,6 +211,21 @@ class Risk3 extends React.Component{
                             <div>
                             {!ans[1] ? (
                                 <div className="Question">
+                                    <div
+                                        className="Tooltip"
+                                        onMouseEnter={() => this.handleMouseEnter(1)}
+                                        onMouseLeave={() => this.handleMouseLeave(1)}
+                                        style={{
+                                            display: visible[1] ? "block" : "none"
+                                        }}
+                                    >
+                                        {tooltips[1]}
+                                    </div>
+                                    <BsQuestionCircleFill
+                                        className="QuestIcon"
+                                        onMouseEnter={() => this.handleMouseEnter(1)}
+                                        onMouseLeave={() => this.handleMouseLeave(1)}
+                                    />
                                     <p>{this.quests[2].question}</p>
                                     <button className={click[2] && !ans[2] ? 'active' : ''} onClick={() => this.handleAnswer3('да')}>Да</button>
                                     <button className={click[2] && ans[2] ? 'active' : ''} onClick={() => this.handleAnswer3('нет')}>Нет</button>
@@ -148,10 +233,6 @@ class Risk3 extends React.Component{
                             ) : (
                                 <div className="Answer">
                                     <p>{this.quests[1].answer}</p>
-                                    <div className="Rec">
-                                        <h4>Рекомендации:</h4>
-                                        <p>Необходимо размежевать участок и поставить его на кадастровый учет.</p>
-                                    </div>
                                 </div>
                             )}
                             </div>
@@ -159,19 +240,27 @@ class Risk3 extends React.Component{
                         {click[2] && !ans[1] && !ans[0] && (
                             <div>
                             {!ans[2] ? (
-                                <div className="Answer">
-                                    <p>Риска нет.</p>
+                                <div className="Question">
+                                    <p>{this.quests[3].question}</p>
+                                    <button className={click[3] && !ans[3] ? 'active' : ''} onClick={() => this.handleAnswer4('да')}>Да</button>
+                                    <button className={click[3] && ans[3] ? 'active' : ''} onClick={() => this.handleAnswer4('нет')}>Нет</button>
                                 </div>
                             ) : (
                                 <div className="Answer">
                                     <p>{this.quests[2].answer}</p>
-                                    <div className="Rec">
-                                        <h4>Рекомендации:</h4>
-                                        <p> Кадастровый инженер обеспечит проверку межевания.</p>
-                                        <p> Проверка градостроительного плана участка. О порядке получения смотреть по ссылке: https://www.gosuslugi.ru/53918/3/info</p>
-                                        <p> Проверка с помощью публичной кадастровой карты Росреестра. Ссылка № 1: https://www.gosuslugi.ru/378659/1/info </p> 
-                                        <p> Ссылка № 2: https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844</p>
-                                    </div>
+                                </div>
+                            )}
+                            </div>
+                        )}
+                        {click[3] && !ans[2] && !ans[1] && !ans[0] && (
+                            <div>
+                            {!ans[3] ? (
+                                <div className="Answer">
+                                    <p>Риск есть.</p>
+                                </div>
+                            ) : (
+                                <div className="Answer">
+                                    <p>{this.quests[3].answer}</p>
                                 </div>
                             )}
                             </div>
