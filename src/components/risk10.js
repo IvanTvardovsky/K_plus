@@ -5,9 +5,11 @@ class Risk10 extends React.Component{
         super(props);
         this.state = {
           ans: [false],
-          click: [false]
+          click: [false],
+          isClicked: false
         };
         this.handleAnswer1 = this.handleAnswer1.bind(this)
+        this.ClickToBlock = this.ClickToBlock.bind(this)
     }
     quests = [
         {
@@ -18,6 +20,11 @@ class Risk10 extends React.Component{
             help: false
         }
     ]
+    ClickToBlock = () => {
+        this.setState(prevState => ({
+          isClicked: !prevState.isClicked
+        }));
+    };
     handleAnswer1 = (answer) => {
         this.setState(prevState => ({
             click: prevState.click.map((item, index) =>
@@ -45,27 +52,29 @@ class Risk10 extends React.Component{
         const { ans, click } = this.state;
         return(
             <div className="Risk">
-                <div className="RiskName">
-                    <h3>Риск №10: Отсутствие права собственности у Продавца</h3>
-                </div>
-                <div className="Question">
-                    <p>{this.quests[0].question}</p>
-                    <button className={click[0] && !ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('да')}>Да</button>
-                    <button className={click[0] && ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('нет')}>Нет</button>
-                </div>
-                {click[0] && (
+                <h3 onClick={this.ClickToBlock}>Риск №10: Отсутствие права собственности у Продавца</h3>
+                {this.state.isClicked && (
                     <div>
-                    {!ans[0] ? (
-                        <div className="Answer">
-                            <p>Нотариус обеспечит проверку действительности права собственности.</p>
-                            <p>Проверьте отметки Росреестра на документе.</p>
-                            <p>Сверить документы со справочной информацией Росреестра по ссылке: https://lk.rosreestr.ru/eservices/real-estate-objects-online</p>
+                        <div className="Question">
+                            <p>{this.quests[0].question}</p>
+                            <button className={click[0] && !ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('да')}>Да</button>
+                            <button className={click[0] && ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('нет')}>Нет</button>
                         </div>
-                    ) : (
-                        <div className="Answer">
-                            <p>{this.quests[0].answer}</p>
-                        </div>
-                    )}
+                        {click[0] && (
+                            <div>
+                            {!ans[0] ? (
+                                <div className="Answer">
+                                    <p>Нотариус обеспечит проверку действительности права собственности.</p>
+                                    <p>Проверьте отметки Росреестра на документе.</p>
+                                    <p>Сверить документы со справочной информацией Росреестра по ссылке: https://lk.rosreestr.ru/eservices/real-estate-objects-online</p>
+                                </div>
+                            ) : (
+                                <div className="Answer">
+                                    <p>{this.quests[0].answer}</p>
+                                </div>
+                            )}
+                            </div>
+                        )}
                     </div>
                 )}
             </div>

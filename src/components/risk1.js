@@ -5,10 +5,12 @@ class Risk1 extends React.Component{
         super(props);
         this.state = {
           ans: [false, false],
-          click: [false, false]
+          click: [false, false],
+          isClicked: false
         };
         this.handleAnswer1 = this.handleAnswer1.bind(this)
         this.handleAnswer2 = this.handleAnswer2.bind(this)
+        this.ClickToBlock = this.ClickToBlock.bind(this)
     }
     quests = [
         {
@@ -26,6 +28,11 @@ class Risk1 extends React.Component{
             help: false
         }
     ]
+    ClickToBlock = () => {
+        this.setState(prevState => ({
+          isClicked: !prevState.isClicked
+        }));
+    };
     handleAnswer1 = (answer) => {
         this.setState(prevState => ({
             click: prevState.click.map((item, index) =>
@@ -74,40 +81,42 @@ class Risk1 extends React.Component{
         const { ans, click } = this.state;
         return(
             <div className="Risk">
-                <div className="RiskName">
-                    <h3>Риск №1: Претензии супруга на земельный участок</h3>
-                </div>
-                <div className="Question">
-                    <p>{this.quests[0].question}</p>
-                    <button className={click[0] && !ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('да')}>Да</button>
-                    <button className={click[0] && ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('нет')}>Нет</button>
-                </div>
-                {click[0] && (
+                <h3 onClick={this.ClickToBlock}>Риск №1: Претензии супруга на земельный участок</h3>
+                {this.state.isClicked && (
                     <div>
-                    {!ans[0] ? (
                         <div className="Question">
-                            <p>{this.quests[1].question}</p>
-                            <button className={click[1] && !ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('да')}>Да</button>
-                            <button className={click[1]&& ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('нет')}>Нет</button>
+                            <p>{this.quests[0].question}</p>
+                            <button className={click[0] && !ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('да')}>Да</button>
+                            <button className={click[0] && ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('нет')}>Нет</button>
                         </div>
-                    ) : (
-                        <div className="Answer">
-                            <p>{this.quests[0].answer}</p>
-                        </div>
-                    )}
-                    </div>
-                )}
-                {click[1] && !ans[0] && (
-                    <div>
-                    {!ans[1] ? (
-                        <div className="Answer">
-                            <p>{this.quests[1].answer}</p>
-                        </div>
-                    ) : (
-                        <div className="Answer">
-                            <p>Риск есть.</p>
-                        </div>
-                    )}
+                        {click[0] && (
+                            <div>
+                                {!ans[0] ? (
+                                    <div className="Question">
+                                        <p>{this.quests[1].question}</p>
+                                        <button className={click[1] && !ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('да')}>Да</button>
+                                        <button className={click[1]&& ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('нет')}>Нет</button>
+                                    </div>
+                                ) : (
+                                    <div className="Answer">
+                                        <p>{this.quests[0].answer}</p>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                        {click[1] && !ans[0] && (
+                            <div>
+                                {!ans[1] ? (
+                                    <div className="Answer">
+                                        <p>{this.quests[1].answer}</p>
+                                    </div>
+                                ) : (
+                                    <div className="Answer">
+                                        <p>Риск есть.</p>
+                                    </div>
+                                )}
+                            </div>
+                        )}
                     </div>
                 )}
             </div>

@@ -6,17 +6,27 @@ class FirstBlock extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-          currentQuestion: 0,
-          riskCount: 0
+          isClicked: true
         };
-      }
+        this.ClickToBlock = this.ClickToBlock.bind(this)
+    }
     
+    ClickToBlock = () => {
+        this.setState(prevState => ({
+          isClicked: !prevState.isClicked
+        }));
+    };
+
     render(){
         return(
-            <div class="Risks">
-                <h2>Блок №1 : Документы.</h2>
-                <Risk1 />
-                <Risk10 />
+            <div className="Risks">
+                <h2 onClick={this.ClickToBlock}>Блок №1 : Документы.</h2>
+                {this.state.isClicked && (
+                    <div>
+                        <Risk1 />
+                        <Risk10 />
+                    </div>
+                )}
             </div>
         )
     }
