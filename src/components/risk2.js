@@ -5,35 +5,42 @@ class Risk2 extends React.Component{
         super(props);
         this.state = {
           ans: [false, false, false],
-          click: [false, false, false]
+          click: [false, false, false],
+          isClicked: false
         };
         this.handleAnswer1 = this.handleAnswer1.bind(this)
         this.handleAnswer2 = this.handleAnswer2.bind(this)
         this.handleAnswer3 = this.handleAnswer3.bind(this)
+        this.ClickToBlock = this.ClickToBlock.bind(this)
     }
     quests = [
         {
             number: 1,
-            question: 'Проверена ли Вами информация о праве собственности на землю?',
-            answer: 'Согласие супруга не требуется.',
+            question: 'Определены ли границы земельного участка?',
+            answer: 'Риск есть.',
             ansCheck: false,
             help: false
         },
         {
             number: 2,
-            question: 'Предоставлено ли нотариальное согласие второго супруга?',
+            question: 'Проведено ли межевание участка?',
             answer: 'Риск есть.',
             ansCheck: false,
             help: false
         },
         {
             number: 3,
-            question: 'ThirdQuestion in FirstRisk',
-            answer: 'ThirdAnswer in FirstRisk',
+            question: 'Вы уверены, что межевание соответствует выписке ЕГРН?',
+            answer: 'Риск есть',
             ansCheck: false,
             help: false
         }
     ]
+    ClickToBlock = () => {
+        this.setState(prevState => ({
+          isClicked: !prevState.isClicked
+        }));
+    };
     handleAnswer1 = (answer) => {
         this.setState(prevState => ({
             click: prevState.click.map((item, index) =>
@@ -103,55 +110,72 @@ class Risk2 extends React.Component{
         const { ans, click } = this.state;
         return(
             <div className="Risk">
-                <div className="RiskName">
-                    <h3>Риск №10: Отсутствие права собственности у Продавца</h3>
-                </div>
-                <div className="Question">
-                    <p>{this.quests[0].question}</p>
-                    <button onClick={() => this.handleAnswer1('да')}>Да</button>
-                    <button onClick={() => this.handleAnswer1('нет')}>Нет</button>
-                </div>
-                {click[0] && (
+                <h3 onClick={this.ClickToBlock}>Риск №2: Неопределенность границ земельного участка</h3>
+                {this.state.isClicked && (
                     <div>
-                    {!ans[0] ? (
                         <div className="Question">
-                            <p>{this.quests[1].question}</p>
-                            <button onClick={() => this.handleAnswer2('да')}>Да</button>
-                            <button onClick={() => this.handleAnswer2('нет')}>Нет</button>
+                            <p>{this.quests[0].question}</p>
+                            <button className={click[0] && !ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('да')}>Да</button>
+                            <button className={click[0] && ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('нет')}>Нет</button>
                         </div>
-                    ) : (
-                        <div className="Answer">
-                            <p>{this.quests[0].answer}</p>
-                        </div>
-                    )}
-                    </div>
-                )}
-                {click[1] && !ans[0] && (
-                    <div>
-                    {!ans[1] ? (
-                        <div className="Question">
-                            <p>{this.quests[2].question}</p>
-                            <button onClick={() => this.handleAnswer3('да')}>Да</button>
-                            <button onClick={() => this.handleAnswer3('нет')}>Нет</button>
-                        </div>
-                    ) : (
-                        <div className="Answer">
-                            <p>{this.quests[1].answer}</p>
-                        </div>
-                    )}
-                    </div>
-                )}
-                {click[2] && !ans[1] && !ans[0] && (
-                    <div>
-                    {!ans[2] ? (
-                        <div className="Answer">
-                            <p>{this.quests[2].answer}</p>
-                        </div>
-                    ) : (
-                        <div className="Answer">
-                            <p>Четвёртый ответ.</p>
-                        </div>
-                    )}
+                        {click[0] && (
+                            <div>
+                            {!ans[0] ? (
+                                <div className="Question">
+                                    <p>{this.quests[1].question}</p>
+                                    <button className={click[1] && !ans[1] ? 'active' : ''}onClick={() => this.handleAnswer2('да')}>Да</button>
+                                    <button className={click[1] && ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('нет')}>Нет</button>
+                                </div>
+                            ) : (
+                                <div className="Answer">
+                                    <p>{this.quests[0].answer}</p>
+                                    <div className="Rec">
+                                        <h4>Рекомендации:</h4>
+                                        <p>Вам стоит лично убедиться, что границы земельного участка соответствуют выписке из ЕГРН.</p>
+                                    </div>
+                                </div>
+                            )}
+                            </div>
+                        )}
+                        {click[1] && !ans[0] && (
+                            <div>
+                            {!ans[1] ? (
+                                <div className="Question">
+                                    <p>{this.quests[2].question}</p>
+                                    <button className={click[2] && !ans[2] ? 'active' : ''} onClick={() => this.handleAnswer3('да')}>Да</button>
+                                    <button className={click[2] && ans[2] ? 'active' : ''} onClick={() => this.handleAnswer3('нет')}>Нет</button>
+                                </div>
+                            ) : (
+                                <div className="Answer">
+                                    <p>{this.quests[1].answer}</p>
+                                    <div className="Rec">
+                                        <h4>Рекомендации:</h4>
+                                        <p>Необходимо размежевать участок и поставить его на кадастровый учет.</p>
+                                    </div>
+                                </div>
+                            )}
+                            </div>
+                        )}
+                        {click[2] && !ans[1] && !ans[0] && (
+                            <div>
+                            {!ans[2] ? (
+                                <div className="Answer">
+                                    <p>Риска нет.</p>
+                                </div>
+                            ) : (
+                                <div className="Answer">
+                                    <p>{this.quests[2].answer}</p>
+                                    <div className="Rec">
+                                        <h4>Рекомендации:</h4>
+                                        <p> Кадастровый инженер обеспечит проверку межевания.</p>
+                                        <p> Проверка градостроительного плана участка. О порядке получения смотреть по ссылке: https://www.gosuslugi.ru/53918/3/info</p>
+                                        <p> Проверка с помощью публичной кадастровой карты Росреестра. Ссылка № 1: https://www.gosuslugi.ru/378659/1/info </p> 
+                                        <p> Ссылка № 2: https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844</p>
+                                    </div>
+                                </div>
+                            )}
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
