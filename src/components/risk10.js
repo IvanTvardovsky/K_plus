@@ -20,10 +20,12 @@ class Risk10 extends React.Component{
             help: false
         }
     ]
-    ClickToBlock = () => {
-        this.setState(prevState => ({
-          isClicked: !prevState.isClicked
-        }));
+    ClickToBlock = (event) => {
+        if (event.target.tagName !== 'BUTTON') {
+            this.setState(prevState => ({
+                isClicked: !prevState.isClicked
+            }));
+        }
     };
     handleAnswer1 = (answer) => {
         this.setState(prevState => ({
@@ -51,8 +53,8 @@ class Risk10 extends React.Component{
     render(){
         const { ans, click } = this.state;
         return(
-            <div className="Risk">
-                <h3 onClick={this.ClickToBlock}>Риск №10: Отсутствие права собственности у Продавца</h3>
+            <div className="Risk" onClick={this.ClickToBlock}>
+                <h3>Риск №10: Отсутствие права собственности у Продавца</h3>
                 {this.state.isClicked && (
                     <div>
                         <div className="Question">
