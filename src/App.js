@@ -3,112 +3,86 @@ import Navbar from "./components/navbar"
 import Blocks from "./components/blocks"
 import Welcome from "./components/welcome";
 import {BsQuestionCircleFill} from 'react-icons/bs'
+import Instrument from "./components/instrument"
+import Mainpage from "./components/mainpage"
+import Calculator from "./components/calculator"
+import Handbook from "./components/handbook"
 
-class App extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-          showBlocks: true,
-          showCheck: true,
-          items: [
-            {label: 'Копия/Фото паспорта продавца', checked: false },
-            {label: 'Выписка из ЕГРН', checked: false }
-          ],
-          visible: [false, false]
-        };
-        this.handleContinue1 = this.handleContinue1.bind(this)
-        this.handleContinue2 = this.handleContinue2.bind(this)
-        this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
-        this.handleMouseEnter = this.handleMouseEnter.bind(this)
-        this.handleMouseLeave = this.handleMouseLeave.bind(this)
-    }
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-    handleCheckboxChange = (index) => {
-        const { items } = this.state;
-        const updatedItems = [...items];
-        updatedItems[index].checked = !updatedItems[index].checked;
-        this.setState({ items: updatedItems });
-    };
+class App extends React.Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         showBlocks: true,
+         showCheck: true,
+         items: [
+            {label: 'Копия/Фото паспорта продавца', checked: false},
+            {label: 'Выписка из ЕГРН', checked: false}
+         ],
+         visible: [false, false]
+      };
+   }
 
-    handleContinue1 = () => {
-        this.setState({ showCheck: false });
-    };
+   handleCheckboxChange = (index) => {
+      const {items} = this.state;
+      const updatedItems = [...items];
+      updatedItems[index].checked = !updatedItems[index].checked;
+      this.setState({items: updatedItems});
+   };
 
-    handleContinue2 = () => {
-        this.setState({ showBlocks: false });
-    };
+   handleContinue1 = () => {
+      this.setState({showCheck: false});
+   };
 
-    handleMouseEnter= (index) => {
-        const updatedVisible = [...this.state.visible];
-        updatedVisible[index] = true;
-        this.setState({ visible: updatedVisible });
-    };
+   handleContinue2 = () => {
+      this.setState({showBlocks: false});
+   };
 
-    handleMouseLeave= (index) => {
-        const updatedVisible = [...this.state.visible];
-        updatedVisible[index] = false;
-        this.setState({ visible: updatedVisible });
-    };
+   handleMouseEnter = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = true;
+      this.setState({visible: updatedVisible});
+   };
 
-    render(){
-        const { showBlocks, showCheck, items, visible } = this.state;
-        const allChecked = items.every((item) => item.checked);
-        const tooltips = ["Подсказка 1", "Подсказка 2"]
-        return(
+   handleMouseLeave = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = false;
+      this.setState({visible: updatedVisible});
+   };
+
+   render() {
+      const {showBlocks, showCheck, items, visible} = this.state;
+      const allChecked = items.every((item) => item.checked);
+      const tooltips = ["Подсказка 1", "Подсказка 2"];
+
+      return (
+         <BrowserRouter>
             <div>
-                <Navbar /> 
-                <div className="App">
-                    {showCheck ? (
-                        <div>
-                           <Welcome />
-                            <button onClick={this.handleContinue1}>Продолжить</button>
-                        </div>
-                    ) : (
-                        <div>
-                            {showBlocks ? (
-                                <div>
-                                    <h3>Подтвердите наличие всех необходимых документов!</h3>
-                                    <div>
-                                        {items.map((item, index) => (
-                                            <div key={index} className="Docs">
-                                                <div
-                                                    className="Tooltip"
-                                                    onMouseEnter={() => this.handleMouseEnter(index)}
-                                                    onMouseLeave={() => this.handleMouseLeave(index)}
-                                                    style={{
-                                                        display: visible[index] ? "block" : "none"
-                                                    }}
-                                                >
-                                                    {tooltips[index]}
-                                                </div>
-                                                <BsQuestionCircleFill
-                                                    className="QuestIcon"
-                                                    onMouseEnter={() => this.handleMouseEnter(index)}
-                                                    onMouseLeave={() => this.handleMouseLeave(index)}
-                                                />
-                                                <input
-                                                    type="checkbox"
-                                                    className="DocCheckBox"
-                                                    checked={item.checked}
-                                                    onChange={() => this.handleCheckboxChange(index)}
-                                                />
-                                                <label className="Docs">{item.label}</label>
-                                            </div>
-                                        ))}
-                                        <button disabled={!allChecked} onClick={this.handleContinue2}>Продолжить</button>
-                                    </div>                                    
-                                </div>
-                            ) : (
-                                <div>
-                                    <Blocks />
-                                </div>
-                            )}
-                        </div>
-                    )}
-                </div>
+               <Navbar/>
+               <div className="App">
+                  <Routes>
+                     <Route path="/" element={<Mainpage onContinue1={this.handleContinue1}/>}/>
+                     <Route
+                        path="/instrument"
+                        element={
+                           <Instrument
+                              items={items}
+                              tooltips={tooltips}
+                              allChecked={allChecked}
+                              handleCheckboxChange={this.handleCheckboxChange}
+                           />
+                        }
+                     />
+                     <Route path="/blocks" element={<Blocks/>}/>
+                     <Route path="/calculator" element={<Calculator/>}/>
+                     <Route path="/handbook" element={<Handbook/>}/>
+                  </Routes>
+               </div>
             </div>
-        )
-    }
+         </BrowserRouter>
+      );
+   }
 }
 
-export default App
+export default App;
