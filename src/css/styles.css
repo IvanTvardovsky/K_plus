@@ -67,6 +67,7 @@
     margin: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
+    display: '';
 }
 
 .Question{
@@ -75,8 +76,36 @@
     padding: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
 }
 
+.Risk{
+    display: block;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+.RiskName{
+    display: flex;
+    align-items: center;
+}
+.ans-btn {
+    border: none;
+    background-color: #eee;
+    color: #333;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .ans-btn.active {
+    background-color: #ccc;
+  }
 .Risk{
     display: block;
     align-items: center;
@@ -115,8 +144,8 @@
 
 .QuestIcon {
     display: inline-block;
-    transform: scale(1.2);
-    margin: 10px;
+    transform: scale(1.5);
+    margin: 10px 0px 10px 10px;
 }
   
 .QuestIcon:hover {
@@ -126,6 +155,7 @@
 .QuestTool{
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .RiskIcon {
@@ -151,8 +181,14 @@
     padding: 10px;
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    bottom: 100%;
 }
 
+.ToolContainer{
+    position: relative;
+    width: 50%;
+}
 .Rec{
     position: relative;
     background-color: #f9f9f9;

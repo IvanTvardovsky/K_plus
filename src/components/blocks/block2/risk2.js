@@ -1,5 +1,6 @@
 import React from "react";
 import {BiSolidRightArrow} from "react-icons/bi"
+import { BsQuestionCircleFill } from 'react-icons/bs'
 
 class Risk2 extends React.Component{
     constructor(props) {
@@ -7,18 +8,21 @@ class Risk2 extends React.Component{
         this.state = {
             ans: [false, false, false],
             click: [false, false, false],
-            isClicked: false
+            isClicked: false,
+            visible: [false]
         };
         this.handleAnswer1 = this.handleAnswer1.bind(this)
         this.handleAnswer2 = this.handleAnswer2.bind(this)
         this.handleAnswer3 = this.handleAnswer3.bind(this)
         this.ClickToBlock = this.ClickToBlock.bind(this)
+        this.handleMouseEnter = this.handleMouseEnter.bind(this);
+        this.handleMouseLeave = this.handleMouseLeave.bind(this);
     }
     quests = [
         {
             number: 1,
             question: 'Определены ли границы земельного участка?',
-            answer: 'Риск есть.',
+            answer: 'Риска нет.',
             ansCheck: false,
             help: false
         },
@@ -108,9 +112,23 @@ class Risk2 extends React.Component{
 
         }
     };
+    handleMouseEnter = (index) => {
+        const updatedVisible = [...this.state.visible];
+        updatedVisible[index] = true;
+        this.setState({ visible: updatedVisible });
+     };
+  
+     handleMouseLeave = (index) => {
+        const updatedVisible = [...this.state.visible];
+        updatedVisible[index] = false;
+        this.setState({ visible: updatedVisible });
+     };
 
     render(){
-        const { ans, click, isClicked } = this.state;
+        const { ans, click, isClicked, visible } = this.state;
+        const tooltips = [
+            `<b>Межевание</b> - это работа кадастрового инженера, которая позволяет определить границы земельного участка в межевом плане и внести данные в ЕГРН. `
+         ];
         return(
             <div className="Risk">
                 <div className="RiskName">
@@ -130,15 +148,38 @@ class Risk2 extends React.Component{
                         {click[0] && (
                             <div>
                                 {!ans[0] ? (
+                                    <div className="Answer">
+                                        <p>{this.quests[0].answer}</p>
+                                    </div>
+                                ) : (
                                     <div className="Question">
-                                        <p>{this.quests[1].question}</p>
+                                        <div className="QuestTool">
+                                            <p>{this.quests[1].question}</p> 
+                                            <BsQuestionCircleFill
+                                            className="QuestIcon"
+                                            onMouseEnter={() => this.handleMouseEnter(0)}
+                                            onMouseLeave={() => this.handleMouseLeave(0)}
+                                            />
+                                            <div className="ToolContainer">
+                                            <div
+                                                    className="Tooltip"
+                                                    onMouseEnter={() => this.handleMouseEnter(0)}
+                                                    onMouseLeave={() => this.handleMouseLeave(0)}
+                                                    style={{
+                                                        display: visible[0] ? "block" : "none"
+                                                    }}
+                                                    dangerouslySetInnerHTML={{ __html: tooltips[0] }}
+                                            >
+                                            </div>
+                                            </div>
+                                        </div>
                                         <button className={`ans-btn ${click[1] && !ans[1] ? 'active' : ''}`} onClick={() => this.handleAnswer2('да')}>Да</button>
                                         <button className={`ans-btn ${click[1] && ans[1] ? 'active' : ''}`} onClick={() => this.handleAnswer2('нет')}>Нет</button>
                                     </div>
-                                ) : null}
+                                )}
                             </div>
                         )}
-                        {click[1] && !ans[0] && (
+                        {click[1] && ans[0] && (
                             <div>
                                 {!ans[1] ? (
                                     <div className="Question">
@@ -146,7 +187,24 @@ class Risk2 extends React.Component{
                                         <button className={`ans-btn ${click[2] && !ans[2] ? 'active' : ''}`} onClick={() => this.handleAnswer3('да')}>Да</button>
                                         <button className={`ans-btn ${click[2] && ans[2] ? 'active' : ''}`} onClick={() => this.handleAnswer3('нет')}>Нет</button>
                                     </div>
-                                ) : null}
+                                ) : (
+                                    <div className="Answer">
+                                        <p>{this.quests[1].answer}</p>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                        {click[2] && ans[0] && !ans[1] &&(
+                            <div>
+                                {!ans[2] ? (
+                                    <div className="Answer">
+                                        <p>Риска нет.</p>
+                                    </div>
+                                ) : (
+                                    <div className="Answer">
+                                        <p>{this.quests[2].answer}</p>
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>

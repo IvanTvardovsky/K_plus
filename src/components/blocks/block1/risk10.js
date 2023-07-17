@@ -1,5 +1,6 @@
 import React from "react";
 import {BiSolidRightArrow} from "react-icons/bi"
+import { BsQuestionCircleFill } from 'react-icons/bs'
 
 class Risk10 extends React.Component{
    constructor(props) {
@@ -7,15 +8,18 @@ class Risk10 extends React.Component{
       this.state = {
          ans: [false],
          click: [false],
-         isClicked: false
+         isClicked: false,
+         visible: [false]
       };
       this.handleAnswer1 = this.handleAnswer1.bind(this)
       this.ClickToBlock = this.ClickToBlock.bind(this)
+      this.handleMouseEnter = this.handleMouseEnter.bind(this);
+      this.handleMouseLeave = this.handleMouseLeave.bind(this);
    }
    quests = [
       {
          number: 1,
-         question: 'Проверена ли Вами информация о праве собственности на землю?',
+         question: 'Проверено ли право собственности Продавца на землю?',
          answer: 'Риск есть.',
          ansCheck: false,
          help: false
@@ -51,8 +55,23 @@ class Risk10 extends React.Component{
       }
    };
 
+   handleMouseEnter = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = true;
+      this.setState({ visible: updatedVisible });
+   };
+
+   handleMouseLeave = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = false;
+      this.setState({ visible: updatedVisible });
+   };
+
    render(){
-      const { ans, click, isClicked } = this.state;
+      const { ans, click, isClicked, visible } = this.state;
+      const tooltips = [
+         `<b>Право собственности</b> - это право гражданина владеть, пользоваться и распоряжаться имуществом.`
+      ];
       return(
          <div className="Risk">
             <div className="RiskName">
@@ -65,17 +84,38 @@ class Risk10 extends React.Component{
             {this.state.isClicked && (
                <div>
                   <div className="Question">
-                     <p>{this.quests[0].question}</p>
+                     <div className="QuestTool">
+                        <p>{this.quests[0].question}</p> 
+                        <BsQuestionCircleFill
+                           className="QuestIcon"
+                           onMouseEnter={() => this.handleMouseEnter(0)}
+                           onMouseLeave={() => this.handleMouseLeave(0)}
+                        />
+                        <div className="ToolContainer">
+                           <div
+                                 className="Tooltip"
+                                 onMouseEnter={() => this.handleMouseEnter(0)}
+                                 onMouseLeave={() => this.handleMouseLeave(0)}
+                                 style={{
+                                    display: visible[0] ? "block" : "none"
+                                 }}
+                                 dangerouslySetInnerHTML={{ __html: tooltips[0] }}
+                           >
+                           </div>
+                        </div>
+                     </div>
                      <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('да')}>Да</button>
                      <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('нет')}>Нет</button>
                   </div>
                   {click[0] && (
                      <div>
                         {!ans[0] ? (
-                           <div>
+                           <div className="Answer">
+                              <p>Риска нет.</p>
                            </div>
                         ) : (
-                           <div>
+                           <div className="Answer">
+                               <p>{this.quests[0].answer}</p>
                            </div>
                         )}
                      </div>

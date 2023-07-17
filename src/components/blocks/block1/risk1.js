@@ -1,5 +1,6 @@
 import React from "react";
 import {BiSolidRightArrow} from "react-icons/bi"
+import { BsQuestionCircleFill } from 'react-icons/bs'
 
 class Risk1 extends React.Component {
    constructor(props) {
@@ -7,25 +8,28 @@ class Risk1 extends React.Component {
       this.state = {
          ans: [false, false],
          click: [false, false],
-         isClicked: false
+         isClicked: false,
+         visible: [false]
       };
       this.handleAnswer1 = this.handleAnswer1.bind(this);
       this.handleAnswer2 = this.handleAnswer2.bind(this);
       this.ClickToBlock = this.ClickToBlock.bind(this);
+      this.handleMouseEnter = this.handleMouseEnter.bind(this);
+      this.handleMouseLeave = this.handleMouseLeave.bind(this);
    }
 
    quests = [
       {
          number: 1,
-         question: 'Есть ли штамп в паспорте, указывающий на брачный статус?',
-         answer: 'Согласие супруга не требуется.',
+         question: 'Состоит ли Продавец в браке?',
+         answer: 'Нотариальное согласие супруга не требуется.',
          ansCheck: false,
          help: false
       },
       {
          number: 2,
          question: 'Предоставлено ли нотариальное согласие второго супруга?',
-         answer: 'Риска нет.',
+         answer: 'Риск есть.',
          ansCheck: false,
          help: false
       }
@@ -69,8 +73,23 @@ class Risk1 extends React.Component {
       }
    };
 
+   handleMouseEnter = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = true;
+      this.setState({ visible: updatedVisible });
+   };
+
+   handleMouseLeave = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = false;
+      this.setState({ visible: updatedVisible });
+   };
+
    render() {
-      const {ans, click, isClicked} = this.state;
+      const {ans, click, isClicked, visible} = this.state;
+      const tooltips = [
+         `<b>Нотариальное согласие супруга</b> - это документ, который необходим для продажи недвижимого имущества жены и мужа и удостоверен нотариусом.`
+      ];
       return (
          <div className="Risk">
             <div className="RiskName">
@@ -101,7 +120,26 @@ class Risk1 extends React.Component {
                      <div>
                         {!ans[0] ? (
                            <div className="Question">
-                              <p>{this.quests[1].question}</p>
+                              <div className="QuestTool">
+                                <p>{this.quests[1].question}</p> 
+                                <BsQuestionCircleFill
+                                    className="QuestIcon"
+                                    onMouseEnter={() => this.handleMouseEnter(0)}
+                                    onMouseLeave={() => this.handleMouseLeave(0)}
+                                />
+                                <div className="ToolContainer">
+                                    <div
+                                        className="Tooltip"
+                                        onMouseEnter={() => this.handleMouseEnter(0)}
+                                        onMouseLeave={() => this.handleMouseLeave(0)}
+                                        style={{
+                                            display: visible[0] ? "block" : "none"
+                                        }}
+                                        dangerouslySetInnerHTML={{ __html: tooltips[0] }}
+                                    >
+                                    </div>
+                                </div>
+                            </div>
                               <button
                                  className={`ans-btn ${click[1] && !ans[1] ? "active" : ""}`}
                                  onClick={() => this.handleAnswer2("да")}
@@ -117,11 +155,24 @@ class Risk1 extends React.Component {
                            </div>
                         ) : (
                            <div className="Answer">
-                              <p>{this.quests[0].answer}</p>
+                               <p>{this.quests[0].answer}</p>
                            </div>
                         )}
                      </div>
                   )}
+                  {click[1] && !ans[0] && (
+                     <div>
+                        {!ans[1] ? (
+                           <div className="Answer">
+                              <p>Риска нет.</p>
+                           </div>
+                        ) : (
+                           <div className="Answer">
+                               <p>{this.quests[1].answer}</p>
+                           </div>
+                        )}
+                     </div>
+               )}
                </div>
             )}
          </div>

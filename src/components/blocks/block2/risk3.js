@@ -159,14 +159,25 @@ class Risk3 extends React.Component{
     render(){
         const { ans, click, isClicked, visible } = this.state;
         const tooltips = [
-            `земли сельскохозяйственного назначения;
-             земли населенных пунктов; 
-             земли промышленности, энергетики, транспорта, связи, радиовещания, телевидения, информатики, земли для обеспечения космической деятельности, земли обороны, безопасности и земли иного специального назначения;
-             земли особо охраняемых территорий и объектов;
-             земли лесного фонда;
-             земли водного фонда;
-             земли запаса.`,
-            'Публичная кадастровая карта Росреестра; \n  Выписка из ЕГРН,  \n Генеральный план земельного участка,  \n Правила землепользования и застройки'
+            `<b>Целевое использование</b> - это использование земельного участка в соответствии с его установленной категорией. <br>
+            К землям <b>целевого использования</b> относятся:
+                <ul className='list'>
+                    <li>земли сельскохозяйственного назначения;</li>
+                    <li>земли населенных пунктов;</li>
+                    <li>земли промышленности, энергетики, транспорта, связи, радиовещания, телевидения, информатики, земли для обеспечения космической деятельности, земли обороны, безопасности и земли иного специального назначения;</li>
+                    <li>земли особо охраняемых территорий и объектов;</li>
+                    <li>земли лесного фонда;</li>
+                    <li>земли водного фонда;</li>
+                    <li>земли запаса.</li>
+                </ul>`,
+            `Должно быть подтверждено соответствующими документами: 
+                <ul className='list'>
+                    <li> Публичная кадастровая карта Росреестра; </li>
+                    <li> Выписка из ЕГРН; </li>
+                    <li> Генеральный план земельного участка; </li>
+                    <li> Правила землепользования и застройки; </li>
+                </ul>`,
+            `<b> Зона особого назначения </b> - это специальная зона, в которой земельные участки можно использовать по назначению, но с оглядкой на правила застройки.`
         ];
         return(
             <div className="Risk">
@@ -182,21 +193,23 @@ class Risk3 extends React.Component{
                         <div className="Question">
                             <div className="QuestTool">
                                 <p>{this.quests[0].question}</p> 
-                                <div
-                                    className="Tooltip"
-                                    onMouseEnter={() => this.handleMouseEnter(0)}
-                                    onMouseLeave={() => this.handleMouseLeave(0)}
-                                    style={{
-                                        display: visible[0] ? "block" : "none"
-                                    }}
-                                >
-                                    {tooltips[0]}
-                                </div>
                                 <BsQuestionCircleFill
                                     className="QuestIcon"
                                     onMouseEnter={() => this.handleMouseEnter(0)}
                                     onMouseLeave={() => this.handleMouseLeave(0)}
                                 />
+                                <div className="ToolContainer">
+                                    <div
+                                        className="Tooltip"
+                                        onMouseEnter={() => this.handleMouseEnter(0)}
+                                        onMouseLeave={() => this.handleMouseLeave(0)}
+                                        style={{
+                                            display: visible[0] ? "block" : "none"
+                                        }}
+                                        dangerouslySetInnerHTML={{ __html: tooltips[0] }}
+                                    >
+                                    </div>
+                                </div>
                             </div>
                             <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('да')}>Да</button>
                             <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('нет')}>Нет</button>
@@ -209,44 +222,92 @@ class Risk3 extends React.Component{
                                         <button className={`ans-btn ${click[1] && !ans[1] ? 'active' : ''}`} onClick={() => this.handleAnswer2('да')}>Да</button>
                                         <button className={`ans-btn ${click[1] && ans[1] ? 'active' : ''}`} onClick={() => this.handleAnswer2('нет')}>Нет</button>
                                     </div>
-                                ) : null}
+                                ) : (
+                                    <div className="Answer">
+                                        <p>{this.quests[0].answer}</p>
+                                    </div>
+                                )}
                             </div>
                         )}
                         {click[1] && !ans[0] && (
                             <div>
                                 {!ans[1] ? (
                                     <div className="Question">
-                                        <div
-                                        className="Tooltip"
-                                        onMouseEnter={() => this.handleMouseEnter(1)}
-                                        onMouseLeave={() => this.handleMouseLeave(1)}
-                                        style={{
-                                            display: visible[1] ? "block" : "none"
-                                        }}
-                                        >
-                                            {tooltips[1]}
+                                        <div className="QuestTool">
+                                            <p>{this.quests[2].question}</p> 
+                                            <BsQuestionCircleFill
+                                                className="QuestIcon"
+                                                onMouseEnter={() => this.handleMouseEnter(1)}
+                                                onMouseLeave={() => this.handleMouseLeave(1)}
+                                            />
+                                            <div className="ToolContainer">
+                                                <div
+                                                    className="Tooltip"
+                                                    onMouseEnter={() => this.handleMouseEnter(1)}
+                                                    onMouseLeave={() => this.handleMouseLeave(1)}
+                                                    style={{
+                                                        display: visible[1] ? "block" : "none"
+                                                    }}
+                                                    dangerouslySetInnerHTML={{ __html: tooltips[1] }}
+                                                >
+                                                </div>
+                                            </div>
                                         </div>
-                                        <BsQuestionCircleFill
-                                        className="QuestIcon"
-                                        onMouseEnter={() => this.handleMouseEnter(1)}
-                                        onMouseLeave={() => this.handleMouseLeave(1)}
-                                        />
-                                        <p>{this.quests[2].question}</p>
                                         <button className={`ans-btn ${click[2] && !ans[2] ? 'active' : ''}`} onClick={() => this.handleAnswer3('да')}>Да</button>
                                         <button className={`ans-btn ${click[2] && ans[2] ? 'active' : ''}`} onClick={() => this.handleAnswer3('нет')}>Нет</button>
                                     </div>
-                                ) : null}
+                                ) : (
+                                    <div className="Answer">
+                                        <p>{this.quests[1].answer}</p>
+                                    </div>
+                                )}
                             </div>
                         )}
                         {click[2] && !ans[1] && !ans[0] && (
                             <div>
                                 {!ans[2] ? (
                                     <div className="Question">
-                                        <p>{this.quests[3].question}</p>
+                                        <div className="QuestTool">
+                                            <p>{this.quests[3].question}</p> 
+                                            <BsQuestionCircleFill
+                                                className="QuestIcon"
+                                                onMouseEnter={() => this.handleMouseEnter(2)}
+                                                onMouseLeave={() => this.handleMouseLeave(2)}
+                                            />
+                                            <div className="ToolContainer">
+                                                <div
+                                                    className="Tooltip"
+                                                    onMouseEnter={() => this.handleMouseEnter(2)}
+                                                    onMouseLeave={() => this.handleMouseLeave(2)}
+                                                    style={{
+                                                        display: visible[2] ? "block" : "none"
+                                                    }}
+                                                    dangerouslySetInnerHTML={{ __html: tooltips[2] }}
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
                                         <button className={`ans-btn ${click[3] && !ans[3] ? 'active' : ''}`} onClick={() => this.handleAnswer4('да')}>Да</button>
                                         <button className={`ans-btn ${click[3] && ans[3] ? 'active' : ''}`} onClick={() => this.handleAnswer4('нет')}>Нет</button>
                                     </div>
-                                ) : null}
+                                ) : (
+                                    <div className="Answer">
+                                        <p>{this.quests[2].answer}</p>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                        {click[3] && !ans[2] && !ans[1] && !ans[0] && (
+                            <div>
+                                {!ans[3] ? (
+                                    <div className="Answer">
+                                        <p>Риск есть.</p>
+                                    </div>
+                                ) : (
+                                    <div className="Answer">
+                                        <p>{this.quests[3].answer}</p>
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>
