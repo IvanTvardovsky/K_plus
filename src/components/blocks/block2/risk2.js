@@ -1,4 +1,5 @@
 import React from "react";
+import {BiSolidRightArrow} from "react-icons/bi"
 
 class Risk2 extends React.Component{
     constructor(props) {
@@ -109,42 +110,48 @@ class Risk2 extends React.Component{
     };
 
     render(){
-        const { ans, click } = this.state;
+        const { ans, click, isClicked } = this.state;
         return(
-           <div className="Risk" onClick={this.ClickToBlock}>
-               <h3>Риск №3: Неопределенность границ земельного участка</h3>
-               {this.state.isClicked && (
-                  <div>
-                      <div className="Question">
-                          <p>{this.quests[0].question}</p>
-                          <button className={click[0] && !ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('да')}>Да</button>
-                          <button className={click[0] && ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('нет')}>Нет</button>
-                      </div>
-                      {click[0] && (
-                         <div>
-                             {!ans[0] ? (
-                                <div className="Question">
-                                    <p>{this.quests[1].question}</p>
-                                    <button className={click[1] && !ans[1] ? 'active' : ''}onClick={() => this.handleAnswer2('да')}>Да</button>
-                                    <button className={click[1] && ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('нет')}>Нет</button>
-                                </div>
-                             ) : null}
-                         </div>
-                      )}
-                      {click[1] && !ans[0] && (
-                         <div>
-                             {!ans[1] ? (
-                                <div className="Question">
-                                    <p>{this.quests[2].question}</p>
-                                    <button className={click[2] && !ans[2] ? 'active' : ''} onClick={() => this.handleAnswer3('да')}>Да</button>
-                                    <button className={click[2] && ans[2] ? 'active' : ''} onClick={() => this.handleAnswer3('нет')}>Нет</button>
-                                </div>
-                             ) : null}
-                         </div>
-                      )}
-                  </div>
-               )}
-           </div>
+            <div className="Risk">
+                <div className="RiskName">
+                    <BiSolidRightArrow
+                        className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
+                        onClick={this.ClickToBlock}
+                    />
+                    <h3>Риск №3: Неопределенность границ земельного участка</h3>
+                </div>
+                {this.state.isClicked && (
+                    <div>
+                        <div className="Question">
+                            <p>{this.quests[0].question}</p>
+                            <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('да')}>Да</button>
+                            <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('нет')}>Нет</button>
+                        </div>
+                        {click[0] && (
+                            <div>
+                                {!ans[0] ? (
+                                    <div className="Question">
+                                        <p>{this.quests[1].question}</p>
+                                        <button className={`ans-btn ${click[1] && !ans[1] ? 'active' : ''}`} onClick={() => this.handleAnswer2('да')}>Да</button>
+                                        <button className={`ans-btn ${click[1] && ans[1] ? 'active' : ''}`} onClick={() => this.handleAnswer2('нет')}>Нет</button>
+                                    </div>
+                                ) : null}
+                            </div>
+                        )}
+                        {click[1] && !ans[0] && (
+                            <div>
+                                {!ans[1] ? (
+                                    <div className="Question">
+                                        <p>{this.quests[2].question}</p>
+                                        <button className={`ans-btn ${click[2] && !ans[2] ? 'active' : ''}`} onClick={() => this.handleAnswer3('да')}>Да</button>
+                                        <button className={`ans-btn ${click[2] && ans[2] ? 'active' : ''}`} onClick={() => this.handleAnswer3('нет')}>Нет</button>
+                                    </div>
+                                ) : null}
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
         )
     }
 }

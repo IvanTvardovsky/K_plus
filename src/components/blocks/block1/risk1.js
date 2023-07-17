@@ -1,4 +1,5 @@
 import React from "react";
+import {BiSolidRightArrow} from "react-icons/bi"
 
 class Risk1 extends React.Component {
    constructor(props) {
@@ -69,22 +70,28 @@ class Risk1 extends React.Component {
    };
 
    render() {
-      const {ans, click} = this.state;
+      const {ans, click, isClicked} = this.state;
       return (
-         <div className="Risk" onClick={this.ClickToBlock}>
-            <h3>Риск №1: Претензии супруга на земельный участок</h3>
+         <div className="Risk">
+            <div className="RiskName">
+               <BiSolidRightArrow
+                  className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
+                  onClick={this.ClickToBlock}
+               />
+               <h3>Риск №1: Претензии супруга на земельный участок</h3>
+            </div>
             {this.state.isClicked && (
                <div>
                   <div className="Question">
                      <p>{this.quests[0].question}</p>
                      <button
-                        className={click[0] && !ans[0] ? "active" : ""}
+                        className={`ans-btn ${click[0] && !ans[0] ? "active" : ""}`}
                         onClick={() => this.handleAnswer1("да")}
                      >
                         Да
                      </button>
                      <button
-                        className={click[0] && ans[0] ? "active" : ""}
+                        className={`ans-btn ${click[0] && ans[0] ? "active" : ""}`}
                         onClick={() => this.handleAnswer1("нет")}
                      >
                         Нет
@@ -96,13 +103,13 @@ class Risk1 extends React.Component {
                            <div className="Question">
                               <p>{this.quests[1].question}</p>
                               <button
-                                 className={click[1] && !ans[1] ? "active" : ""}
+                                 className={`ans-btn ${click[1] && !ans[1] ? "active" : ""}`}
                                  onClick={() => this.handleAnswer2("да")}
                               >
                                  Да
                               </button>
                               <button
-                                 className={click[1] && ans[1] ? "active" : ""}
+                                 className={`ans-btn ${click[1] && ans[1] ? "active" : ""}`}
                                  onClick={() => this.handleAnswer2("нет")}
                               >
                                  Нет

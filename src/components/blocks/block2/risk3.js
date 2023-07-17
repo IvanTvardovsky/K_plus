@@ -1,5 +1,6 @@
 import React from "react";
 import { BsQuestionCircleFill } from 'react-icons/bs'
+import {BiSolidRightArrow} from "react-icons/bi"
 
 class Risk3 extends React.Component{
     constructor(props) {
@@ -156,7 +157,7 @@ class Risk3 extends React.Component{
 
 
     render(){
-        const { ans, click, visible } = this.state;
+        const { ans, click, isClicked, visible } = this.state;
         const tooltips = [
             `земли сельскохозяйственного назначения;
              земли населенных пунктов; 
@@ -168,81 +169,89 @@ class Risk3 extends React.Component{
             'Публичная кадастровая карта Росреестра; \n  Выписка из ЕГРН,  \n Генеральный план земельного участка,  \n Правила землепользования и застройки'
         ];
         return(
-           <div className="Risk" onClick={this.ClickToBlock}>
-               <h3>Риск №4: Целевое использование земельного участка</h3>
-               {this.state.isClicked && (
-                  <div>
-                      <div className="Question">
-                          <div
-                             className="Tooltip"
-                             onMouseEnter={() => this.handleMouseEnter(0)}
-                             onMouseLeave={() => this.handleMouseLeave(0)}
-                             style={{
-                                 display: visible[0] ? "block" : "none"
-                             }}
-                          >
-                              {tooltips[0]}
-                          </div>
-                          <BsQuestionCircleFill
-                             className="QuestIcon"
-                             onMouseEnter={() => this.handleMouseEnter(0)}
-                             onMouseLeave={() => this.handleMouseLeave(0)}
-                          />
-                          <p>{this.quests[0].question}</p>
-                          <button className={click[0] && !ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('да')}>Да</button>
-                          <button className={click[0] && ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('нет')}>Нет</button>
-                      </div>
-                      {click[0] && (
-                         <div>
-                             {!ans[0] ? (
-                                <div className="Question">
-                                    <p>{this.quests[1].question}</p>
-                                    <button className={click[1] && !ans[1] ? 'active' : ''}onClick={() => this.handleAnswer2('да')}>Да</button>
-                                    <button className={click[1] && ans[1] ? 'active' : ''} onClick={() => this.handleAnswer2('нет')}>Нет</button>
+            <div className="Risk">
+                <div className="RiskName">
+                    <BiSolidRightArrow
+                        className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
+                        onClick={this.ClickToBlock}
+                    />
+                        <h3>Риск №4: Целевое использование земельного участка</h3>
+                    </div>
+                {this.state.isClicked && (
+                    <div>
+                        <div className="Question">
+                            <div className="QuestTool">
+                                <p>{this.quests[0].question}</p> 
+                                <div
+                                    className="Tooltip"
+                                    onMouseEnter={() => this.handleMouseEnter(0)}
+                                    onMouseLeave={() => this.handleMouseLeave(0)}
+                                    style={{
+                                        display: visible[0] ? "block" : "none"
+                                    }}
+                                >
+                                    {tooltips[0]}
                                 </div>
-                             ) : null}
-                         </div>
-                      )}
-                      {click[1] && !ans[0] && (
-                         <div>
-                             {!ans[1] ? (
-                                <div className="Question">
-                                    <div
-                                       className="Tooltip"
-                                       onMouseEnter={() => this.handleMouseEnter(1)}
-                                       onMouseLeave={() => this.handleMouseLeave(1)}
-                                       style={{
-                                           display: visible[1] ? "block" : "none"
-                                       }}
-                                    >
-                                        {tooltips[1]}
+                                <BsQuestionCircleFill
+                                    className="QuestIcon"
+                                    onMouseEnter={() => this.handleMouseEnter(0)}
+                                    onMouseLeave={() => this.handleMouseLeave(0)}
+                                />
+                            </div>
+                            <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('да')}>Да</button>
+                            <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('нет')}>Нет</button>
+                        </div>
+                        {click[0] && (
+                            <div>
+                                {!ans[0] ? (
+                                    <div className="Question">
+                                        <p>{this.quests[1].question}</p>
+                                        <button className={`ans-btn ${click[1] && !ans[1] ? 'active' : ''}`} onClick={() => this.handleAnswer2('да')}>Да</button>
+                                        <button className={`ans-btn ${click[1] && ans[1] ? 'active' : ''}`} onClick={() => this.handleAnswer2('нет')}>Нет</button>
                                     </div>
-                                    <BsQuestionCircleFill
-                                       className="QuestIcon"
-                                       onMouseEnter={() => this.handleMouseEnter(1)}
-                                       onMouseLeave={() => this.handleMouseLeave(1)}
-                                    />
-                                    <p>{this.quests[2].question}</p>
-                                    <button className={click[2] && !ans[2] ? 'active' : ''} onClick={() => this.handleAnswer3('да')}>Да</button>
-                                    <button className={click[2] && ans[2] ? 'active' : ''} onClick={() => this.handleAnswer3('нет')}>Нет</button>
-                                </div>
-                             ) : null}
-                         </div>
-                      )}
-                      {click[2] && !ans[1] && !ans[0] && (
-                         <div>
-                             {!ans[2] ? (
-                                <div className="Question">
-                                    <p>{this.quests[3].question}</p>
-                                    <button className={click[3] && !ans[3] ? 'active' : ''} onClick={() => this.handleAnswer4('да')}>Да</button>
-                                    <button className={click[3] && ans[3] ? 'active' : ''} onClick={() => this.handleAnswer4('нет')}>Нет</button>
-                                </div>
-                             ) : null}
-                         </div>
-                      )}
-                  </div>
-               )}
-           </div>
+                                ) : null}
+                            </div>
+                        )}
+                        {click[1] && !ans[0] && (
+                            <div>
+                                {!ans[1] ? (
+                                    <div className="Question">
+                                        <div
+                                        className="Tooltip"
+                                        onMouseEnter={() => this.handleMouseEnter(1)}
+                                        onMouseLeave={() => this.handleMouseLeave(1)}
+                                        style={{
+                                            display: visible[1] ? "block" : "none"
+                                        }}
+                                        >
+                                            {tooltips[1]}
+                                        </div>
+                                        <BsQuestionCircleFill
+                                        className="QuestIcon"
+                                        onMouseEnter={() => this.handleMouseEnter(1)}
+                                        onMouseLeave={() => this.handleMouseLeave(1)}
+                                        />
+                                        <p>{this.quests[2].question}</p>
+                                        <button className={`ans-btn ${click[2] && !ans[2] ? 'active' : ''}`} onClick={() => this.handleAnswer3('да')}>Да</button>
+                                        <button className={`ans-btn ${click[2] && ans[2] ? 'active' : ''}`} onClick={() => this.handleAnswer3('нет')}>Нет</button>
+                                    </div>
+                                ) : null}
+                            </div>
+                        )}
+                        {click[2] && !ans[1] && !ans[0] && (
+                            <div>
+                                {!ans[2] ? (
+                                    <div className="Question">
+                                        <p>{this.quests[3].question}</p>
+                                        <button className={`ans-btn ${click[3] && !ans[3] ? 'active' : ''}`} onClick={() => this.handleAnswer4('да')}>Да</button>
+                                        <button className={`ans-btn ${click[3] && ans[3] ? 'active' : ''}`} onClick={() => this.handleAnswer4('нет')}>Нет</button>
+                                    </div>
+                                ) : null}
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
         )
     }
 }
