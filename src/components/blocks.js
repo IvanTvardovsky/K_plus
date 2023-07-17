@@ -1,6 +1,6 @@
 import React from "react";
-import FirstBlock from "./firstblock"
-import SecondBlock from "./secondblock"
+import FirstBlock from "./blocks/firstblock"
+import SecondBlock from "./blocks/secondblock"
 
 class Blocks extends React.Component{
     render(){

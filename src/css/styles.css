@@ -2,9 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #edfcec;
+    background-color: #fad232;
     padding: 10px;
-    border: 1px solid rgb(203, 255, 199) ;
+    border: 1px solid rgb(224, 185, 29) ;
     font-size: x-large;
 }
 
@@ -56,14 +56,8 @@
     color: #000;
 }
 
-.Risk{
-    border: 1px solid #000;
-    padding: 3px;
-    margin: 10px;
-}
-
 .Risks{
-    border: 2px solid #992020;
+    border: 2px solid #b1aeae;
     padding: 5px;
     margin: 40px;
 }
@@ -71,17 +65,45 @@
 .Answer{
     border: 2px solid #39db62;
     margin: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    display: '';
 }
 
 .Question{
-    border: 2px solid #2531d3;
+    display: block;
     margin: 10px;
     padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
 }
 
-button.active {
-    background-color: yellow;
+.Risk{
+    display: block;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
 }
+
+.RiskName{
+    display: flex;
+    align-items: center;
+}
+.ans-btn {
+    border: none;
+    background-color: #eee;
+    color: #333;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .ans-btn.active {
+    background-color: #ccc;
+  }
 
 .Docs{
     margin:10px;
@@ -94,11 +116,33 @@ button.active {
 
 .QuestIcon {
     display: inline-block;
-    transform: scale(2);
+    transform: scale(1.5);
+    margin: 10px 0px 10px 10px;
 }
   
 .QuestIcon:hover {
     opacity: 0.5;
+}
+
+.QuestTool{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.RiskIcon {
+    display: inline-block;
+    transform: scale(1.5);
+    margin: 10px;
+    cursor: pointer;
+}
+
+.RiskIcon:hover {
+    opacity: 0.5;
+}
+
+.RiskIcon.rotated {
+    transform: rotate(90deg) scale(1.5)
 }
   
 .Tooltip {
@@ -109,8 +153,14 @@ button.active {
     padding: 10px;
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    bottom: 100%;
 }
 
+.ToolContainer{
+    position: relative;
+    width: 50%;
+}
 .Rec{
     position: relative;
     background-color: #f9f9f9;
@@ -120,3 +170,122 @@ button.active {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     margin: 20px;
 }
+
+.Bullet {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: black;
+    margin-right: 3px;
+}
+
+.footer {
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+    transition: opacity 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.footer.show-footer {
+    opacity: 1;
+    visibility: visible;
+}
+
+.footer-line {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.footer-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.list{
+    margin: 0;
+    padding: 0;
+}
+/* Справочник и глоссарий */
+
+.title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.term {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.definition {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Риски в справочнике */
+
+.risk-title {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.normal {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.attention {
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.exclIcon {
+    display: inline-block;
+    width: 25px;
+    height: 15px;
+    margin-right: 10px;
+    font-size: 25px;
+    color: #000;
+}
+
+.starIcon {
+    display: inline-block;
+    width: 23px;
+    height: 15px;
+    margin-left: 12px;
+    font-size: 15px;
+    color: #000;
+}
+
+.info {
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.infoText {
+    margin-top: 5px;
+}
+
+#guidebookTitle {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+#glossaryTitle {
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
