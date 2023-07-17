@@ -6,7 +6,7 @@ class Instrument extends React.Component {
       const { items } = this.props;
       return (
          <div>
-            <h3>Подтвердите наличие всех необходимых документов!</h3>
+            <h3>Проверьте наличие необходимых документов! Они потребуются для качественного прохождения тестирования.</h3>
             <div>
                {items.map((item, index) => (
                   <div key={index} className="Docs">

@@ -2,9 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #edfcec;
+    background-color: #fad232;
     padding: 10px;
-    border: 1px solid rgb(203, 255, 199) ;
+    border: 1px solid rgb(224, 185, 29) ;
     font-size: x-large;
 }
 
@@ -198,5 +198,82 @@
     color: #666;
 }
 
+/* Справочник и глоссарий */
 
+.title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.term {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.definition {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Риски в справочнике */
+
+.risk-title {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.normal {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.attention {
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.exclIcon {
+    display: inline-block;
+    width: 25px;
+    height: 15px;
+    margin-right: 10px;
+    font-size: 25px;
+    color: #000;
+}
+
+.starIcon {
+    display: inline-block;
+    width: 23px;
+    height: 15px;
+    margin-left: 12px;
+    font-size: 15px;
+    color: #000;
+}
+
+.info {
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.infoText {
+    margin-top: 5px;
+}
+
+#guidebookTitle {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+#glossaryTitle {
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
 
