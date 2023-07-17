@@ -304,13 +304,27 @@
 }
 
 #guidebookTitle {
-    margin-top: 60px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 #glossaryTitle {
-    margin-bottom: 30px;
-    margin-top: 60px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+#afterGlossary {
+    margin-bottom: 40px;
+}
+
+#afterGuidebook {
+    margin-bottom: 20px;
+}
+
+#guidebookList {
+    padding-left: -10px;
+    margin-left: -10px;
+    margin-bottom: 50px;
 }
 
 .report{
@@ -346,4 +360,18 @@
 .conclusionIcon {
     display: inline-block;
     margin: 12px;
+}
+
+.navbar-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-style: italic;
+    margin-right: 9px;
+    margin-top: 7px;
+}
+
+.thisShouldBeBold {
+    font-weight: bold;
 }

@@ -7,6 +7,7 @@ import Instrument from "./components/links/instrument";
 import Calculator from "./components/links/calculator";
 import Handbook from "./components/links/handbook";
 import Footer from "./components/footer"
+import Dictionary from "./components/links/dictionary"
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -36,6 +37,7 @@ class App extends React.Component {
                      <Route path="/instrument" element={<Instrument items={items} />} />
                      <Route path="/blocks" element={<Blocks />} />
                      <Route path="/calculator" element={<Calculator />} />
+                     <Route path="/dictionary" element={<Dictionary />} />
                      <Route path="/handbook" element={<Handbook />} />
                   </Routes>
                </div>

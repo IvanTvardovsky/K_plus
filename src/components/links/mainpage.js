@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Welcome from "../welcome";
 
 class MainPage extends React.Component {
@@ -10,7 +10,7 @@ class MainPage extends React.Component {
    render() {
       return (
          <div className="App">
-            <Welcome />
+            <Welcome/>
             <Link to="/instrument">
                <button>Продолжить</button>
             </Link>

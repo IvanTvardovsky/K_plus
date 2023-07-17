@@ -22,9 +22,15 @@ class Navbar extends React.Component {
                         <Link to="/calculator">Калькулятор</Link>
                      </li>
                      <li>
+                        <Link to="/dictionary">Словарь</Link>
+                     </li>
+                     <li>
                         <Link to="/handbook">Справочник</Link>
                      </li>
                   </ul>
+                  <div className="navbar-info">
+                     Вся информация актуальна на 17.07.2023
+                  </div>
                </nav>
             </div>
          </div>

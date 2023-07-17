@@ -4,7 +4,10 @@ class Glossary extends React.Component {
    render() {
       return (
          <div>
-            <h1 className="title" id="glossaryTitle">Глоссарий</h1>
+            <h1 className="title" id="glossaryTitle">Словарь терминов</h1>
+
+            <p id="afterGlossary">В этом разделе хранятся все основные юридические термины, которые объясняются простым
+               языком.</p>
 
             <h2 className="term">Банкротство</h2>
             <p className="definition">Это признанная судом неспособность гражданина погасить долги, в результате которой
