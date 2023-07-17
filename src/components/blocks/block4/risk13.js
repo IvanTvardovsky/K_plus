@@ -1,6 +1,5 @@
 import React from "react";
 import {BiSolidRightArrow} from "react-icons/bi"
-import { BsQuestionCircleFill } from 'react-icons/bs'
 
 class Risk13 extends React.Component {
     constructor(props) {
@@ -8,7 +7,17 @@ class Risk13 extends React.Component {
         this.state = {
             ans: [false, false],
             click: [false, false],
-            isClicked: false
+            isClicked: false,
+            riskanswer1: {
+               ans: 'none',
+               cat: -1,
+               number: -1
+            },
+            riskanswer2: {
+                ans: 'none',
+                cat: -1,
+                number: -1
+            }
         };
         this.handleAnswer1 = this.handleAnswer1.bind(this);
         this.ClickToBlock = this.ClickToBlock.bind(this);
@@ -45,10 +54,24 @@ class Risk13 extends React.Component {
             this.setState((prevState) => ({
                 ans: prevState.ans.map((item, index) => (index === 0 ? false : item))
             }));
+            this.setState({ 
+                riskanswer1:{
+                   ans: 'Риска нет',
+                   cat: 0,
+                   number: 0
+                }
+             });
         } else {
             this.setState((prevState) => ({
                 ans: prevState.ans.map((item, index) => (index === 0 ? true : item))
             }));
+            this.setState({ 
+                riskanswer1:{
+                   ans: 'Риск есть',
+                   cat: 3,
+                   number: 1
+                }
+             });
         }
     };
 
@@ -60,12 +83,35 @@ class Risk13 extends React.Component {
             this.setState((prevState) => ({
                 ans: prevState.ans.map((item, index) => (index === 1 ? false : item))
             }));
+            this.setState({ 
+                riskanswer2:{
+                   ans: 'Риска нет',
+                   cat: 0,
+                   number: 0
+                }
+             });
         } else {
             this.setState((prevState) => ({
                 ans: prevState.ans.map((item, index) => (index === 1 ? true : item))
             }));
+            this.setState({ 
+                riskanswer2:{
+                   ans: 'Риск есть',
+                   cat: 3,
+                   number: 1
+                }
+             });
         }
     };
+    
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.riskanswer1 !== prevState.riskanswer1) {
+           this.props.onData(this.state.riskanswer1);
+        }
+        if (this.state.riskanswer2 !== prevState.riskanswer2) {
+            this.props.onData(this.state.riskanswer2);
+         }
+     }
 
     render() {
         const { ans, click, isClicked } = this.state;

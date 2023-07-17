@@ -9,7 +9,12 @@ class Risk3 extends React.Component{
             ans: [false, false, false, false],
             click: [false, false, false, false],
             isClicked: false,
-            visible: [false, false]
+            visible: [false, false],
+            riskanswer: {
+                ans: 'none',
+                cat: -1,
+                number: -1
+             }
         };
         this.handleAnswer1 = this.handleAnswer1.bind(this)
         this.handleAnswer2 = this.handleAnswer2.bind(this)
@@ -75,6 +80,13 @@ class Risk3 extends React.Component{
                    index === 0 ? true : item
                 )
             }));
+            this.setState({ 
+                riskanswer:{
+                   ans: 'Риска нет',
+                   cat: 0,
+                   number: 0
+                }
+            });
 
         }
     };
@@ -96,6 +108,13 @@ class Risk3 extends React.Component{
                    index === 1 ? true : item
                 )
             }));
+            this.setState({ 
+                riskanswer:{
+                   ans: 'Риск есть',
+                   cat: 2,
+                   number: 1
+                }
+             });
 
         }
     };
@@ -117,6 +136,13 @@ class Risk3 extends React.Component{
                    index === 2 ? true : item
                 )
             }));
+            this.setState({ 
+                riskanswer:{
+                   ans: 'Риск есть',
+                   cat: 2,
+                   number: 2
+                }
+             });
 
         }
     };
@@ -133,12 +159,26 @@ class Risk3 extends React.Component{
                    index === 3 ? false : item
                 )
             }));
+            this.setState({ 
+                riskanswer:{
+                   ans: 'Риск есть',
+                   cat: 2,
+                   number: 3
+                }
+             });
         } else {
             this.setState(prevState => ({
                 ans: prevState.ans.map((item, index) =>
                    index === 3 ? true : item
                 )
             }));
+            this.setState({ 
+                riskanswer:{
+                   ans: 'Риска нет',
+                   cat: 0,
+                   number: 0
+                }
+             });
 
         }
     };
@@ -155,7 +195,12 @@ class Risk3 extends React.Component{
         this.setState({ visible: updatedVisible });
     };
 
-
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.riskanswer !== prevState.riskanswer) {
+           this.props.onData(this.state.riskanswer);
+        }
+     }
+     
     render(){
         const { ans, click, isClicked, visible } = this.state;
         const tooltips = [

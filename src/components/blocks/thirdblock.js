@@ -8,9 +8,35 @@ class ThirdBlock extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
-         isClicked: true
+         isClicked: true,
+         ThirdData: {
+             risk5Data: {
+                 ans: 'none',
+                 cat: -1,
+                 number: -1
+             },
+             risk6Data: {
+                 ans: 'none',
+                 cat: -1,
+                 number: -1
+             },
+             risk7Data: {
+                ans: 'none',
+                cat: -1,
+                number: -1
+            },
+            risk9Data: {
+                ans: 'none',
+                cat: -1,
+                number: -1
+            }
+         }
       };
       this.ClickToBlock = this.ClickToBlock.bind(this)
+      this.handleRisk5Data = this.handleRisk5Data.bind(this)
+      this.handleRisk6Data = this.handleRisk6Data.bind(this)
+      this.handleRisk7Data = this.handleRisk7Data.bind(this)
+      this.handleRisk9Data = this.handleRisk9Data.bind(this)
    }
 
    ClickToBlock = () => {
@@ -19,16 +45,73 @@ class ThirdBlock extends React.Component {
       }));
    };
 
+    handleRisk5Data = (data) => {
+        this.setState((prevState) => ({
+            ThirdData: {
+                ...prevState.ThirdData,
+                risk5Data: {
+                    ans: data.ans,
+                    cat: data.cat,
+                    number: data.number,
+                },
+            },
+        }));
+    };
+
+    handleRisk6Data = (data) => {
+        this.setState((prevState) => ({
+            ThirdData: {
+                ...prevState.ThirdData,
+                risk6Data: {
+                    ans: data.ans,
+                    cat: data.cat,
+                    number: data.number,
+                },
+            },
+        }));
+    };
+
+    handleRisk7Data = (data) => {
+        this.setState((prevState) => ({
+            ThirdData: {
+                ...prevState.ThirdData,
+                risk7Data: {
+                    ans: data.ans,
+                    cat: data.cat,
+                    number: data.number,
+                },
+            },
+        }));
+    };
+    handleRisk9Data = (data) => {
+        this.setState((prevState) => ({
+            ThirdData: {
+                ...prevState.ThirdData,
+                risk9Data: {
+                    ans: data.ans,
+                    cat: data.cat,
+                    number: data.number,
+                },
+            },
+        }));
+    };
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.ThirdData !== prevState.ThirdData) {
+           this.props.onData(this.state.ThirdData);
+        }
+    }
+
    render() {
       return (
          <div className="Risks">
             <h2 onClick={this.ClickToBlock}>Блок №3 : Субъект.</h2>
             {this.state.isClicked && (
                <div>
-                  <Risk5/>
-                  <Risk6/>
-                  <Risk7/>
-                  <Risk9/>
+                  <Risk5 onData={this.handleRisk5Data}/>
+                  <Risk6 onData={this.handleRisk6Data}/>
+                  <Risk7 onData={this.handleRisk7Data}/>
+                  <Risk9 onData={this.handleRisk9Data}/>
                </div>
             )}
          </div>

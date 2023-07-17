@@ -9,7 +9,12 @@ class Risk12 extends React.Component {
             ans: [false],
             click: [false],
             isClicked: false,
-            visible: [false]
+            visible: [false],
+            riskanswer: {
+               ans: 'none',
+               cat: -1,
+               number: -1
+            }
         };
         this.handleAnswer1 = this.handleAnswer1.bind(this);
         this.ClickToBlock = this.ClickToBlock.bind(this);
@@ -41,10 +46,24 @@ class Risk12 extends React.Component {
             this.setState((prevState) => ({
                 ans: prevState.ans.map((item, index) => (index === 0 ? false : item))
             }));
+            this.setState({ 
+                riskanswer:{
+                   ans: 'Риска нет',
+                   cat: 0,
+                   number: 0
+                }
+             });
         } else {
             this.setState((prevState) => ({
                 ans: prevState.ans.map((item, index) => (index === 0 ? true : item))
             }));
+            this.setState({ 
+                riskanswer:{
+                   ans: 'Риск есть',
+                   cat: 2,
+                   number: 1
+                }
+             });
         }
     };
     handleMouseEnter = (index) => {
@@ -58,6 +77,12 @@ class Risk12 extends React.Component {
         updatedVisible[index] = false;
         this.setState({ visible: updatedVisible });
      };
+
+     componentDidUpdate(prevProps, prevState) {
+        if (this.state.riskanswer !== prevState.riskanswer) {
+           this.props.onData(this.state.riskanswer);
+        }
+     }
 
     render() {
         const { ans, click, isClicked, visible } = this.state;

@@ -193,10 +193,10 @@
     position: relative;
     background-color: #f9f9f9;
     color: #000;
-    padding: 10px;
+    padding: 5px 10px 10px 10px;
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 20px;
+    margin: 10px;
 }
 
 .Bullet {
@@ -313,3 +313,37 @@
     margin-top: 60px;
 }
 
+.report{
+    bottom: 10px;
+    right: 50px;
+    border: none;
+    position: absolute;
+    background-color: #eee;
+    color: #333;
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+    transform: scale(2);
+}
+
+.report:hover{
+    border: 1px solid #000;
+}
+
+.reportDiv{
+    position: relative; 
+    width: 100%;
+}
+
+.Blocks{
+    margin: 10px;
+}
+
+.conclusion{
+    display: flex;
+}
+
+.conclusionIcon {
+    display: inline-block;
+    margin: 12px;
+}

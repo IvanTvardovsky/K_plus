@@ -17,7 +17,7 @@ class App extends React.Component {
          items: [
             { label: 'Копия/Фото паспорта продавца', checked: false },
             { label: 'Выписка из ЕГРН', checked: false },
-            { label: 'Нотариальное согласие супруга', checked: false},
+            { label: 'Нотариальное согласие супруга продавца (при наличии)', checked: false},
             { label: 'Паспорт доверенного лица (при наличии)', checked: false}
          ]
       };

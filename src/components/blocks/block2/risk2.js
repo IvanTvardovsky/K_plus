@@ -9,7 +9,12 @@ class Risk2 extends React.Component{
             ans: [false, false, false],
             click: [false, false, false],
             isClicked: false,
-            visible: [false]
+            visible: [false],
+            riskanswer: {
+                ans: 'none',
+                cat: -1,
+                number: -1
+             }
         };
         this.handleAnswer1 = this.handleAnswer1.bind(this)
         this.handleAnswer2 = this.handleAnswer2.bind(this)
@@ -60,6 +65,13 @@ class Risk2 extends React.Component{
                    index === 0 ? false : item
                 )
             }));
+            this.setState({ 
+                riskanswer:{
+                   ans: 'Риска нет',
+                   cat: 0,
+                   number: 0
+                }
+             });
         }
         else {
             this.setState(prevState => ({
@@ -88,6 +100,13 @@ class Risk2 extends React.Component{
                    index === 1 ? true : item
                 )
             }));
+            this.setState({ 
+                riskanswer:{
+                   ans: 'Риск есть',
+                   cat: 1,
+                   number: 1
+                }
+             });
 
         }
     };
@@ -103,12 +122,26 @@ class Risk2 extends React.Component{
                    index === 2 ? false : item
                 )
             }));
+            this.setState({ 
+                riskanswer:{
+                   ans: 'Риска нет',
+                   cat: 0,
+                   number: 0
+                }
+             });
         } else {
             this.setState(prevState => ({
                 ans: prevState.ans.map((item, index) =>
                    index === 2 ? true : item
                 )
             }));
+            this.setState({ 
+                riskanswer:{
+                   ans: 'Риск есть',
+                   cat: 1,
+                   number: 2
+                }
+             });
 
         }
     };
@@ -123,6 +156,12 @@ class Risk2 extends React.Component{
         updatedVisible[index] = false;
         this.setState({ visible: updatedVisible });
      };
+
+     componentDidUpdate(prevProps, prevState) {
+        if (this.state.riskanswer !== prevState.riskanswer) {
+           this.props.onData(this.state.riskanswer);
+        }
+     }
 
     render(){
         const { ans, click, isClicked, visible } = this.state;
