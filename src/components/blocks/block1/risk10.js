@@ -1,4 +1,5 @@
 import React from "react";
+import {BiSolidRightArrow} from "react-icons/bi"
 
 class Risk10 extends React.Component{
    constructor(props) {
@@ -51,16 +52,22 @@ class Risk10 extends React.Component{
    };
 
    render(){
-      const { ans, click } = this.state;
+      const { ans, click, isClicked } = this.state;
       return(
-         <div className="Risk" onClick={this.ClickToBlock}>
-            <h3>Риск №2: Отсутствие права собственности у Продавца</h3>
+         <div className="Risk">
+            <div className="RiskName">
+               <BiSolidRightArrow
+                  className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
+                  onClick={this.ClickToBlock}
+               />
+               <h3>Риск №2: Отсутствие права собственности у Продавца</h3>
+            </div>
             {this.state.isClicked && (
                <div>
                   <div className="Question">
                      <p>{this.quests[0].question}</p>
-                     <button className={click[0] && !ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('да')}>Да</button>
-                     <button className={click[0] && ans[0] ? 'active' : ''} onClick={() => this.handleAnswer1('нет')}>Нет</button>
+                     <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('да')}>Да</button>
+                     <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('нет')}>Нет</button>
                   </div>
                   {click[0] && (
                      <div>

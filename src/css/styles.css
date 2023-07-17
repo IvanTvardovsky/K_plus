@@ -56,14 +56,8 @@
     color: #000;
 }
 
-.Risk{
-    border: 1px solid #000;
-    padding: 3px;
-    margin: 10px;
-}
-
 .Risks{
-    border: 2px solid #992020;
+    border: 2px solid #b1aeae;
     padding: 5px;
     margin: 40px;
 }
@@ -71,17 +65,44 @@
 .Answer{
     border: 2px solid #39db62;
     margin: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
 }
 
 .Question{
-    border: 2px solid #2531d3;
+    display: block;
     margin: 10px;
     padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
 }
 
-button.active {
-    background-color: yellow;
+.Risk{
+    display: block;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
 }
+
+.RiskName{
+    display: flex;
+    align-items: center;
+}
+.ans-btn {
+    border: none;
+    background-color: #eee;
+    color: #333;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .ans-btn.active {
+    background-color: #ccc;
+  }
 
 .Docs{
     margin:10px;
@@ -94,11 +115,32 @@ button.active {
 
 .QuestIcon {
     display: inline-block;
-    transform: scale(2);
+    transform: scale(1.2);
+    margin: 10px;
 }
   
 .QuestIcon:hover {
     opacity: 0.5;
+}
+
+.QuestTool{
+    display: flex;
+    align-items: center;
+}
+
+.RiskIcon {
+    display: inline-block;
+    transform: scale(1.5);
+    margin: 10px;
+    cursor: pointer;
+}
+
+.RiskIcon:hover {
+    opacity: 0.5;
+}
+
+.RiskIcon.rotated {
+    transform: rotate(90deg) scale(1.5)
 }
   
 .Tooltip {
