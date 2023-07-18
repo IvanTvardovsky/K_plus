@@ -122,7 +122,7 @@ class Risk13 extends React.Component {
                         className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
                         onClick={this.ClickToBlock}
                     />
-                    <h3>Риск №13: Невозможность самостоятельного принятия решения Продавцом. Принуждение к совершению сделки</h3>
+                    <h3>Риск №13: Недееспособность продавца</h3>
                 </div>
                {this.state.isClicked && (
                     <div>
@@ -145,26 +145,6 @@ class Risk13 extends React.Component {
                             </div>
                             )}
                         </div>
-                        )}
-                        <div className="Question">
-                            <div className="QuestTool">
-                                <p>{this.quests[1].question}</p> 
-                            </div>
-                            <button className={`ans-btn ${click[1] && !ans[1] ? 'active' : ''}`} onClick={() => this.handleAnswer2('да')}>Да</button>
-                            <button className={`ans-btn ${click[1] && ans[1] ? 'active' : ''}`} onClick={() => this.handleAnswer2('нет')}>Нет</button>
-                        </div>
-                        {click[1] && (
-                            <div>
-                                {!ans[1] ? (
-                                <div className="Answer">
-                                    <p>Риска нет.</p>
-                                </div>
-                                ) : (
-                                <div className="Answer">
-                                    <p>{this.quests[1].answer}</p>
-                                </div>
-                                )}
-                            </div>
                         )}
                     </div>
                     

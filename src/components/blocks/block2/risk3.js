@@ -48,8 +48,8 @@ class Risk3 extends React.Component{
         },
         {
             number: 4,
-            question: 'Попадает ли земля в зону особого назначения?',
-            answer: 'Риска нет',
+            question: 'Вы уверены, что объект не попадает в зону особого назначения?',
+            answer: 'Риск есть',
             ansCheck: false,
             help: false
         }
@@ -161,9 +161,9 @@ class Risk3 extends React.Component{
             }));
             this.setState({ 
                 riskanswer:{
-                   ans: 'Риск есть',
-                   cat: 2,
-                   number: 3
+                   ans: 'Риска нет',
+                   cat: 0,
+                   number: 0
                 }
              });
         } else {
@@ -174,9 +174,9 @@ class Risk3 extends React.Component{
             }));
             this.setState({ 
                 riskanswer:{
-                   ans: 'Риска нет',
-                   cat: 0,
-                   number: 0
+                   ans: 'Риск есть',
+                   cat: 2,
+                   number: 3
                 }
              });
 
@@ -231,7 +231,7 @@ class Risk3 extends React.Component{
                         className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
                         onClick={this.ClickToBlock}
                     />
-                        <h3>Риск №4: Целевое использование земельного участка</h3>
+                        <h3>Риск №4: Целевое использование объекта</h3>
                     </div>
                 {this.state.isClicked && (
                     <div>
@@ -346,7 +346,7 @@ class Risk3 extends React.Component{
                             <div>
                                 {!ans[3] ? (
                                     <div className="Answer">
-                                        <p>Риск есть.</p>
+                                        <p>Риска нет.</p>
                                     </div>
                                 ) : (
                                     <div className="Answer">

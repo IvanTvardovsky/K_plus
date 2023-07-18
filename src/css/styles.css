@@ -67,7 +67,7 @@
     margin: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
-    display: '';
+    display: none;
 }
 
 .Question{
@@ -78,6 +78,10 @@
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
+}
+
+.Question.none{
+    display: none;
 }
 
 .Risk{
@@ -119,6 +123,7 @@
     display: flex;
     align-items: center;
 }
+
 .ans-btn {
     border: none;
     background-color: #eee;
@@ -350,11 +355,15 @@
 }
 
 .Blocks{
-    margin: 10px;
+    margin: 10px 0px 10px 0px;
 }
 
 .conclusion{
     display: flex;
+}
+
+.conclusionOff{
+    display: none;
 }
 
 .conclusionIcon {
@@ -374,4 +383,29 @@
 
 .thisShouldBeBold {
     font-weight: bold;
+}
+
+.riskBlock.active {
+    display: block;
+    align-items: center;
+    margin: 5px 0px 5px 0px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+.riskBlock {
+    display: none;
+    align-items: center;
+    margin: 5px 0px 5px 0px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+.notPassed{
+    margin: 5px 0px 5px 0px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
 }

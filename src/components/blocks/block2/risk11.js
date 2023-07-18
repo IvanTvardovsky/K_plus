@@ -150,7 +150,7 @@ class Risk11 extends React.Component{
                         className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
                         onClick={this.ClickToBlock}
                     />
-                        <h3>Риск № 7: Наличие обременений в отношении земельного участка</h3>
+                        <h3>Риск № 7: Обременения на объект</h3>
                     </div>
                 {this.state.isClicked && (
                     <div>

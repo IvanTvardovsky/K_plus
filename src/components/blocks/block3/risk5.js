@@ -24,7 +24,7 @@ class Risk5 extends React.Component {
     quests = [
         {
            number: 1,
-           question: 'Продавец был найден в реестре о банкротстве?',
+           question: 'Проверен ли продавец в реестре о банкротстве?',
            answer: 'Риска нет.',
            ansCheck: false,
            help: false
@@ -48,9 +48,9 @@ class Risk5 extends React.Component {
             }));
             this.setState({ 
                 riskanswer:{
-                   ans: 'Риск есть',
-                   cat: 3,
-                   number: 1
+                   ans: 'Риска нет',
+                   cat: 0,
+                   number: 0
                 }
              });
         } else {
@@ -59,9 +59,9 @@ class Risk5 extends React.Component {
             }));
             this.setState({ 
                 riskanswer:{
-                   ans: 'Риска нет',
-                   cat: 0,
-                   number: 0
+                   ans: 'Риск есть',
+                   cat: 3,
+                   number: 1
                 }
              });
         }

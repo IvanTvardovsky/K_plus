@@ -24,7 +24,7 @@ class Risk6 extends React.Component {
     quests = [
         {
            number: 1,
-           question: 'Продавец был найден в реестре судебных приставов?',
+           question: 'Проверен ли Продавец в реестре судебных приставов?',
            answer: 'Риска нет.',
            ansCheck: false,
            help: false
@@ -48,9 +48,9 @@ class Risk6 extends React.Component {
             }));
             this.setState({ 
                 riskanswer:{
-                   ans: 'Риска есть',
-                   cat: 3,
-                   number: 1
+                   ans: 'Риска нет',
+                   cat: 0,
+                   number: 0
                 }
              });
         } else {
@@ -59,10 +59,10 @@ class Risk6 extends React.Component {
             }));
             this.setState({ 
                 riskanswer:{
-                   ans: 'Риска нет',
-                   cat: 0,
-                   number: 0
-                }
+                    ans: 'Риск есть',
+                    cat: 3,
+                    number: 1
+                 }
              });
         }
     };
@@ -96,7 +96,7 @@ class Risk6 extends React.Component {
                         className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
                         onClick={this.ClickToBlock}
                     />
-                    <h3>Риск №9:  Наличие исполнительных производств в отношении Продавца</h3>
+                    <h3>Риск №9: Выплата долгов продавцом</h3>
                 </div>
                {this.state.isClicked && (
                     <div>
