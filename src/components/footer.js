@@ -37,7 +37,7 @@ class Footer extends React.Component {
 
       return (
          <footer ref={this.footerRef} className="footer">
-            <hr className="footer-line" />
+            <hr className="footer-line"/>
             <p className="footer-text">Информация актуальна на {currentDate}</p>
          </footer>
       );

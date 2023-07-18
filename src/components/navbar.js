@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import logo from "../images/logo.webp";
 import Image from "./image";
 
@@ -10,7 +10,7 @@ class Navbar extends React.Component {
             <div className="navbar-wrapper">
                <div className="navbar-logo">
                   <Link to="/">
-                     <Image image={logo} />
+                     <Image image={logo}/>
                   </Link>
                </div>
                <nav role="navigation" className="navbar-menu">

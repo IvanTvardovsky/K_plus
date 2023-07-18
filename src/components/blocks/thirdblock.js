@@ -10,25 +10,25 @@ class ThirdBlock extends React.Component {
       this.state = {
          isClicked: true,
          ThirdData: {
-             risk5Data: {
-                 ans: 'none',
-                 cat: -1,
-                 number: -1
-             },
-             risk6Data: {
-                 ans: 'none',
-                 cat: -1,
-                 number: -1
-             },
-             risk7Data: {
-                ans: 'none',
-                cat: -1,
-                number: -1
+            risk5Data: {
+               ans: 'none',
+               cat: -1,
+               number: -1
+            },
+            risk6Data: {
+               ans: 'none',
+               cat: -1,
+               number: -1
+            },
+            risk7Data: {
+               ans: 'none',
+               cat: -1,
+               number: -1
             },
             risk9Data: {
-                ans: 'none',
-                cat: -1,
-                number: -1
+               ans: 'none',
+               cat: -1,
+               number: -1
             }
          }
       };
@@ -45,62 +45,62 @@ class ThirdBlock extends React.Component {
       }));
    };
 
-    handleRisk5Data = (data) => {
-        this.setState((prevState) => ({
-            ThirdData: {
-                ...prevState.ThirdData,
-                risk5Data: {
-                    ans: data.ans,
-                    cat: data.cat,
-                    number: data.number,
-                },
+   handleRisk5Data = (data) => {
+      this.setState((prevState) => ({
+         ThirdData: {
+            ...prevState.ThirdData,
+            risk5Data: {
+               ans: data.ans,
+               cat: data.cat,
+               number: data.number,
             },
-        }));
-    };
+         },
+      }));
+   };
 
-    handleRisk6Data = (data) => {
-        this.setState((prevState) => ({
-            ThirdData: {
-                ...prevState.ThirdData,
-                risk6Data: {
-                    ans: data.ans,
-                    cat: data.cat,
-                    number: data.number,
-                },
+   handleRisk6Data = (data) => {
+      this.setState((prevState) => ({
+         ThirdData: {
+            ...prevState.ThirdData,
+            risk6Data: {
+               ans: data.ans,
+               cat: data.cat,
+               number: data.number,
             },
-        }));
-    };
+         },
+      }));
+   };
 
-    handleRisk7Data = (data) => {
-        this.setState((prevState) => ({
-            ThirdData: {
-                ...prevState.ThirdData,
-                risk7Data: {
-                    ans: data.ans,
-                    cat: data.cat,
-                    number: data.number,
-                },
+   handleRisk7Data = (data) => {
+      this.setState((prevState) => ({
+         ThirdData: {
+            ...prevState.ThirdData,
+            risk7Data: {
+               ans: data.ans,
+               cat: data.cat,
+               number: data.number,
             },
-        }));
-    };
-    handleRisk9Data = (data) => {
-        this.setState((prevState) => ({
-            ThirdData: {
-                ...prevState.ThirdData,
-                risk9Data: {
-                    ans: data.ans,
-                    cat: data.cat,
-                    number: data.number,
-                },
+         },
+      }));
+   };
+   handleRisk9Data = (data) => {
+      this.setState((prevState) => ({
+         ThirdData: {
+            ...prevState.ThirdData,
+            risk9Data: {
+               ans: data.ans,
+               cat: data.cat,
+               number: data.number,
             },
-        }));
-    };
+         },
+      }));
+   };
 
-    componentDidUpdate(prevProps, prevState) {
-        if (this.state.ThirdData !== prevState.ThirdData) {
-           this.props.onData(this.state.ThirdData);
-        }
-    }
+   componentDidUpdate(prevProps, prevState) {
+      if (this.state.ThirdData !== prevState.ThirdData) {
+         this.props.onData(this.state.ThirdData);
+      }
+   }
 
    render() {
       return (

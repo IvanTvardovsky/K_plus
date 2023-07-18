@@ -4,7 +4,7 @@
     align-items: center;
     background-color: #fad232;
     padding: 10px;
-    border: 1px solid rgb(224, 185, 29) ;
+    border: 1px solid rgb(224, 185, 29);
     font-size: x-large;
 }
 
@@ -16,7 +16,7 @@
     padding: 10px;
 }
 
-.navbar-logo{
+.navbar-logo {
     flex-basis: 10%;
 }
 
@@ -24,12 +24,13 @@
     height: 90px;
 }
 
-.navbar-menu{
+.navbar-menu {
     flex-basis: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .navbar-menu-list {
     list-style: none;
     margin: 0;
@@ -37,32 +38,32 @@
     position: relative;
     left: -5.55%;
 }
-  
+
 .navbar-menu-list li {
     display: inline-block;
     margin-right: 70px;
 }
-  
+
 .navbar-menu-list li:last-child {
     margin-right: 0;
 }
-  
+
 .navbar-menu-list li a {
     text-decoration: none;
     color: #333;
 }
-  
+
 .navbar-menu-list li a:hover {
     color: #000;
 }
 
-.Risks{
+.Risks {
     border: 2px solid #b1aeae;
     padding: 5px;
     margin: 40px;
 }
 
-.Answer{
+.Answer {
     border: 2px solid #39db62;
     margin: 10px;
     background-color: #f9f9f9;
@@ -70,7 +71,7 @@
     display: '';
 }
 
-.Question{
+.Question {
     display: block;
     margin: 10px;
     padding: 10px;
@@ -80,7 +81,7 @@
     border: 1px solid #ccc;
 }
 
-.Risk{
+.Risk {
     display: block;
     align-items: center;
     margin: 10px;
@@ -89,10 +90,11 @@
     border: 1px solid #ccc;
 }
 
-.RiskName{
+.RiskName {
     display: flex;
     align-items: center;
 }
+
 .ans-btn {
     border: none;
     background-color: #eee;
@@ -101,12 +103,13 @@
     margin-right: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .ans-btn.active {
+}
+
+.ans-btn.active {
     background-color: #ccc;
-  }
-.Risk{
+}
+
+.Risk {
     display: block;
     align-items: center;
     margin: 10px;
@@ -115,10 +118,11 @@
     border: 1px solid #ccc;
 }
 
-.RiskName{
+.RiskName {
     display: flex;
     align-items: center;
 }
+
 .ans-btn {
     border: none;
     background-color: #eee;
@@ -127,19 +131,19 @@
     margin-right: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .ans-btn.active {
-    background-color: #ccc;
-  }
-
-.Docs{
-    margin:10px;
 }
 
-.DocCheckBox{
-    padding:15px;
-    margin:30px;
+.ans-btn.active {
+    background-color: #ccc;
+}
+
+.Docs {
+    margin: 10px;
+}
+
+.DocCheckBox {
+    padding: 15px;
+    margin: 30px;
 }
 
 .QuestIcon {
@@ -147,12 +151,12 @@
     transform: scale(1.5);
     margin: 10px 0px 10px 10px;
 }
-  
+
 .QuestIcon:hover {
     opacity: 0.5;
 }
 
-.QuestTool{
+.QuestTool {
     display: flex;
     align-items: center;
     position: relative;
@@ -172,7 +176,7 @@
 .RiskIcon.rotated {
     transform: rotate(90deg) scale(1.5)
 }
-  
+
 .Tooltip {
     position: absolute;
     z-index: 999;
@@ -185,11 +189,12 @@
     bottom: 100%;
 }
 
-.ToolContainer{
+.ToolContainer {
     position: relative;
     width: 50%;
 }
-.Rec{
+
+.Rec {
     position: relative;
     background-color: #f9f9f9;
     color: #000;
@@ -327,7 +332,7 @@
     margin-bottom: 50px;
 }
 
-.report{
+.report {
     bottom: 10px;
     right: 50px;
     border: none;
@@ -340,20 +345,20 @@
     transform: scale(2);
 }
 
-.report:hover{
+.report:hover {
     border: 1px solid #000;
 }
 
-.reportDiv{
-    position: relative; 
+.reportDiv {
+    position: relative;
     width: 100%;
 }
 
-.Blocks{
+.Blocks {
     margin: 10px;
 }
 
-.conclusion{
+.conclusion {
     display: flex;
 }
 
