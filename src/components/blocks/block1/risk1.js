@@ -134,7 +134,7 @@ class Risk1 extends React.Component {
             {this.state.isClicked && (
                <div>
                   <div className="Question">
-                     <p>{this.quests[0].question}</p>
+                     <p className="bigger">{this.quests[0].question}</p>
                      <button
                         className={`ans-btn ${click[0] && !ans[0] ? "active" : ""}`}
                         onClick={() => this.handleAnswer1("да")}
@@ -153,7 +153,7 @@ class Risk1 extends React.Component {
                         {!ans[0] ? (
                            <div className="Question">
                               <div className="QuestTool">
-                                 <p>{this.quests[1].question}</p>
+                                 <p className="bigger">{this.quests[1].question}</p>
                                  <BsQuestionCircleFill
                                     className="QuestIcon"
                                     onMouseEnter={() => this.handleMouseEnter(0)}

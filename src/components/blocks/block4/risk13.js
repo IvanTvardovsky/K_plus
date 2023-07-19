@@ -128,7 +128,7 @@ class Risk13 extends React.Component {
                <div>
                   <div className="Question">
                      <div className="QuestTool">
-                        <p>{this.quests[0].question}</p>
+                        <p className="bigger">{this.quests[0].question}</p>
                      </div>
                      <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('да')}>Да</button>
                      <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('нет')}>Нет</button>

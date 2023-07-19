@@ -109,7 +109,7 @@ class Risk4 extends React.Component {
                <div>
                   <div className="Question">
                      <div className="QuestTool">
-                        <p>{this.quests[0].question}</p>
+                        <p className="bigger">{this.quests[0].question}</p>
                         <BsQuestionCircleFill
                            className="QuestIcon"
                            onMouseEnter={() => this.handleMouseEnter(0)}

@@ -156,7 +156,7 @@ class Risk11 extends React.Component {
                <div>
                   <div className="Question">
                      <div className="QuestTool">
-                        <p>{this.quests[0].question}</p>
+                        <p className="bigger">{this.quests[0].question}</p>
                         <BsQuestionCircleFill
                            className="QuestIcon"
                            onMouseEnter={() => this.handleMouseEnter(0)}
@@ -187,7 +187,7 @@ class Risk11 extends React.Component {
                         {!ans[0] ? (
                            <div className="Question">
                               <div className="QuestTool">
-                                 <p>{this.quests[1].question}</p>
+                                 <p className="bigger">{this.quests[1].question}</p>
                                  <BsQuestionCircleFill
                                     className="QuestIcon"
                                     onMouseEnter={() => this.handleMouseEnter(1)}

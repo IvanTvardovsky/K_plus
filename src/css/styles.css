@@ -413,3 +413,12 @@
     background-color: #f9f9f9;
     border: 1px solid #ccc;
 }
+
+.bigger {
+    font-size: 18px;
+}
+
+#perenos {
+    white-space: nowrap;
+    margin-right: 5px;
+}

@@ -237,7 +237,7 @@ class Risk3 extends React.Component {
                <div>
                   <div className="Question">
                      <div className="QuestTool">
-                        <p>{this.quests[0].question}</p>
+                        <p className="bigger">{this.quests[0].question}</p>
                         <BsQuestionCircleFill
                            className="QuestIcon"
                            onMouseEnter={() => this.handleMouseEnter(0)}
@@ -267,7 +267,7 @@ class Risk3 extends React.Component {
                      <div>
                         {!ans[0] ? (
                            <div className="Question">
-                              <p>{this.quests[1].question}</p>
+                              <p className="bigger">{this.quests[1].question}</p>
                               <button className={`ans-btn ${click[1] && !ans[1] ? 'active' : ''}`}
                                       onClick={() => this.handleAnswer2('да')}>Да
                               </button>
@@ -287,7 +287,7 @@ class Risk3 extends React.Component {
                         {!ans[1] ? (
                            <div className="Question">
                               <div className="QuestTool">
-                                 <p>{this.quests[2].question}</p>
+                                 <p className="bigger">{this.quests[2].question}</p>
                                  <BsQuestionCircleFill
                                     className="QuestIcon"
                                     onMouseEnter={() => this.handleMouseEnter(1)}
@@ -325,7 +325,7 @@ class Risk3 extends React.Component {
                         {!ans[2] ? (
                            <div className="Question">
                               <div className="QuestTool">
-                                 <p>{this.quests[3].question}</p>
+                                 <p className="bigger">{this.quests[3].question}</p>
                                  <BsQuestionCircleFill
                                     className="QuestIcon"
                                     onMouseEnter={() => this.handleMouseEnter(2)}
