@@ -342,7 +342,7 @@ class Blocks extends React.Component {
                         <h3>Обозначения:</h3>
                         <div className="reportIcons">
                             <div className="reportIconsInfo">
-                                <BsExclamationCircle className="conclusionIconInfo" color="yellow" size={24}/>
+                                <BsExclamationCircle className="conclusionIconInfo" color="#e4f52c" size={24}/>
                                 <h4>- Низкая степень опасности риска для сделки</h4>
                             </div>
                             <div className="reportIconsInfo">
@@ -444,7 +444,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №3: Границы объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
+                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
                                                                      size={36}/>
                                                 <h3>{answers.second.risk2.ans}</h3>
                                              </div>
@@ -582,7 +582,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск № 6: Юридическая история объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
+                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
                                                                      size={36}/>
                                                 <h3>{answers.second.risk8.ans}</h3>
                                              </div>
@@ -746,7 +746,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №11: Продавец-ответчик в судебном споре </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
+                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
                                                                      size={36}/>
                                                 <h3>{answers.third.risk9.ans}</h3>
                                              </div>
@@ -916,7 +916,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №3: Границы объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
+                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
                                                                      size={36}/>
                                                 <h3>{answers.second.risk2.ans}</h3>
                                              </div>
@@ -1062,7 +1062,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск № 6: Юридическая история объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
+                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
                                                                      size={36}/>
                                                 <h3>{answers.second.risk8.ans}</h3>
                                              </div>
@@ -1226,7 +1226,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №11: Продавец-ответчик в судебном споре </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
+                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
                                                                      size={36}/>
                                                 <h3>{answers.third.risk9.ans}</h3>
                                              </div>
