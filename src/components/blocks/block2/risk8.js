@@ -2,7 +2,7 @@ import React from "react";
 import {BiSolidRightArrow} from "react-icons/bi"
 import {BsQuestionCircleFill} from 'react-icons/bs'
 
-class Risk10 extends React.Component {
+class Risk8 extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
@@ -16,8 +16,8 @@ class Risk10 extends React.Component {
             number: -1
          }
       };
-      this.handleAnswer1 = this.handleAnswer1.bind(this)
-      this.ClickToBlock = this.ClickToBlock.bind(this)
+      this.handleAnswer1 = this.handleAnswer1.bind(this);
+      this.ClickToBlock = this.ClickToBlock.bind(this);
       this.handleMouseEnter = this.handleMouseEnter.bind(this);
       this.handleMouseLeave = this.handleMouseLeave.bind(this);
    }
@@ -25,7 +25,7 @@ class Risk10 extends React.Component {
    quests = [
       {
          number: 1,
-         question: 'Проверено ли право собственности Продавца на землю?',
+         question: 'Проверена ли юридическая история земельного участка в ЕГРН?',
          answer: 'Риск есть.',
          ansCheck: false,
          help: false
@@ -33,23 +33,19 @@ class Risk10 extends React.Component {
    ]
    ClickToBlock = (event) => {
       if (event.target.tagName !== 'BUTTON') {
-         this.setState(prevState => ({
+         this.setState((prevState) => ({
             isClicked: !prevState.isClicked
          }));
       }
    };
 
    handleAnswer1 = (answer) => {
-      this.setState(prevState => ({
-         click: prevState.click.map((item, index) =>
-            index === 0 ? true : item
-         )
+      this.setState((prevState) => ({
+         click: prevState.click.map((item, index) => (index === 0 ? true : item))
       }));
       if (answer === 'да') {
-         this.setState(prevState => ({
-            ans: prevState.ans.map((item, index) =>
-               index === 0 ? false : item
-            )
+         this.setState((prevState) => ({
+            ans: prevState.ans.map((item, index) => (index === 0 ? false : item))
          }));
          this.setState({
             riskanswer: {
@@ -59,21 +55,18 @@ class Risk10 extends React.Component {
             }
          });
       } else {
-         this.setState(prevState => ({
-            ans: prevState.ans.map((item, index) =>
-               index === 0 ? true : item
-            )
+         this.setState((prevState) => ({
+            ans: prevState.ans.map((item, index) => (index === 0 ? true : item))
          }));
          this.setState({
             riskanswer: {
                ans: 'Риск есть',
-               cat: 3,
+               cat: 1,
                number: 1
             }
          });
       }
    };
-
    handleMouseEnter = (index) => {
       const updatedVisible = [...this.state.visible];
       updatedVisible[index] = true;
@@ -92,11 +85,10 @@ class Risk10 extends React.Component {
       }
    }
 
-
    render() {
       const {ans, click, isClicked, visible} = this.state;
       const tooltips = [
-         `<b>Право собственности</b> - это право гражданина владеть, пользоваться и распоряжаться имуществом.`
+         `<b>Юридическая история земельного участка</b> - это хронологические сведения о количестве предыдущих сделок с земельным участком и временном интервале между ними.`
       ];
       return (
          <div className="Risk">
@@ -105,7 +97,7 @@ class Risk10 extends React.Component {
                   className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
                   onClick={this.ClickToBlock}
                />
-               <h3>Риск №2: Право собственности продавца</h3>
+               <h3>Риск № 6: Юридическая история объекта</h3>
             </div>
             {this.state.isClicked && (
                <div>
@@ -153,8 +145,8 @@ class Risk10 extends React.Component {
                </div>
             )}
          </div>
-      )
+      );
    }
 }
 
-export default Risk10
+export default Risk8;

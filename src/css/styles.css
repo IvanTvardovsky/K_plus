@@ -1,0 +1,415 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fad232;
+    padding: 10px;
+    border: 1px solid rgb(224, 185, 29);
+    font-size: x-large;
+}
+
+.navbar-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar-logo {
+    flex-basis: 10%;
+}
+
+.navbar-logo img {
+    height: 90px;
+}
+
+.navbar-menu {
+    flex-basis: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: -5.55%;
+}
+
+.navbar-menu-list li {
+    display: inline-block;
+    margin-right: 70px;
+}
+
+.navbar-menu-list li:last-child {
+    margin-right: 0;
+}
+
+.navbar-menu-list li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.navbar-menu-list li a:hover {
+    color: #000;
+}
+
+.Risks {
+    border: 2px solid #b1aeae;
+    padding: 5px;
+    margin: 40px;
+}
+
+.Answer {
+    border: 2px solid #39db62;
+    margin: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    display: none;
+}
+
+.Question {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+.Question.none {
+    display: none;
+}
+
+.Risk {
+    display: block;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+.RiskName {
+    display: flex;
+    align-items: center;
+}
+
+.ans-btn {
+    border: none;
+    background-color: #eee;
+    color: #333;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ans-btn.active {
+    background-color: #ccc;
+}
+
+.Risk {
+    display: block;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+.RiskName {
+    display: flex;
+    align-items: center;
+}
+
+.ans-btn {
+    border: none;
+    background-color: #eee;
+    color: #333;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ans-btn.active {
+    background-color: #ccc;
+}
+
+.Docs {
+    margin: 10px;
+}
+
+.DocCheckBox {
+    padding: 15px;
+    margin: 30px;
+}
+
+.QuestIcon {
+    display: inline-block;
+    transform: scale(1.5);
+    margin: 10px 0px 10px 10px;
+}
+
+.QuestIcon:hover {
+    opacity: 0.5;
+}
+
+.QuestTool {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.RiskIcon {
+    display: inline-block;
+    transform: scale(1.5);
+    margin: 10px;
+    cursor: pointer;
+}
+
+.RiskIcon:hover {
+    opacity: 0.5;
+}
+
+.RiskIcon.rotated {
+    transform: rotate(90deg) scale(1.5)
+}
+
+.Tooltip {
+    position: absolute;
+    z-index: 999;
+    background-color: #f9f9f9;
+    color: #000;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    bottom: 100%;
+}
+
+.ToolContainer {
+    position: relative;
+    width: 50%;
+}
+
+.Rec {
+    position: relative;
+    background-color: #f9f9f9;
+    color: #000;
+    padding: 5px 10px 10px 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+
+.Bullet {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: black;
+    margin-right: 3px;
+}
+
+.footer {
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+    transition: opacity 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.footer.show-footer {
+    opacity: 1;
+    visibility: visible;
+}
+
+.footer-line {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.footer-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Справочник и глоссарий */
+
+.title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.term {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.definition {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Риски в справочнике */
+
+.risk-title {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.normal {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.attention {
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.exclIcon {
+    display: inline-block;
+    width: 25px;
+    height: 15px;
+    margin-right: 10px;
+    font-size: 25px;
+    color: #000;
+}
+
+.starIcon {
+    display: inline-block;
+    width: 23px;
+    height: 15px;
+    margin-left: 12px;
+    font-size: 15px;
+    color: #000;
+}
+
+.info {
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.infoText {
+    margin-top: 5px;
+}
+
+#guidebookTitle {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#glossaryTitle {
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+#afterGlossary {
+    margin-bottom: 40px;
+}
+
+#afterGuidebook {
+    margin-bottom: 20px;
+}
+
+#guidebookList {
+    padding-left: -10px;
+    margin-left: -10px;
+    margin-bottom: 50px;
+}
+
+.report {
+    bottom: 10px;
+    right: 50px;
+    border: none;
+    position: absolute;
+    background-color: #eee;
+    color: #333;
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+    transform: scale(2);
+}
+
+.report:hover {
+    border: 1px solid #000;
+}
+
+.reportDiv {
+    position: relative;
+    width: 100%;
+}
+
+.Blocks {
+    margin: 10px 0px 10px 0px;
+}
+
+.conclusion {
+    display: flex;
+}
+
+.conclusionOff {
+    display: none;
+}
+
+.conclusionIcon {
+    display: inline-block;
+    margin: 12px;
+}
+
+.navbar-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-style: italic;
+    margin-right: 9px;
+    margin-top: 7px;
+}
+
+.thisShouldBeBold {
+    font-weight: bold;
+}
+
+.riskBlock.active {
+    display: block;
+    align-items: center;
+    margin: 5px 0px 5px 0px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+.riskBlock {
+    display: none;
+    align-items: center;
+    margin: 5px 0px 5px 0px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+.notPassed {
+    margin: 5px 0px 5px 0px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}

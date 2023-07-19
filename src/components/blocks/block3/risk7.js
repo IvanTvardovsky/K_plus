@@ -2,7 +2,7 @@ import React from "react";
 import {BiSolidRightArrow} from "react-icons/bi"
 import {BsQuestionCircleFill} from 'react-icons/bs'
 
-class Risk10 extends React.Component {
+class Risk7 extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
@@ -16,8 +16,8 @@ class Risk10 extends React.Component {
             number: -1
          }
       };
-      this.handleAnswer1 = this.handleAnswer1.bind(this)
-      this.ClickToBlock = this.ClickToBlock.bind(this)
+      this.handleAnswer1 = this.handleAnswer1.bind(this);
+      this.ClickToBlock = this.ClickToBlock.bind(this);
       this.handleMouseEnter = this.handleMouseEnter.bind(this);
       this.handleMouseLeave = this.handleMouseLeave.bind(this);
    }
@@ -25,31 +25,27 @@ class Risk10 extends React.Component {
    quests = [
       {
          number: 1,
-         question: 'Проверено ли право собственности Продавца на землю?',
-         answer: 'Риск есть.',
+         question: 'Проверен ли Продавец в реестре лиц, причастных к экстремизму и другим преступлениям?',
+         answer: 'Риска нет.',
          ansCheck: false,
          help: false
       }
    ]
    ClickToBlock = (event) => {
       if (event.target.tagName !== 'BUTTON') {
-         this.setState(prevState => ({
+         this.setState((prevState) => ({
             isClicked: !prevState.isClicked
          }));
       }
    };
 
    handleAnswer1 = (answer) => {
-      this.setState(prevState => ({
-         click: prevState.click.map((item, index) =>
-            index === 0 ? true : item
-         )
+      this.setState((prevState) => ({
+         click: prevState.click.map((item, index) => (index === 0 ? true : item))
       }));
       if (answer === 'да') {
-         this.setState(prevState => ({
-            ans: prevState.ans.map((item, index) =>
-               index === 0 ? false : item
-            )
+         this.setState((prevState) => ({
+            ans: prevState.ans.map((item, index) => (index === 0 ? false : item))
          }));
          this.setState({
             riskanswer: {
@@ -59,10 +55,8 @@ class Risk10 extends React.Component {
             }
          });
       } else {
-         this.setState(prevState => ({
-            ans: prevState.ans.map((item, index) =>
-               index === 0 ? true : item
-            )
+         this.setState((prevState) => ({
+            ans: prevState.ans.map((item, index) => (index === 0 ? true : item))
          }));
          this.setState({
             riskanswer: {
@@ -73,7 +67,6 @@ class Risk10 extends React.Component {
          });
       }
    };
-
    handleMouseEnter = (index) => {
       const updatedVisible = [...this.state.visible];
       updatedVisible[index] = true;
@@ -92,11 +85,10 @@ class Risk10 extends React.Component {
       }
    }
 
-
    render() {
       const {ans, click, isClicked, visible} = this.state;
       const tooltips = [
-         `<b>Право собственности</b> - это право гражданина владеть, пользоваться и распоряжаться имуществом.`
+         `<b>Экстремизм</b> - это криминальное явление, направленное против основ конституционного строя и безопасности государства. `
       ];
       return (
          <div className="Risk">
@@ -105,7 +97,7 @@ class Risk10 extends React.Component {
                   className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
                   onClick={this.ClickToBlock}
                />
-               <h3>Риск №2: Право собственности продавца</h3>
+               <h3>Риск №10: Экстремизм</h3>
             </div>
             {this.state.isClicked && (
                <div>
@@ -141,7 +133,7 @@ class Risk10 extends React.Component {
                      <div>
                         {!ans[0] ? (
                            <div className="Answer">
-                              <p>Риска нет.</p>
+                              <p>Риск есть.</p>
                            </div>
                         ) : (
                            <div className="Answer">
@@ -153,8 +145,8 @@ class Risk10 extends React.Component {
                </div>
             )}
          </div>
-      )
+      );
    }
 }
 
-export default Risk10
+export default Risk7;
