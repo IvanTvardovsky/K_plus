@@ -8,6 +8,7 @@ import {BsExclamationCircle} from "react-icons/bs"
 import {BsDashCircle} from "react-icons/bs"
 import {BsXCircle} from "react-icons/bs"
 import {Link} from 'react-router-dom';
+import jsPDF from "jspdf";
 
 
 class Blocks extends React.Component {
@@ -236,7 +237,7 @@ class Blocks extends React.Component {
                   <ThirdBlock onData={this.handleBlock3}/>
                   <FourthBlock onData={this.handleBlock4}/>
                   <div className="reportDiv">
-                     <button className="report" onClick={this.ClickToReport}>Продолжить</button>
+                     <button className="reportBtn" onClick={this.ClickToReport}>Продолжить</button>
                   </div>
                </div>
             ) : (
@@ -338,6 +339,21 @@ class Blocks extends React.Component {
                      </div>
                   ) : (
                      <div>
+                        <h3>Обозначения:</h3>
+                        <div className="reportIcons">
+                            <div className="reportIconsInfo">
+                                <BsExclamationCircle className="conclusionIconInfo" color="yellow" size={24}/>
+                                <h4>- Низкая степень опасности риска для сделки</h4>
+                            </div>
+                            <div className="reportIconsInfo">
+                                <BsDashCircle className="conclusionIconInfo" color="orange" size={24}/>
+                                <h4>- Средняя степень опасности риска для сделки</h4>
+                            </div>
+                            <div className="reportIconsInfo">
+                                <BsXCircle className="conclusionIconInfo" color="red" size={24}/>
+                                <h4>- Высокая степень опасности риска для сделки</h4>
+                            </div>
+                        </div>
                         <h2> Выявлены следующие риски: </h2>
                         {((answers.first.risk1.cat > -1) && (answers.first.risk10.cat > -1) && (answers.second.risk2.cat > -1) && (answers.second.risk3.cat > -1)
                            && (answers.second.risk4.cat > -1) && (answers.second.risk8.cat > -1) && (answers.second.risk11.cat > -1) && (answers.third.risk5.cat > -1)

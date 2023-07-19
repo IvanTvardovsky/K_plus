@@ -4,7 +4,7 @@
     align-items: center;
     background-color: #1ea823;
     padding: 10px;
-    border: 1px solid rgb(224, 185, 29);
+    border: 1px solid rgb(17, 187, 11);
     font-size: x-large;
 }
 
@@ -348,7 +348,7 @@
     margin-bottom: 50px;
 }
 
-.report {
+.reportBtn {
     bottom: 10px;
     right: 50px;
     border: none;
@@ -361,7 +361,7 @@
     transform: scale(2);
 }
 
-.report:hover {
+.reportBtn:hover {
     border: 1px solid #000;
 }
 
@@ -385,6 +385,10 @@
 .conclusionIcon {
     display: inline-block;
     margin: 12px;
+}
+
+.conclusionIconInfo {
+    margin: 18px;
 }
 
 .navbar-info {
@@ -437,4 +441,8 @@
 
 #marginBottomInfo {
     margin-bottom: 50px;
+}
+
+.reportIconsInfo{
+    display: flex;
 }
