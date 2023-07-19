@@ -1,6 +1,6 @@
 import React from "react";
 import {BiSolidRightArrow} from "react-icons/bi"
-import { BsQuestionCircleFill } from 'react-icons/bs'
+import {BsQuestionCircleFill} from 'react-icons/bs'
 
 class Risk7 extends React.Component {
     constructor(props) {
@@ -24,7 +24,7 @@ class Risk7 extends React.Component {
     quests = [
         {
            number: 1,
-           question: 'Проверен ли Продавец в реестре лиц, причастных к экстремизму и другим преступлениям?',
+           question: 'Продавец был найден в реестре лиц, причастных к экстремизму и другим преступлениям?',
            answer: 'Риска нет.',
            ansCheck: false,
            help: false
@@ -38,51 +38,51 @@ class Risk7 extends React.Component {
         }
     };
 
-    handleAnswer1 = (answer) => {
-        this.setState((prevState) => ({
-            click: prevState.click.map((item, index) => (index === 0 ? true : item))
-        }));
-        if (answer === 'да') {
-            this.setState((prevState) => ({
-                ans: prevState.ans.map((item, index) => (index === 0 ? false : item))
-            }));
-            this.setState({ 
-                riskanswer:{
-                   ans: 'Риска нет',
-                   cat: 0,
-                   number: 0
-                }
-             });
-        } else {
-            this.setState((prevState) => ({
-                ans: prevState.ans.map((item, index) => (index === 0 ? true : item))
-            }));
-            this.setState({ 
-                riskanswer:{
-                    ans: 'Риск есть',
-                    cat: 3,
-                    number: 1
-                 }
-             });
-        }
-    };
-    handleMouseEnter = (index) => {
-        const updatedVisible = [...this.state.visible];
-        updatedVisible[index] = true;
-        this.setState({ visible: updatedVisible });
-     };
-  
-     handleMouseLeave = (index) => {
-        const updatedVisible = [...this.state.visible];
-        updatedVisible[index] = false;
-        this.setState({ visible: updatedVisible });
-     };
+   handleAnswer1 = (answer) => {
+      this.setState((prevState) => ({
+         click: prevState.click.map((item, index) => (index === 0 ? true : item))
+      }));
+      if (answer === 'да') {
+         this.setState((prevState) => ({
+            ans: prevState.ans.map((item, index) => (index === 0 ? false : item))
+         }));
+         this.setState({
+            riskanswer: {
+               ans: 'Риска нет',
+               cat: 0,
+               number: 0
+            }
+         });
+      } else {
+         this.setState((prevState) => ({
+            ans: prevState.ans.map((item, index) => (index === 0 ? true : item))
+         }));
+         this.setState({
+            riskanswer: {
+               ans: 'Риск есть',
+               cat: 3,
+               number: 1
+            }
+         });
+      }
+   };
+   handleMouseEnter = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = true;
+      this.setState({visible: updatedVisible});
+   };
 
-     componentDidUpdate(prevProps, prevState) {
-        if (this.state.riskanswer !== prevState.riskanswer) {
-           this.props.onData(this.state.riskanswer);
-        }
-     }
+   handleMouseLeave = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = false;
+      this.setState({visible: updatedVisible});
+   };
+
+   componentDidUpdate(prevProps, prevState) {
+      if (this.state.riskanswer !== prevState.riskanswer) {
+         this.props.onData(this.state.riskanswer);
+      }
+   }
 
     render() {
         const { ans, click, isClicked, visible } = this.state;
@@ -96,7 +96,7 @@ class Risk7 extends React.Component {
                         className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
                         onClick={this.ClickToBlock}
                     />
-                    <h3>Риск №10: Экстремизм</h3>
+                    <h3>Риск №10:  Причастность к экстремизму и другим преступлениям</h3>
                 </div>
                {this.state.isClicked && (
                     <div>

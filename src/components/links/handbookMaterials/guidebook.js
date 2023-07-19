@@ -149,7 +149,6 @@ class Guidebook extends React.Component {
                   органом.</p>
             </div>
 
-            
 
             <div className="risk">
                <h2 className="risk-title">Риск №11: Продавец-ответчик в судебном споре</h2>

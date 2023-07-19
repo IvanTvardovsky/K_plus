@@ -22,9 +22,9 @@ class SecondBlock extends React.Component {
                number: -1
             },
             risk4Data: {
-            ans: 'none',
-            cat: -1,
-            number: -1
+               ans: 'none',
+               cat: -1,
+               number: -1
             },
             risk8Data: {
                ans: 'none',
@@ -35,7 +35,7 @@ class SecondBlock extends React.Component {
                ans: 'none',
                cat: -1,
                number: -1
-           }   
+            }
          }
       };
       this.ClickToBlock = this.ClickToBlock.bind(this)
@@ -54,25 +54,25 @@ class SecondBlock extends React.Component {
 
    handleRisk2Data = (data) => {
       this.setState((prevState) => ({
-          SecondData: {
-              ...prevState.SecondData,
-              risk2Data: {
-                  ans: data.ans,
-                  cat: data.cat,
-                  number: data.number,
-              },
-          },
+         SecondData: {
+            ...prevState.SecondData,
+            risk2Data: {
+               ans: data.ans,
+               cat: data.cat,
+               number: data.number,
+            },
+         },
       }));
-  };
-    
+   };
+
    handleRisk3Data = (data) => {
       this.setState((prevState) => ({
          SecondData: {
             ...prevState.SecondData,
             risk3Data: {
-                  ans: data.ans,
-                  cat: data.cat,
-                  number: data.number,
+               ans: data.ans,
+               cat: data.cat,
+               number: data.number,
             },
          },
       }));
@@ -80,48 +80,48 @@ class SecondBlock extends React.Component {
 
    handleRisk4Data = (data) => {
       this.setState((prevState) => ({
-          SecondData: {
-              ...prevState.SecondData,
-              risk4Data: {
-                  ans: data.ans,
-                  cat: data.cat,
-                  number: data.number,
-              },
-          },
+         SecondData: {
+            ...prevState.SecondData,
+            risk4Data: {
+               ans: data.ans,
+               cat: data.cat,
+               number: data.number,
+            },
+         },
       }));
    };
 
    handleRisk8Data = (data) => {
       this.setState((prevState) => ({
-          SecondData: {
-              ...prevState.SecondData,
-              risk8Data: {
-                  ans: data.ans,
-                  cat: data.cat,
-                  number: data.number,
-              },
-          },
+         SecondData: {
+            ...prevState.SecondData,
+            risk8Data: {
+               ans: data.ans,
+               cat: data.cat,
+               number: data.number,
+            },
+         },
       }));
    };
 
    handleRisk11Data = (data) => {
       this.setState((prevState) => ({
-          SecondData: {
-              ...prevState.SecondData,
-              risk11Data: {
-                  ans: data.ans,
-                  cat: data.cat,
-                  number: data.number,
-              },
-          },
+         SecondData: {
+            ...prevState.SecondData,
+            risk11Data: {
+               ans: data.ans,
+               cat: data.cat,
+               number: data.number,
+            },
+         },
       }));
-  };
+   };
 
-  componentDidUpdate(prevProps, prevState) {
+   componentDidUpdate(prevProps, prevState) {
       if (this.state.SecondData !== prevState.SecondData) {
          this.props.onData(this.state.SecondData);
       }
-  }
+   }
 
    render() {
       const {SecondData} = this.state;

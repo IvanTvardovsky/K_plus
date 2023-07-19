@@ -1,6 +1,6 @@
 import React from "react";
 
-function Welcome({ onContinue }) {
+function Welcome({onContinue}) {
    return (
       <div>
          <h1>Добро пожаловать!</h1>

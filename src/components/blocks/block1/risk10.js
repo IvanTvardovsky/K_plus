@@ -1,8 +1,8 @@
 import React from "react";
 import {BiSolidRightArrow} from "react-icons/bi"
-import { BsQuestionCircleFill } from 'react-icons/bs'
+import {BsQuestionCircleFill} from 'react-icons/bs'
 
-class Risk10 extends React.Component{
+class Risk10 extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
@@ -21,6 +21,7 @@ class Risk10 extends React.Component{
       this.handleMouseEnter = this.handleMouseEnter.bind(this);
       this.handleMouseLeave = this.handleMouseLeave.bind(this);
    }
+
    quests = [
       {
          number: 1,
@@ -50,22 +51,21 @@ class Risk10 extends React.Component{
                index === 0 ? false : item
             )
          }));
-         this.setState({ 
-            riskanswer:{
+         this.setState({
+            riskanswer: {
                ans: 'Риска нет',
                cat: 0,
                number: 0
             }
          });
-      }
-      else {
+      } else {
          this.setState(prevState => ({
             ans: prevState.ans.map((item, index) =>
                index === 0 ? true : item
             )
          }));
-         this.setState({ 
-            riskanswer:{
+         this.setState({
+            riskanswer: {
                ans: 'Риск есть',
                cat: 3,
                number: 1
@@ -77,13 +77,13 @@ class Risk10 extends React.Component{
    handleMouseEnter = (index) => {
       const updatedVisible = [...this.state.visible];
       updatedVisible[index] = true;
-      this.setState({ visible: updatedVisible });
+      this.setState({visible: updatedVisible});
    };
 
    handleMouseLeave = (index) => {
       const updatedVisible = [...this.state.visible];
       updatedVisible[index] = false;
-      this.setState({ visible: updatedVisible });
+      this.setState({visible: updatedVisible});
    };
 
    componentDidUpdate(prevProps, prevState) {
@@ -93,12 +93,12 @@ class Risk10 extends React.Component{
    }
 
 
-   render(){
-      const { ans, click, isClicked, visible } = this.state;
+   render() {
+      const {ans, click, isClicked, visible} = this.state;
       const tooltips = [
          `<b>Право собственности</b> - это право гражданина владеть, пользоваться и распоряжаться имуществом.`
       ];
-      return(
+      return (
          <div className="Risk">
             <div className="RiskName">
                <BiSolidRightArrow
@@ -111,7 +111,7 @@ class Risk10 extends React.Component{
                <div>
                   <div className="Question">
                      <div className="QuestTool">
-                        <p>{this.quests[0].question}</p> 
+                        <p className="bigger">{this.quests[0].question}</p>
                         <BsQuestionCircleFill
                            className="QuestIcon"
                            onMouseEnter={() => this.handleMouseEnter(0)}
@@ -119,19 +119,23 @@ class Risk10 extends React.Component{
                         />
                         <div className="ToolContainer">
                            <div
-                                 className="Tooltip"
-                                 onMouseEnter={() => this.handleMouseEnter(0)}
-                                 onMouseLeave={() => this.handleMouseLeave(0)}
-                                 style={{
-                                    display: visible[0] ? "block" : "none"
-                                 }}
-                                 dangerouslySetInnerHTML={{ __html: tooltips[0] }}
+                              className="Tooltip"
+                              onMouseEnter={() => this.handleMouseEnter(0)}
+                              onMouseLeave={() => this.handleMouseLeave(0)}
+                              style={{
+                                 display: visible[0] ? "block" : "none"
+                              }}
+                              dangerouslySetInnerHTML={{__html: tooltips[0]}}
                            >
                            </div>
                         </div>
                      </div>
-                     <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('да')}>Да</button>
-                     <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('нет')}>Нет</button>
+                     <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`}
+                             onClick={() => this.handleAnswer1('да')}>Да
+                     </button>
+                     <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`}
+                             onClick={() => this.handleAnswer1('нет')}>Нет
+                     </button>
                   </div>
                   {click[0] && (
                      <div>
@@ -141,7 +145,7 @@ class Risk10 extends React.Component{
                            </div>
                         ) : (
                            <div className="Answer">
-                               <p>{this.quests[0].answer}</p>
+                              <p>{this.quests[0].answer}</p>
                            </div>
                         )}
                      </div>

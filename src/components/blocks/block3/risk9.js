@@ -1,82 +1,83 @@
 import React from "react";
 import {BiSolidRightArrow} from "react-icons/bi"
-import { BsQuestionCircleFill } from 'react-icons/bs'
+import {BsQuestionCircleFill} from 'react-icons/bs'
 
 class Risk9 extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            ans: [false],
-            click: [false],
-            isClicked: false,
-            visible: [false],
-            riskanswer: {
-                ans: 'none',
-                cat: -1,
-                number: -1
-             }
-        };
-        this.handleAnswer1 = this.handleAnswer1.bind(this);
-        this.ClickToBlock = this.ClickToBlock.bind(this);
-        this.handleMouseEnter = this.handleMouseEnter.bind(this);
-        this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    }
-    quests = [
-        {
-           number: 1,
-           question: 'Знаете ли Вы о привлечении истца в качестве ответчика?',
-           answer: 'Риск есть.',
-           ansCheck: false,
-           help: false
-        }
-     ]
-    ClickToBlock = (event) => {
-        if (event.target.tagName !== 'BUTTON') {
-            this.setState((prevState) => ({
-                isClicked: !prevState.isClicked
-            }));
-        }
-    };
+   constructor(props) {
+      super(props);
+      this.state = {
+         ans: [false],
+         click: [false],
+         isClicked: false,
+         visible: [false],
+         riskanswer: {
+            ans: 'none',
+            cat: -1,
+            number: -1
+         }
+      };
+      this.handleAnswer1 = this.handleAnswer1.bind(this);
+      this.ClickToBlock = this.ClickToBlock.bind(this);
+      this.handleMouseEnter = this.handleMouseEnter.bind(this);
+      this.handleMouseLeave = this.handleMouseLeave.bind(this);
+   }
 
-    handleAnswer1 = (answer) => {
-        this.setState((prevState) => ({
-            click: prevState.click.map((item, index) => (index === 0 ? true : item))
-        }));
-        if (answer === 'да') {
-            this.setState((prevState) => ({
-                ans: prevState.ans.map((item, index) => (index === 0 ? false : item))
-            }));
-            this.setState({ 
-                riskanswer:{
-                   ans: 'Риска нет',
-                   cat: 0,
-                   number: 0
-                }
-             });
-        } else {
-            this.setState((prevState) => ({
-                ans: prevState.ans.map((item, index) => (index === 0 ? true : item))
-            }));
-            this.setState({ 
-                riskanswer:{
-                   ans: 'Риск есть',
-                   cat: 1,
-                   number: 1
-                }
-             });
-        }
-    };
-    handleMouseEnter = (index) => {
-        const updatedVisible = [...this.state.visible];
-        updatedVisible[index] = true;
-        this.setState({ visible: updatedVisible });
-     };
-  
-     handleMouseLeave = (index) => {
-        const updatedVisible = [...this.state.visible];
-        updatedVisible[index] = false;
-        this.setState({ visible: updatedVisible });
-     };
+   quests = [
+      {
+         number: 1,
+         question: 'Знаете ли Вы о привлечении истца в качестве ответчика?',
+         answer: 'Риск есть.',
+         ansCheck: false,
+         help: false
+      }
+   ]
+   ClickToBlock = (event) => {
+      if (event.target.tagName !== 'BUTTON') {
+         this.setState((prevState) => ({
+            isClicked: !prevState.isClicked
+         }));
+      }
+   };
+
+   handleAnswer1 = (answer) => {
+      this.setState((prevState) => ({
+         click: prevState.click.map((item, index) => (index === 0 ? true : item))
+      }));
+      if (answer === 'да') {
+         this.setState((prevState) => ({
+            ans: prevState.ans.map((item, index) => (index === 0 ? false : item))
+         }));
+         this.setState({
+            riskanswer: {
+               ans: 'Риска нет',
+               cat: 0,
+               number: 0
+            }
+         });
+      } else {
+         this.setState((prevState) => ({
+            ans: prevState.ans.map((item, index) => (index === 0 ? true : item))
+         }));
+         this.setState({
+            riskanswer: {
+               ans: 'Риск есть',
+               cat: 1,
+               number: 1
+            }
+         });
+      }
+   };
+   handleMouseEnter = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = true;
+      this.setState({visible: updatedVisible});
+   };
+
+   handleMouseLeave = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = false;
+      this.setState({visible: updatedVisible});
+   };
 
      componentDidUpdate(prevProps, prevState) {
         if (this.state.riskanswer !== prevState.riskanswer) {
@@ -96,7 +97,7 @@ class Risk9 extends React.Component {
                         className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
                         onClick={this.ClickToBlock}
                     />
-                    <h3>Риск №11:  Продавец-ответчик в судебном споре</h3>
+                    <h3>Риск №11:  Продавец-Ответчик в судах общей юрисдикции</h3>
                 </div>
                {this.state.isClicked && (
                     <div>
