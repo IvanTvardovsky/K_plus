@@ -7,6 +7,7 @@ import {BsCheckCircle} from "react-icons/bs"
 import {BsExclamationCircle} from "react-icons/bs"
 import {BsDashCircle} from "react-icons/bs"
 import {BsXCircle} from "react-icons/bs"
+import {Link} from 'react-router-dom';
 
 
 class Blocks extends React.Component {
@@ -252,7 +253,9 @@ class Blocks extends React.Component {
                            && (answers.fourth.risk13.q1.cat === 0) && (answers.fourth.risk13.q2.cat === 0)) ? (
                            <div>
                               <h2> Риски не выявлены! </h2>
-                              <h2> Ознакомиться с возможными рисками вы можете в разделе справочник.</h2>
+                              <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
+                                 <Link to="/handbook">справочник</Link>!справочник.
+                              </h2>
                            </div>
                         ) : (
                            <div>
@@ -327,7 +330,9 @@ class Blocks extends React.Component {
                                     )}
                                  </div>
                               </div>
-                              <h2> Ознакомиться с возможными рисками вы можете в разделе справочник.</h2>
+                              <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
+                                 <Link to="/handbook">справочник</Link>.
+                              </h2>
                            </div>
                         )}
                      </div>
@@ -802,8 +807,10 @@ class Blocks extends React.Component {
                                  )}
                               </div>
                               <div>
-                                 <h2>Рекомендуем для более подробного ознакомления с рисками перейти в раздел
-                                    справочник!</h2>
+                                 <h2>
+                                    Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
+                                    <Link to="/handbook">справочник</Link>!
+                                 </h2>
                               </div>
                            </div>
                         ) : (
@@ -1340,8 +1347,10 @@ class Blocks extends React.Component {
                                     )}
                                  </div>
                               </div>
-                              <h2> Рекомендуем для более подробного ознакомления с рисками перейти в раздел
-                                 справочник!</h2>
+                              <h2>
+                                 Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
+                                 <Link to="/handbook">справочник</Link>!
+                              </h2>
                            </div>
                         )}
                      </div>

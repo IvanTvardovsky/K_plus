@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fad232;
+    background-color: #1ea823;
     padding: 10px;
     border: 1px solid rgb(224, 185, 29);
     font-size: x-large;
@@ -42,6 +42,7 @@
 .navbar-menu-list li {
     display: inline-block;
     margin-right: 70px;
+    padding-left: 40px; /* Adjust the padding value as needed */
 }
 
 .navbar-menu-list li:last-child {
@@ -56,6 +57,11 @@
 .navbar-menu-list li a:hover {
     color: #000;
 }
+
+.highlight-link {
+    font-weight: bold;
+}
+
 
 .Risks {
     border: 2px solid #b1aeae;
@@ -310,6 +316,7 @@
 
 .infoText {
     margin-top: 5px;
+    margin-bottom: 50px;
 }
 
 #guidebookTitle {
@@ -421,4 +428,8 @@
 #perenos {
     white-space: nowrap;
     margin-right: 5px;
+}
+
+#marginBottomInfo {
+    margin-bottom: 50px;
 }
