@@ -341,18 +341,18 @@ class Blocks extends React.Component {
                      <div>
                         <h3>Обозначения:</h3>
                         <div className="reportIcons">
-                            <div className="reportIconsInfo">
-                                <BsExclamationCircle className="conclusionIconInfo" color="#e4f52c" size={24}/>
-                                <h4>- Низкая степень опасности риска для сделки</h4>
-                            </div>
-                            <div className="reportIconsInfo">
-                                <BsDashCircle className="conclusionIconInfo" color="orange" size={24}/>
-                                <h4>- Средняя степень опасности риска для сделки</h4>
-                            </div>
-                            <div className="reportIconsInfo">
-                                <BsXCircle className="conclusionIconInfo" color="red" size={24}/>
-                                <h4>- Высокая степень опасности риска для сделки</h4>
-                            </div>
+                           <div className="reportIconsInfo">
+                              <BsExclamationCircle className="conclusionIconInfo" color="#e4f52c" size={24}/>
+                              <h4>- Низкая степень опасности риска для сделки</h4>
+                           </div>
+                           <div className="reportIconsInfo">
+                              <BsDashCircle className="conclusionIconInfo" color="orange" size={24}/>
+                              <h4>- Средняя степень опасности риска для сделки</h4>
+                           </div>
+                           <div className="reportIconsInfo">
+                              <BsXCircle className="conclusionIconInfo" color="red" size={24}/>
+                              <h4>- Высокая степень опасности риска для сделки</h4>
+                           </div>
                         </div>
                         <h2> Выявлены следующие риски: </h2>
                         {((answers.first.risk1.cat > -1) && (answers.first.risk10.cat > -1) && (answers.second.risk2.cat > -1) && (answers.second.risk3.cat > -1)
@@ -461,9 +461,10 @@ class Blocks extends React.Component {
                                                 <div>
                                                    <div className="Rec">
                                                       <h3>Рекомендации:</h3>
-                                                      <p> Есть риск, что межевание не соответствует выписке ЕГРН,
+                                                      <p> Есть риск, что межевание не соответствует выписке из ЕГРН,
                                                          поэтому: </p>
-                                                      <p> Проверьте с помощью публичной кадастровой карты
+                                                      <p> Проверьте межевой план и акт согласования границ с помощью
+                                                         публичной кадастровой карты
                                                          Росреестра: <br/>
                                                          Сылка №1 https://www.gosuslugi.ru/378659/1/info <br/>
                                                          Ссылка № 2
@@ -937,9 +938,10 @@ class Blocks extends React.Component {
                                                 <div>
                                                    <div className="Rec">
                                                       <h3>Рекомендации:</h3>
-                                                      <p> Есть риск, что межевание не соответствует выписке ЕГРН,
+                                                      <p> Есть риск, что межевание не соответствует выписке из ЕГРН,
                                                          поэтому: </p>
-                                                      <p> Проверьте с помощью публичной кадастровой карты
+                                                      <p> Проверьте межевой план и акт согласования границ с помощью
+                                                         публичной кадастровой карты
                                                          Росреестра: <br/>
                                                          Ссылка №1 https://www.gosuslugi.ru/378659/1/info <br/>
                                                          Ссылка №2

@@ -9,7 +9,7 @@ class Risk3 extends React.Component {
          ans: [false, false, false, false],
          click: [false, false, false, false],
          isClicked: false,
-         visible: [false, false],
+         visible: [false, false, false, false],
          riskanswer: {
             ans: 'none',
             cat: -1,
@@ -215,6 +215,7 @@ class Risk3 extends React.Component {
                     <li>земли водного фонда;</li>
                     <li>земли запаса.</li>
                 </ul>`,
+         `Посмотреть все виды разрешенного использования и их описание можно в Приказе Росреестра от 10.11.2020 N П/0412 по ссылке: https://docs.cntd.ru/document/573114694`,
          `Должно быть подтверждено соответствующими документами: 
                 <ul className='list'>
                     <li> Публичная кадастровая карта Росреестра; </li>
@@ -267,7 +268,26 @@ class Risk3 extends React.Component {
                      <div>
                         {!ans[0] ? (
                            <div className="Question">
-                              <p className="bigger">{this.quests[1].question}</p>
+                              <div className="QuestTool">
+                                 <p className="bigger">{this.quests[1].question}</p>
+                                 <BsQuestionCircleFill
+                                    className="QuestIcon"
+                                    onMouseEnter={() => this.handleMouseEnter(1)}
+                                    onMouseLeave={() => this.handleMouseLeave(1)}
+                                 />
+                                 <div className="ToolContainer">
+                                    <div
+                                       className="Tooltip"
+                                       onMouseEnter={() => this.handleMouseEnter(1)}
+                                       onMouseLeave={() => this.handleMouseLeave(1)}
+                                       style={{
+                                          display: visible[1] ? "block" : "none"
+                                       }}
+                                       dangerouslySetInnerHTML={{__html: tooltips[1]}}
+                                    >
+                                    </div>
+                                 </div>
+                              </div>
                               <button className={`ans-btn ${click[1] && !ans[1] ? 'active' : ''}`}
                                       onClick={() => this.handleAnswer2('да')}>Да
                               </button>
@@ -290,18 +310,18 @@ class Risk3 extends React.Component {
                                  <p className="bigger">{this.quests[2].question}</p>
                                  <BsQuestionCircleFill
                                     className="QuestIcon"
-                                    onMouseEnter={() => this.handleMouseEnter(1)}
-                                    onMouseLeave={() => this.handleMouseLeave(1)}
+                                    onMouseEnter={() => this.handleMouseEnter(2)}
+                                    onMouseLeave={() => this.handleMouseLeave(2)}
                                  />
                                  <div className="ToolContainer">
                                     <div
                                        className="Tooltip"
-                                       onMouseEnter={() => this.handleMouseEnter(1)}
-                                       onMouseLeave={() => this.handleMouseLeave(1)}
+                                       onMouseEnter={() => this.handleMouseEnter(2)}
+                                       onMouseLeave={() => this.handleMouseLeave(2)}
                                        style={{
-                                          display: visible[1] ? "block" : "none"
+                                          display: visible[2] ? "block" : "none"
                                        }}
-                                       dangerouslySetInnerHTML={{__html: tooltips[1]}}
+                                       dangerouslySetInnerHTML={{__html: tooltips[2]}}
                                     >
                                     </div>
                                  </div>
@@ -328,18 +348,18 @@ class Risk3 extends React.Component {
                                  <p className="bigger">{this.quests[3].question}</p>
                                  <BsQuestionCircleFill
                                     className="QuestIcon"
-                                    onMouseEnter={() => this.handleMouseEnter(2)}
-                                    onMouseLeave={() => this.handleMouseLeave(2)}
+                                    onMouseEnter={() => this.handleMouseEnter(3)}
+                                    onMouseLeave={() => this.handleMouseLeave(3)}
                                  />
                                  <div className="ToolContainer">
                                     <div
                                        className="Tooltip"
-                                       onMouseEnter={() => this.handleMouseEnter(2)}
-                                       onMouseLeave={() => this.handleMouseLeave(2)}
+                                       onMouseEnter={() => this.handleMouseEnter(3)}
+                                       onMouseLeave={() => this.handleMouseLeave(3)}
                                        style={{
-                                          display: visible[2] ? "block" : "none"
+                                          display: visible[3] ? "block" : "none"
                                        }}
-                                       dangerouslySetInnerHTML={{__html: tooltips[2]}}
+                                       dangerouslySetInnerHTML={{__html: tooltips[3]}}
                                     >
                                     </div>
                                  </div>
