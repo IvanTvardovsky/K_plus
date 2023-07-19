@@ -25,7 +25,7 @@ class Risk9 extends React.Component {
    quests = [
       {
          number: 1,
-         question: 'Знаете ли Вы о привлечении истца в качестве ответчика?',
+         question: 'Знаете ли Вы о привлечении Продавца в качестве ответчика?',
          answer: 'Риск есть.',
          ansCheck: false,
          help: false

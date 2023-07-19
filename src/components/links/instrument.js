@@ -12,7 +12,7 @@ class Instrument extends React.Component {
                {items.map((item, index) => (
                   <div key={index} className="Docs">
                      <div className="Bullet"></div>
-                     <label className="Docs">{item.label}</label>
+                     <label className="Docs bigger">{item.label}</label>
                   </div>
                ))}
                <Link to="/blocks">

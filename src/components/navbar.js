@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.webp";
+import logo from "../images/logo.png";
 import Image from "./image";
+
 
 class Navbar extends React.Component {
    getCurrentDate() {

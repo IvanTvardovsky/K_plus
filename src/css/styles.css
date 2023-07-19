@@ -16,10 +16,6 @@
     padding: 10px;
 }
 
-.navbar-logo {
-    flex-basis: 10%;
-}
-
 .navbar-logo img {
     height: 90px;
 }
@@ -62,6 +58,11 @@
     font-weight: bold;
 }
 
+.rounded-image {
+    border-radius: 10%;
+    margin-left: 25px;
+    transform: scale(1.2);
+}
 
 .Risks {
     border: 2px solid #b1aeae;
