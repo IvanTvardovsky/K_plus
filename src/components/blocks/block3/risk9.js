@@ -79,74 +79,70 @@ class Risk9 extends React.Component {
       this.setState({visible: updatedVisible});
    };
 
-   componentDidUpdate(prevProps, prevState) {
-      if (this.state.riskanswer !== prevState.riskanswer) {
-         this.props.onData(this.state.riskanswer);
-      }
-   }
-
-   render() {
-      const {ans, click, isClicked, visible} = this.state;
-      const tooltips = [
-         `Ответчик на момент заключения сделки `
-      ];
-      return (
-         <div className="Risk">
-            <div className="RiskName">
-               <BiSolidRightArrow
-                  className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
-                  onClick={this.ClickToBlock}
-               />
-               <h3>Риск №11: Продавец-ответчик в судебном споре</h3>
-            </div>
-            {this.state.isClicked && (
-               <div>
-                  <div className="Question">
-                     <div className="QuestTool">
-                        <p className="bigger">{this.quests[0].question}</p>
-                        <BsQuestionCircleFill
-                           className="QuestIcon"
-                           onMouseEnter={() => this.handleMouseEnter(0)}
-                           onMouseLeave={() => this.handleMouseLeave(0)}
-                        />
-                        <div className="ToolContainer">
-                           <div
-                              className="Tooltip"
-                              onMouseEnter={() => this.handleMouseEnter(0)}
-                              onMouseLeave={() => this.handleMouseLeave(0)}
-                              style={{
-                                 display: visible[0] ? "block" : "none"
-                              }}
-                              dangerouslySetInnerHTML={{__html: tooltips[0]}}
-                           >
-                           </div>
+     componentDidUpdate(prevProps, prevState) {
+        if (this.state.riskanswer !== prevState.riskanswer) {
+           this.props.onData(this.state.riskanswer);
+        }
+     }
+     
+    render() {
+        const { ans, click, isClicked, visible } = this.state;
+        const tooltips = [
+            `Ответчик на момент заключения сделки `
+         ];
+        return (
+           <div className="Risk">
+                <div className="RiskName">
+                    <BiSolidRightArrow
+                        className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
+                        onClick={this.ClickToBlock}
+                    />
+                    <h3>Риск №11:  Продавец-Ответчик в судах общей юрисдикции</h3>
+                </div>
+               {this.state.isClicked && (
+                    <div>
+                        <div className="Question">
+                            <div className="QuestTool">
+                                <p>{this.quests[0].question}</p> 
+                                <BsQuestionCircleFill
+                                    className="QuestIcon"
+                                    onMouseEnter={() => this.handleMouseEnter(0)}
+                                    onMouseLeave={() => this.handleMouseLeave(0)}
+                                />
+                                <div className="ToolContainer">
+                                    <div
+                                        className="Tooltip"
+                                        onMouseEnter={() => this.handleMouseEnter(0)}
+                                        onMouseLeave={() => this.handleMouseLeave(0)}
+                                        style={{
+                                            display: visible[0] ? "block" : "none"
+                                        }}
+                                        dangerouslySetInnerHTML={{ __html: tooltips[0] }}
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                            <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('да')}>Да</button>
+                            <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('нет')}>Нет</button>
                         </div>
-                     </div>
-                     <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`}
-                             onClick={() => this.handleAnswer1('да')}>Да
-                     </button>
-                     <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`}
-                             onClick={() => this.handleAnswer1('нет')}>Нет
-                     </button>
-                  </div>
-                  {click[0] && (
-                     <div>
-                        {!ans[0] ? (
-                           <div className="Answer">
-                              <p>Риска нет.</p>
-                           </div>
-                        ) : (
-                           <div className="Answer">
-                              <p>{this.quests[0].answer}</p>
-                           </div>
+                        {click[0] && (
+                        <div>
+                            {!ans[0] ? (
+                            <div className="Answer">
+                                <p>Риска нет.</p>
+                            </div>
+                            ) : (
+                            <div className="Answer">
+                                <p>{this.quests[0].answer}</p>
+                            </div>
+                            )}
+                        </div>
                         )}
-                     </div>
-                  )}
-               </div>
-            )}
-         </div>
-      );
-   }
+                    </div>
+               )}
+           </div>
+        );
+    }
 }
 
 export default Risk9;
