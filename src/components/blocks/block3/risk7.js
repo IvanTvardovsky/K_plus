@@ -3,40 +3,41 @@ import {BiSolidRightArrow} from "react-icons/bi"
 import {BsQuestionCircleFill} from 'react-icons/bs'
 
 class Risk7 extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            ans: [false],
-            click: [false],
-            isClicked: false,
-            visible: [false],
-            riskanswer: {
-                ans: 'none',
-                cat: -1,
-                number: -1
-             }
-        };
-        this.handleAnswer1 = this.handleAnswer1.bind(this);
-        this.ClickToBlock = this.ClickToBlock.bind(this);
-        this.handleMouseEnter = this.handleMouseEnter.bind(this);
-        this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    }
-    quests = [
-        {
-           number: 1,
-           question: 'Продавец был найден в реестре лиц, причастных к экстремизму и другим преступлениям?',
-           answer: 'Риска нет.',
-           ansCheck: false,
-           help: false
-        }
-     ]
-    ClickToBlock = (event) => {
-        if (event.target.tagName !== 'BUTTON') {
-            this.setState((prevState) => ({
-                isClicked: !prevState.isClicked
-            }));
-        }
-    };
+   constructor(props) {
+      super(props);
+      this.state = {
+         ans: [false],
+         click: [false],
+         isClicked: false,
+         visible: [false],
+         riskanswer: {
+            ans: 'none',
+            cat: -1,
+            number: -1
+         }
+      };
+      this.handleAnswer1 = this.handleAnswer1.bind(this);
+      this.ClickToBlock = this.ClickToBlock.bind(this);
+      this.handleMouseEnter = this.handleMouseEnter.bind(this);
+      this.handleMouseLeave = this.handleMouseLeave.bind(this);
+   }
+
+   quests = [
+      {
+         number: 1,
+         question: 'Уверены ли Вы, что Продавец не был найден в реестре лиц, причастных к экстремизму и другим преступлениям?',
+         answer: 'Риска нет.',
+         ansCheck: false,
+         help: false
+      }
+   ]
+   ClickToBlock = (event) => {
+      if (event.target.tagName !== 'BUTTON') {
+         this.setState((prevState) => ({
+            isClicked: !prevState.isClicked
+         }));
+      }
+   };
 
    handleAnswer1 = (answer) => {
       this.setState((prevState) => ({
@@ -84,64 +85,68 @@ class Risk7 extends React.Component {
       }
    }
 
-    render() {
-        const { ans, click, isClicked, visible } = this.state;
-        const tooltips = [
-            `<b>Экстремизм</b> - это криминальное явление, направленное против основ конституционного строя и безопасности государства. `
-         ];
-        return (
-           <div className="Risk">
-                <div className="RiskName">
-                    <BiSolidRightArrow
-                        className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
-                        onClick={this.ClickToBlock}
-                    />
-                    <h3>Риск №10:  Причастность к экстремизму и другим преступлениям</h3>
-                </div>
-               {this.state.isClicked && (
-                    <div>
-                        <div className="Question">
-                            <div className="QuestTool">
-                                <p>{this.quests[0].question}</p> 
-                                <BsQuestionCircleFill
-                                    className="QuestIcon"
-                                    onMouseEnter={() => this.handleMouseEnter(0)}
-                                    onMouseLeave={() => this.handleMouseLeave(0)}
-                                />
-                                <div className="ToolContainer">
-                                    <div
-                                        className="Tooltip"
-                                        onMouseEnter={() => this.handleMouseEnter(0)}
-                                        onMouseLeave={() => this.handleMouseLeave(0)}
-                                        style={{
-                                            display: visible[0] ? "block" : "none"
-                                        }}
-                                        dangerouslySetInnerHTML={{ __html: tooltips[0] }}
-                                    >
-                                    </div>
-                                </div>
-                            </div>
-                            <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('да')}>Да</button>
-                            <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`} onClick={() => this.handleAnswer1('нет')}>Нет</button>
+   render() {
+      const {ans, click, isClicked, visible} = this.state;
+      const tooltips = [
+         `<b>Экстремизм</b> - это криминальное явление, направленное против основ конституционного строя и безопасности государства. `
+      ];
+      return (
+         <div className="Risk">
+            <div className="RiskName">
+               <BiSolidRightArrow
+                  className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
+                  onClick={this.ClickToBlock}
+               />
+               <h3>Риск №10: Причастность к экстремизму и другим преступлениям</h3>
+            </div>
+            {this.state.isClicked && (
+               <div>
+                  <div className="Question">
+                     <div className="QuestTool">
+                        <p className="bigger">{this.quests[0].question}</p>
+                        <BsQuestionCircleFill
+                           className="QuestIcon"
+                           onMouseEnter={() => this.handleMouseEnter(0)}
+                           onMouseLeave={() => this.handleMouseLeave(0)}
+                        />
+                        <div className="ToolContainer">
+                           <div
+                              className="Tooltip"
+                              onMouseEnter={() => this.handleMouseEnter(0)}
+                              onMouseLeave={() => this.handleMouseLeave(0)}
+                              style={{
+                                 display: visible[0] ? "block" : "none"
+                              }}
+                              dangerouslySetInnerHTML={{__html: tooltips[0]}}
+                           >
+                           </div>
                         </div>
-                        {click[0] && (
-                        <div>
-                            {!ans[0] ? (
-                            <div className="Answer">
-                                <p>Риск есть.</p>
-                            </div>
-                            ) : (
-                            <div className="Answer">
-                                <p>{this.quests[0].answer}</p>
-                            </div>
-                            )}
-                        </div>
+                     </div>
+                     <button className={`ans-btn ${click[0] && !ans[0] ? 'active' : ''}`}
+                             onClick={() => this.handleAnswer1('да')}>Да
+                     </button>
+                     <button className={`ans-btn ${click[0] && ans[0] ? 'active' : ''}`}
+                             onClick={() => this.handleAnswer1('нет')}>Нет
+                     </button>
+                  </div>
+                  {click[0] && (
+                     <div>
+                        {!ans[0] ? (
+                           <div className="Answer">
+                              <p>Риск есть.</p>
+                           </div>
+                        ) : (
+                           <div className="Answer">
+                              <p>{this.quests[0].answer}</p>
+                           </div>
                         )}
-                    </div>
-               )}
-           </div>
-        );
-    }
+                     </div>
+                  )}
+               </div>
+            )}
+         </div>
+      );
+   }
 }
 
 export default Risk7;

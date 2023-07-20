@@ -176,7 +176,7 @@ class Guidebook extends React.Component {
 
 
             <div className="risk">
-               <h2 className="risk-title">Риск №11: Продавец-ответчик в судебном споре</h2>
+               <h2 className="risk-title">Риск №11: Продавец-Ответчик в судебном споре</h2>
                <p className="normal bigger"><span className="starIcon">&#10033;</span>Риск приобретения земельного
                   участка, где
                   продавец является ответчиком в судах общей юрисдикции, заключается в возможных судебных спорах и

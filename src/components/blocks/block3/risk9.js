@@ -97,13 +97,13 @@ class Risk9 extends React.Component {
                         className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
                         onClick={this.ClickToBlock}
                     />
-                    <h3>Риск №11:  Продавец-Ответчик в судах общей юрисдикции</h3>
+                    <h3>Риск №11: Продавец-Ответчик в судебном споре</h3>
                 </div>
                {this.state.isClicked && (
                     <div>
                         <div className="Question">
                             <div className="QuestTool">
-                                <p>{this.quests[0].question}</p> 
+                                <p className="bigger">{this.quests[0].question}</p>
                                 <BsQuestionCircleFill
                                     className="QuestIcon"
                                     onMouseEnter={() => this.handleMouseEnter(0)}

@@ -446,3 +446,8 @@
 .reportIconsInfo{
     display: flex;
 }
+
+.warning {
+    font-style: italic;
+    color: #32363d;
+}
