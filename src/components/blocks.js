@@ -8,7 +8,8 @@ import {BsExclamationCircle} from "react-icons/bs"
 import {BsDashCircle} from "react-icons/bs"
 import {BsXCircle} from "react-icons/bs"
 import {Link} from 'react-router-dom';
-import jsPDF from "jspdf";
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import Report from './report';
 
 
 class Blocks extends React.Component {
@@ -254,6 +255,9 @@ class Blocks extends React.Component {
                            && (answers.fourth.risk13.q1.cat === 0) && (answers.fourth.risk13.q2.cat === 0)) ? (
                            <div>
                               <h2> Риски не выявлены! </h2>
+                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                              </PDFDownloadLink>
                               <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
                                  <Link to="/handbook">справочник</Link>!справочник.
                               </h2>
@@ -331,6 +335,9 @@ class Blocks extends React.Component {
                                     )}
                                  </div>
                               </div>
+                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                              </PDFDownloadLink>
                               <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
                                  <Link to="/handbook">справочник</Link>.
                               </h2>
@@ -823,6 +830,9 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
+                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                              </PDFDownloadLink>
                               <div>
                                  <h2>
                                     Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
@@ -1365,6 +1375,9 @@ class Blocks extends React.Component {
                                     )}
                                  </div>
                               </div>
+                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                              </PDFDownloadLink>
                               <h2>
                                  Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
                                  <Link to="/handbook">справочник</Link>!
