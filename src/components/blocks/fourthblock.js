@@ -82,7 +82,7 @@ class FourthBlock extends React.Component {
       const {FourthData} = this.state;
       return (
          <div className="Risks">
-            <h2 onClick={this.ClickToBlock}>Блок №4 : Процесс.</h2>
+            <h2 onClick={this.ClickToBlock}>Блок №4 : Представители Продавца.</h2>
             {this.state.isClicked && (
                <div>
                   <Risk12 onData={this.handleRisk12Data}/>

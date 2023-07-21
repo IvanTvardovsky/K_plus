@@ -4,7 +4,6 @@ import SecondBlock from "./blocks/secondblock"
 import ThirdBlock from "./blocks/thirdblock";
 import FourthBlock from "./blocks/fourthblock";
 import {BsCheckCircle} from "react-icons/bs"
-import {BsExclamationCircle} from "react-icons/bs"
 import {BsDashCircle} from "react-icons/bs"
 import {BsXCircle} from "react-icons/bs"
 import {Link} from 'react-router-dom';
@@ -261,12 +260,14 @@ class Blocks extends React.Component {
                               <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
                                  <Link to="/handbook">справочник</Link>!справочник.
                               </h2>
+                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на принятие Вами итогового
+                                 решения по заключению сделки и не несет ответственность за это.</p>
                            </div>
                         ) : (
                            <div>
                               <h2> Риски не выявлены! </h2>
                               <div className="notPassed">
-                                 <h3>Обратите внимание, есть ряд рисков которые вы не прошли! </h3>
+                                 <h3>Обратите внимание, есть ряд рисков, тестирование по которым Вы не прошли! </h3>
                                  <div>
                                     {answers.first.risk1.cat === -1 && (
                                        <div>
@@ -341,6 +342,8 @@ class Blocks extends React.Component {
                               <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
                                  <Link to="/handbook">справочник</Link>.
                               </h2>
+                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на принятие Вами итогового
+                                 решения по заключению сделки и не несет ответственность за это.</p>
                            </div>
                         )}
                      </div>
@@ -348,18 +351,14 @@ class Blocks extends React.Component {
                      <div>
                         <h3>Обозначения:</h3>
                         <div className="reportIcons">
-                            <div className="reportIconsInfo">
-                                <BsExclamationCircle className="conclusionIconInfo" color="yellow" size={24}/>
-                                <h4>- Низкая степень опасности риска для сделки</h4>
-                            </div>
-                            <div className="reportIconsInfo">
-                                <BsDashCircle className="conclusionIconInfo" color="orange" size={24}/>
-                                <h4>- Средняя степень опасности риска для сделки</h4>
-                            </div>
-                            <div className="reportIconsInfo">
-                                <BsXCircle className="conclusionIconInfo" color="red" size={24}/>
-                                <h4>- Высокая степень опасности риска для сделки</h4>
-                            </div>
+                           <div className="reportIconsInfo">
+                              <BsDashCircle className="conclusionIconInfo" color="orange" size={24}/>
+                              <h4>- Сделка может быть заключена, но есть риск</h4>
+                           </div>
+                           <div className="reportIconsInfo">
+                              <BsXCircle className="conclusionIconInfo" color="red" size={24}/>
+                              <h4>- Сделка не может быть заключена</h4>
+                           </div>
                         </div>
                         <h2> Выявлены следующие риски: </h2>
                         {((answers.first.risk1.cat > -1) && (answers.first.risk10.cat > -1) && (answers.second.risk2.cat > -1) && (answers.second.risk3.cat > -1)
@@ -451,8 +450,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №3: Границы объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
-                                                                     size={36}/>
+                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>  
                                                 <h3>{answers.second.risk2.ans}</h3>
                                              </div>
                                              {answers.second.risk2.number === 1 ? (
@@ -468,11 +466,12 @@ class Blocks extends React.Component {
                                                 <div>
                                                    <div className="Rec">
                                                       <h3>Рекомендации:</h3>
-                                                      <p> Есть риск, что межевание не соответствует выписке ЕГРН,
+                                                      <p> Есть риск, что межевание не соответствует выписке из ЕГРН,
                                                          поэтому: </p>
-                                                      <p> Проверьте с помощью публичной кадастровой карты
+                                                      <p> Проверьте межевой план и акт согласования границ с помощью
+                                                         публичной кадастровой карты
                                                          Росреестра: <br/>
-                                                         Сылка №1 https://www.gosuslugi.ru/378659/1/info <br/>
+                                                         Ссылка №1 https://www.gosuslugi.ru/378659/1/info <br/>
                                                          Ссылка № 2
                                                          https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
                                                       </p>
@@ -505,7 +504,16 @@ class Blocks extends React.Component {
                                                 <div>
                                                    <div className="Rec">
                                                       <h3>Рекомендации:</h3>
-                                                      <p> Советуем Вам не заключать данную сделку. </p>
+                                                      <p> Есть риск, что использование объекта для ваших нужд
+                                                         недопустимо, поэтому: </p>
+                                                      <p>Вы можете заключить данную сделку, однако ваши планы на
+                                                         земельный участок могут быть не реализованы.
+                                                         Вид разрешенного использования земельного участка предполагает,
+                                                         что объект должен использоваться в соответствии с назначением и
+                                                         требованиями. Это ограничивает свободу ваших действий при
+                                                         пользовании объектом.
+                                                      </p>
+
                                                    </div>
                                                 </div>
                                              ) : (
@@ -514,8 +522,24 @@ class Blocks extends React.Component {
                                                       <div>
                                                          <div className="Rec">
                                                             <h3>Рекомендации:</h3>
-                                                            <p> Запросите Продавца предоставить официально
-                                                               подтвержденную информацию. </p>
+                                                            <p>Есть риск, что разрешение на использование объекта не
+                                                               подтверждено официально:</p>
+                                                            <p>Проверьте с помощью публичной кадастровой карты
+                                                               Росреестра. </p>
+                                                            <p>Ссылка №1:</p>
+                                                            <p>https://www.gosuslugi.ru/378659/1/info</p>
+                                                            <p>Ссылка №2:</p>
+                                                            <p>https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844</p>
+
+                                                            <p>Проверьте генеральный план развития местности,
+                                                               утвержденный местной администрацией.
+                                                               Например, Генплан Москвы до 2035 г. можно посмотреть по
+                                                               ссылке:</p>
+                                                            <p>https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/</p>
+                                                            <p>Проверьте Правила землепользования и застройки. Например,
+                                                               Правила землепользования и застройки города Москвы можно
+                                                               посмотреть по ссылке: </p>
+                                                            <p>https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/</p>
                                                          </div>
                                                       </div>
                                                    ) : (
@@ -524,20 +548,6 @@ class Blocks extends React.Component {
                                                             <h3>Рекомендации:</h3>
                                                             <p> Есть риск, что объект попадает в зону особого
                                                                назначения, поэтому: </p>
-                                                            <p> Проверьте с помощью публичной кадастровой карты
-                                                               Росреестра. <br/>
-                                                               Ссылка № 1: https://www.gosuslugi.ru/378659/1/info <br/>
-                                                               Ссылка № 2:
-                                                               https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
-                                                            </p>
-                                                            <p> Проверьте генеральный план развития местности,
-                                                               утвержденный местной администрацией. Например, Генплан
-                                                               Москвы до 2035 г. можно посмотреть по ссылке:
-                                                               https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/ </p>
-                                                            <p> Проверьте Правила землепользования и застройки.
-                                                               Например, Правила землепользования и застройки города
-                                                               Москвы можно посмотреть по ссылке:
-                                                               https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/</p>
                                                             <p> Проверьте информацию по земельному участку на портале
                                                                ФГИС ТП по ссылке: https://fgistp.economy.gov.ru/ </p>
                                                          </div>
@@ -589,8 +599,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск № 6: Юридическая история объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
-                                                                     size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
                                                 <h3>{answers.second.risk8.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -670,7 +679,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №8: Банкротство продавца </h2>
                                              <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.third.risk5.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -697,12 +706,12 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №9: Выплата долгов продавцом </h2>
                                              <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.third.risk6.ans}</h3>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
-                                                <p> Есть риск, что Продавец является должником, поэтому: </p>
+                                                <p> Есть риск, что Продавец является злостным должником, поэтому: </p>
                                                 <p> Проверьте Продавца в соответствующем реестре:
                                                    https://fssp.gov.ru/ </p>
                                              </div>
@@ -753,8 +762,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №11: Продавец-ответчик в судебном споре </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
-                                                                     size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
                                                 <h3>{answers.third.risk9.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -784,7 +792,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №12: Генеральная доверенность </h2>
                                              <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
                                                 <h3>{answers.fourth.risk12.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -838,6 +846,8 @@ class Blocks extends React.Component {
                                     Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
                                     <Link to="/handbook">справочник</Link>!
                                  </h2>
+                                 <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на принятие Вами итогового
+                                    решения по заключению сделки и не несет ответственность за это.</p>
                               </div>
                            </div>
                         ) : (
@@ -926,8 +936,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №3: Границы объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
-                                                                     size={36}/>
+                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>  
                                                 <h3>{answers.second.risk2.ans}</h3>
                                              </div>
                                              {answers.second.risk2.number === 1 ? (
@@ -943,11 +952,12 @@ class Blocks extends React.Component {
                                                 <div>
                                                    <div className="Rec">
                                                       <h3>Рекомендации:</h3>
-                                                      <p> Есть риск, что межевание не соответствует выписке ЕГРН,
+                                                      <p> Есть риск, что межевание не соответствует выписке из ЕГРН,
                                                          поэтому: </p>
-                                                      <p> Проверьте с помощью публичной кадастровой карты
+                                                      <p> Проверьте межевой план и акт согласования границ с помощью
+                                                         публичной кадастровой карты
                                                          Росреестра: <br/>
-                                                         Сылка №1 https://www.gosuslugi.ru/378659/1/info <br/>
+                                                         Ссылка №1 https://www.gosuslugi.ru/378659/1/info <br/>
                                                          Ссылка № 2
                                                          https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
                                                       </p>
@@ -980,7 +990,16 @@ class Blocks extends React.Component {
                                                 <div>
                                                    <div className="Rec">
                                                       <h3>Рекомендации:</h3>
-                                                      <p> Советуем Вам не заключать данную сделку. </p>
+                                                      <p> Есть риск, что использование объекта для ваших нужд
+                                                         недопустимо, поэтому: </p>
+                                                      <p>Вы можете заключить данную сделку, однако ваши планы на
+                                                         земельный участок могут быть не реализованы.
+                                                         Вид разрешенного использования земельного участка предполагает,
+                                                         что объект должен использоваться в соответствии с назначением и
+                                                         требованиями. Это ограничивает свободу ваших действий при
+                                                         пользовании объектом.
+                                                      </p>
+
                                                    </div>
                                                 </div>
                                              ) : (
@@ -989,8 +1008,24 @@ class Blocks extends React.Component {
                                                       <div>
                                                          <div className="Rec">
                                                             <h3>Рекомендации:</h3>
-                                                            <p> Запросите Продавца предоставить официально
-                                                               подтвержденную информацию. </p>
+                                                            <p>Есть риск, что разрешение на использование объекта не
+                                                               подтверждено официально:</p>
+                                                            <p>Проверьте с помощью публичной кадастровой карты
+                                                               Росреестра. </p>
+                                                            <p>Ссылка №1:</p>
+                                                            <p>https://www.gosuslugi.ru/378659/1/info</p>
+                                                            <p>Ссылка №2:</p>
+                                                            <p>https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844</p>
+
+                                                            <p>Проверьте генеральный план развития местности,
+                                                               утвержденный местной администрацией.
+                                                               Например, Генплан Москвы до 2035 г. можно посмотреть по
+                                                               ссылке:</p>
+                                                            <p>https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/</p>
+                                                            <p>Проверьте Правила землепользования и застройки. Например,
+                                                               Правила землепользования и застройки города Москвы можно
+                                                               посмотреть по ссылке: </p>
+                                                            <p>https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/</p>
                                                          </div>
                                                       </div>
                                                    ) : (
@@ -999,20 +1034,6 @@ class Blocks extends React.Component {
                                                             <h3>Рекомендации:</h3>
                                                             <p> Есть риск, что объект попадает в зону особого
                                                                назначения, поэтому: </p>
-                                                            <p> Проверьте с помощью публичной кадастровой карты
-                                                               Росреестра. <br/>
-                                                               Ссылка № 1: https://www.gosuslugi.ru/378659/1/info <br/>
-                                                               Ссылка № 2:
-                                                               https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
-                                                            </p>
-                                                            <p> Проверьте генеральный план развития местности,
-                                                               утвержденный местной администрацией. Например, Генплан
-                                                               Москвы до 2035 г. можно посмотреть по ссылке:
-                                                               https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/ </p>
-                                                            <p> Проверьте Правила землепользования и застройки.
-                                                               Например, Правила землепользования и застройки города
-                                                               Москвы можно посмотреть по ссылке:
-                                                               https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/</p>
                                                             <p> Проверьте информацию по земельному участку на портале
                                                                ФГИС ТП по ссылке: https://fgistp.economy.gov.ru/ </p>
                                                          </div>
@@ -1064,8 +1085,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск № 6: Юридическая история объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
-                                                                     size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
                                                 <h3>{answers.second.risk8.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -1145,7 +1165,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №8: Банкротство продавца </h2>
                                              <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.third.risk5.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -1172,12 +1192,12 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №9: Выплата долгов продавцом </h2>
                                              <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.third.risk6.ans}</h3>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
-                                                <p> Есть риск, что Продавец является должником, поэтому: </p>
+                                                <p> Есть риск, что Продавец является злостным должником, поэтому: </p>
                                                 <p> Проверьте Продавца в соответствующем реестре:
                                                    https://fssp.gov.ru/ </p>
                                              </div>
@@ -1228,8 +1248,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №11: Продавец-ответчик в судебном споре </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="yellow"
-                                                                     size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
                                                 <h3>{answers.third.risk9.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -1259,7 +1278,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №12: Генеральная доверенность </h2>
                                              <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
                                                 <h3>{answers.fourth.risk12.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -1306,7 +1325,7 @@ class Blocks extends React.Component {
                                  )}
                               </div>
                               <div className="notPassed">
-                                 <h3>Обратите внимание, есть ряд рисков которые вы не прошли! </h3>
+                                 <h3>Обратите внимание, есть ряд рисков, тестирование по которым Вы не прошли! </h3>
                                  <div>
                                     {answers.first.risk1.cat === -1 && (
                                        <div>
@@ -1382,6 +1401,8 @@ class Blocks extends React.Component {
                                  Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
                                  <Link to="/handbook">справочник</Link>!
                               </h2>
+                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на принятие Вами итогового
+                                 решения по заключению сделки и не несет ответственность за это.</p>
                            </div>
                         )}
                      </div>

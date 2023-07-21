@@ -234,7 +234,7 @@ const Report = ({ answers }) => {
                                   </View>
                                 ) : (
                                   <View>
-                                      <View style={styles.RiskNameRed}>
+                                      <View style={styles.RiskNameOrange}>
                                         <Text style={styles.textRisk}>Риск 4: Целевое использование объекта</Text>
                                         <Text style={[styles.textRisk, { textAlign: 'right' }]}>Риск есть</Text>
                                       </View>
@@ -681,7 +681,7 @@ const Report = ({ answers }) => {
                                   </View>
                                 ) : (
                                   <View>
-                                      <View style={styles.RiskNameRed}>
+                                      <View style={styles.RiskNameOrange}>
                                         <Text style={styles.textRisk}>Риск 4: Целевое использование объекта</Text>
                                         <Text style={[styles.textRisk, { textAlign: 'right' }]}>Риск есть</Text>
                                       </View>

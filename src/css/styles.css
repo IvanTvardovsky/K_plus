@@ -269,7 +269,7 @@
 }
 
 .definition {
-    color: #666;
+    color: #2e3033;
     font-size: 16px;
     margin-bottom: 20px;
 }
@@ -445,4 +445,9 @@
 
 .reportIconsInfo{
     display: flex;
+}
+
+.warning {
+    font-style: italic;
+    color: #32363d;
 }
