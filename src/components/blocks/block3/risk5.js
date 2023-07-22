@@ -61,7 +61,7 @@ class Risk5 extends React.Component {
          this.setState({
             riskanswer: {
                ans: 'Риск есть',
-               cat: 3,
+               cat: 1,
                number: 1
             }
          });

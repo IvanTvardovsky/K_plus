@@ -4,11 +4,11 @@ import SecondBlock from "./blocks/secondblock"
 import ThirdBlock from "./blocks/thirdblock";
 import FourthBlock from "./blocks/fourthblock";
 import {BsCheckCircle} from "react-icons/bs"
-import {BsExclamationCircle} from "react-icons/bs"
 import {BsDashCircle} from "react-icons/bs"
 import {BsXCircle} from "react-icons/bs"
 import {Link} from 'react-router-dom';
-import jsPDF from "jspdf";
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import Report from './report';
 
 
 class Blocks extends React.Component {
@@ -254,8 +254,11 @@ class Blocks extends React.Component {
                            && (answers.fourth.risk13.q1.cat === 0) && (answers.fourth.risk13.q2.cat === 0)) ? (
                            <div>
                               <h2> Риски не выявлены! </h2>
-                              <h2> Ознакомиться с возможными рисками Вы можете в разделе{' '}
-                                 <Link to="/handbook">справочник</Link>!
+                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                              </PDFDownloadLink>
+                              <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
+                                 <Link to="/handbook">справочник</Link>!справочник.
                               </h2>
                               <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на принятие Вами итогового
                                  решения по заключению сделки и не несет ответственность за это.</p>
@@ -333,7 +336,10 @@ class Blocks extends React.Component {
                                     )}
                                  </div>
                               </div>
-                              <h2> Ознакомиться с возможными рисками Вы можете в разделе{' '}
+                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                              </PDFDownloadLink>
+                              <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
                                  <Link to="/handbook">справочник</Link>.
                               </h2>
                               <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на принятие Вами итогового
@@ -346,16 +352,12 @@ class Blocks extends React.Component {
                         <h3>Обозначения:</h3>
                         <div className="reportIcons">
                            <div className="reportIconsInfo">
-                              <BsExclamationCircle className="conclusionIconInfo" color="#e4f52c" size={24}/>
-                              <h4>- Низкая степень опасности риска для сделки</h4>
-                           </div>
-                           <div className="reportIconsInfo">
                               <BsDashCircle className="conclusionIconInfo" color="orange" size={24}/>
-                              <h4>- Средняя степень опасности риска для сделки</h4>
+                              <h4>- Сделка может быть заключена, но есть риск</h4>
                            </div>
                            <div className="reportIconsInfo">
                               <BsXCircle className="conclusionIconInfo" color="red" size={24}/>
-                              <h4>- Высокая степень опасности риска для сделки</h4>
+                              <h4>- Сделка не может быть заключена</h4>
                            </div>
                         </div>
                         <h2> Выявлены следующие риски: </h2>
@@ -448,8 +450,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №3: Границы объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
-                                                                     size={36}/>
+                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>  
                                                 <h3>{answers.second.risk2.ans}</h3>
                                              </div>
                                              {answers.second.risk2.number === 1 ? (
@@ -598,8 +599,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск № 6: Юридическая история объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
-                                                                     size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
                                                 <h3>{answers.second.risk8.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -679,7 +679,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №8: Банкротство продавца </h2>
                                              <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.third.risk5.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -706,7 +706,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №9: Выплата долгов продавцом </h2>
                                              <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.third.risk6.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -762,8 +762,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №11: Продавец-ответчик в судебном споре </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
-                                                                     size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
                                                 <h3>{answers.third.risk9.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -793,7 +792,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №12: Генеральная доверенность </h2>
                                              <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
                                                 <h3>{answers.fourth.risk12.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -839,6 +838,9 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
+                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                              </PDFDownloadLink>
                               <div>
                                  <h2>
                                     Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
@@ -934,8 +936,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №3: Границы объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
-                                                                     size={36}/>
+                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>  
                                                 <h3>{answers.second.risk2.ans}</h3>
                                              </div>
                                              {answers.second.risk2.number === 1 ? (
@@ -944,11 +945,7 @@ class Blocks extends React.Component {
                                                       <h3>Рекомендации:</h3>
                                                       <p> Есть риск, что межевание не проведено, поэтому: </p>
                                                       <p> Необходимо провести межевание земельного участка и поставить
-                                                         его на кадастровый учет. Воспользуйтесь услугами кадастрового
-                                                         инженера. Он поможет Вам провести проверку межевания. </p>
-                                                      <p>Аккредитованные кадастровые инженеры есть в реестре.
-                                                         Ознакомиться с ним Вы можете по ссылке:
-                                                         https://rosreestr.gov.ru/</p>
+                                                         его на кадастровый учет. </p>
                                                    </div>
                                                 </div>
                                              ) : (
@@ -961,15 +958,11 @@ class Blocks extends React.Component {
                                                          публичной кадастровой карты
                                                          Росреестра: <br/>
                                                          Ссылка №1 https://www.gosuslugi.ru/378659/1/info <br/>
-                                                         Ссылка №2
+                                                         Ссылка № 2
                                                          https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
                                                       </p>
                                                       <p> Воспользуйтесь услугами кадастрового инженера. Он поможет Вам
-                                                         провести проверку межевания.</p>
-
-                                                      <p>Аккредитованные кадастровые инженеры есть в реестре.
-                                                         Ознакомиться с ним Вы можете по ссылке:
-                                                         https://rosreestr.gov.ru/</p>
+                                                         провести проверку межевания. </p>
                                                    </div>
                                                 </div>
                                              )}
@@ -997,7 +990,16 @@ class Blocks extends React.Component {
                                                 <div>
                                                    <div className="Rec">
                                                       <h3>Рекомендации:</h3>
-                                                      <p> Советуем Вам не заключать данную сделку. </p>
+                                                      <p> Есть риск, что использование объекта для ваших нужд
+                                                         недопустимо, поэтому: </p>
+                                                      <p>Вы можете заключить данную сделку, однако ваши планы на
+                                                         земельный участок могут быть не реализованы.
+                                                         Вид разрешенного использования земельного участка предполагает,
+                                                         что объект должен использоваться в соответствии с назначением и
+                                                         требованиями. Это ограничивает свободу ваших действий при
+                                                         пользовании объектом.
+                                                      </p>
+
                                                    </div>
                                                 </div>
                                              ) : (
@@ -1083,8 +1085,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск № 6: Юридическая история объекта </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
-                                                                     size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
                                                 <h3>{answers.second.risk8.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -1164,7 +1165,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №8: Банкротство продавца </h2>
                                              <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.third.risk5.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -1191,7 +1192,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №9: Выплата долгов продавцом </h2>
                                              <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.third.risk6.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -1247,8 +1248,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №11: Продавец-ответчик в судебном споре </h2>
                                              <div className="conclusion">
-                                                <BsExclamationCircle className="conclusionIcon" color="#e4f52c"
-                                                                     size={36}/>
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
                                                 <h3>{answers.third.risk9.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -1278,7 +1278,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №12: Генеральная доверенность </h2>
                                              <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
                                                 <h3>{answers.fourth.risk12.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -1314,12 +1314,10 @@ class Blocks extends React.Component {
                                                 <p> Получите выписку из ЕГРН о признании правообладателя недееспособным
                                                    или ограниченно дееспособным. Инструкция по ссылке:
                                                    https://www.gosuslugi.ru/help/faq/egrn/101769 </p>
-                                                <p> Есть риск, что Продавец является недееспособным и за него все
-                                                   решения по сделке принимает опекун, поэтому:
-                                                   Вы можете обратиться в орган опеки и попечительства по месту
-                                                   жительства недееспособного (или ограниченно дееспособного) и получить
-                                                   удостоверение опекуна или (попечителя).
-                                                </p>
+                                                <p> Запросите у Продавца справки из психоневрологического диспансера и
+                                                   наркологического диспансера, чтобы удостовериться в его полной
+                                                   дееспособности и снять подозрения о невозможности совершения
+                                                   осознанных действий. </p>
                                              </div>
                                           </div>
                                        )}
@@ -1396,6 +1394,9 @@ class Blocks extends React.Component {
                                     )}
                                  </div>
                               </div>
+                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                              </PDFDownloadLink>
                               <h2>
                                  Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
                                  <Link to="/handbook">справочник</Link>!

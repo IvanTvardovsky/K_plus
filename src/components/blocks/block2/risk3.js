@@ -111,7 +111,7 @@ class Risk3 extends React.Component {
          this.setState({
             riskanswer: {
                ans: 'Риск есть',
-               cat: 2,
+               cat: 1,
                number: 1
             }
          });
@@ -139,7 +139,7 @@ class Risk3 extends React.Component {
          this.setState({
             riskanswer: {
                ans: 'Риск есть',
-               cat: 2,
+               cat: 1,
                number: 2
             }
          });
@@ -175,7 +175,7 @@ class Risk3 extends React.Component {
          this.setState({
             riskanswer: {
                ans: 'Риск есть',
-               cat: 2,
+               cat: 1,
                number: 3
             }
          });
