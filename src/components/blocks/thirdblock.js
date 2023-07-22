@@ -105,7 +105,7 @@ class ThirdBlock extends React.Component {
    render() {
       return (
          <div className="Risks">
-            <h2 onClick={this.ClickToBlock}>Блок №3 : Субъект.</h2>
+            <h2 onClick={this.ClickToBlock}>Субъект</h2>
             {this.state.isClicked && (
                <div>
                   <Risk5 onData={this.handleRisk5Data}/>

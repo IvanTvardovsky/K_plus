@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('./fonts/ProximaNova-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Proxima Nova', sans-serif; /* Укажите вашу выбранную шрифтовую семью */
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -31,14 +42,15 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    position: relative;
-    left: -5.55%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .navbar-menu-list li {
     display: inline-block;
     margin-right: 70px;
-    padding-left: 40px; /* Adjust the padding value as needed */
+    padding-left: 40px;
 }
 
 .navbar-menu-list li:last-child {
@@ -47,11 +59,11 @@
 
 .navbar-menu-list li a {
     text-decoration: none;
-    color: #333;
+    color: #f0ecce; /* текст в navbar на постоянке /*
 }
 
 .navbar-menu-list li a:hover {
-    color: #000;
+    color: white; /* при наведении на текст в navbar */
 }
 
 .highlight-link {
@@ -82,8 +94,6 @@
     display: block;
     margin: 10px;
     padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
 }
@@ -195,7 +205,7 @@
 .Tooltip {
     position: absolute;
     z-index: 999;
-    background-color: #f9f9f9;
+    background-color: #5fd47a;
     color: #000;
     padding: 10px;
     border-radius: 4px;
@@ -391,14 +401,11 @@
     margin: 18px;
 }
 
-.navbar-info {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.date-info {
     font-size: 18px;
     font-style: italic;
-    margin-right: 9px;
-    margin-top: 7px;
+    margin-bottom: 20px;
+    margin-top: 40px
 }
 
 .thisShouldBeBold {
@@ -445,6 +452,23 @@
 
 .reportIconsInfo{
     display: flex;
+    align-items: center;
+    margin-left: 85px;
+}
+
+.reportIcons {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.report-designations {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 22px;
 }
 
 .warning {

@@ -97,7 +97,7 @@ class Risk5 extends React.Component {
                   className={`RiskIcon ${isClicked ? 'rotated' : ''}`}
                   onClick={this.ClickToBlock}
                />
-               <h3>Риск №8: Банкротство продавца</h3>
+               <h3>Риск: Банкротство продавца</h3>
             </div>
             {this.state.isClicked && (
                <div>

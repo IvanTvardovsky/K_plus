@@ -7,8 +7,9 @@ import {BsCheckCircle} from "react-icons/bs"
 import {BsDashCircle} from "react-icons/bs"
 import {BsXCircle} from "react-icons/bs"
 import {Link} from 'react-router-dom';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import {PDFDownloadLink} from '@react-pdf/renderer';
 import Report from './report';
+import ScrollToTop from './scrollToTop'
 
 
 class Blocks extends React.Component {
@@ -106,11 +107,29 @@ class Blocks extends React.Component {
       this.ClickToReport = this.ClickToReport.bind(this)
    }
 
+   scrollToTop = () => {
+      window.scrollTo({
+         top: 0,
+         behavior: 'smooth'
+      });
+   }
+
    ClickToReport = (event) => {
       this.setState((prevState) => ({
          reportClick: !prevState.reportClick
       }));
+      this.scrollToTop();
    };
+
+   getCurrentDate() {
+      const currentDate = new Date();
+      const options = {
+         year: "numeric",
+         month: "long",
+         day: "numeric",
+      };
+      return currentDate.toLocaleDateString(undefined, options);
+   }
 
    handleBlock1 = (data) => {
       this.setState((prevState) => ({
@@ -227,6 +246,7 @@ class Blocks extends React.Component {
    };
 
    render() {
+      const currentDate = this.getCurrentDate();
       const {reportClick, answers} = this.state;
       return (
          <div className="Blocks">
@@ -255,19 +275,28 @@ class Blocks extends React.Component {
                            <div>
                               <h2> Риски не выявлены! </h2>
                               <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
-                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                                 {({
+                                      blob,
+                                      url,
+                                      loading,
+                                      error
+                                   }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
                               </PDFDownloadLink>
                               <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
                                  <Link to="/handbook">справочник</Link>!справочник.
                               </h2>
-                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на принятие Вами итогового
+                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на
+                                 принятие Вами итогового
                                  решения по заключению сделки и не несет ответственность за это.</p>
+                              <div className="warning">
+                                 Вся информация актуальна на {currentDate}
+                              </div>
                            </div>
                         ) : (
                            <div>
                               <h2> Риски не выявлены! </h2>
                               <div className="notPassed">
-                                 <h3>Обратите внимание, есть ряд рисков, тестирование по которым Вы не прошли! </h3>
+                                 <h3>Есть тестовые вопросы, которые Вы не прошли:</h3>
                                  <div>
                                     {answers.first.risk1.cat === -1 && (
                                        <div>
@@ -337,27 +366,36 @@ class Blocks extends React.Component {
                                  </div>
                               </div>
                               <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
-                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                                 {({
+                                      blob,
+                                      url,
+                                      loading,
+                                      error
+                                   }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
                               </PDFDownloadLink>
                               <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
                                  <Link to="/handbook">справочник</Link>.
                               </h2>
-                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на принятие Вами итогового
+                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на
+                                 принятие Вами итогового
                                  решения по заключению сделки и не несет ответственность за это.</p>
+                              <div className="warning">
+                                 Вся информация актуальна на {currentDate}
+                              </div>
                            </div>
                         )}
                      </div>
                   ) : (
                      <div>
-                        <h3>Обозначения:</h3>
+                        <h3 className="report-designations">Обозначения:</h3>
                         <div className="reportIcons">
                            <div className="reportIconsInfo">
-                              <BsDashCircle className="conclusionIconInfo" color="orange" size={24}/>
-                              <h4>- Сделка может быть заключена, но есть риск</h4>
+                              <BsDashCircle className="conclusionIconInfo" color="orange" size={34}/>
+                              <h3> — &nbsp;Сделка может быть заключена, но есть риск</h3>
                            </div>
                            <div className="reportIconsInfo">
-                              <BsXCircle className="conclusionIconInfo" color="red" size={24}/>
-                              <h4>- Сделка не может быть заключена</h4>
+                              <BsXCircle className="conclusionIconInfo" color="red" size={34}/>
+                              <h3> — &nbsp;Сделка не может быть заключена</h3>
                            </div>
                         </div>
                         <h2> Выявлены следующие риски: </h2>
@@ -386,16 +424,29 @@ class Blocks extends React.Component {
                                                 <p> Есть риск претензий со стороны супруга Продавца, поэтому: </p>
                                                 <p> Необходимо уточнить наличие брачного договора между супругами.
                                                    Нотариальное согласие второго супруга не требуется в случае, если
-                                                   заключен брачный договор. </p>
+                                                   заключен брачный договор, в котором прописано условие о праве
+                                                   распоряжения земельным участком. </p>
                                                 <p> Необходимо выяснить, когда земельный участок был приобретен
                                                    продавцом. Если до брака путем личного приобретения, дарения или
                                                    наследства, то второй супруг не может препятствовать совершению
                                                    сделки; если в браке, то второй супруг должен выразить свое согласие
                                                    на продажу, которое будет нотариально заверено. </p>
+                                                <p> Ознакомиться с законодательством вы можете по ссылке:</p>
+                                                <Link
+                                                   to="https://www.consultant.ru/document/cons_doc_LAW_5142/ec0c88d23cfe0b75563d574872c1457827b3607f/?ysclid=lkb23oaxga358628244"
+                                                   target="_blank" rel="noopener noreferrer">
+                                                   ГК РФ Статья 256. Общая собственность супругов \ КонсультантПлюс
+                                                </Link>
+                                                &nbsp;(ч. 1 ст. 256 ГК РФ)
                                                 <p> Попросите Продавца обратиться к нотариусу для получения
                                                    нотариального согласия. <br/>
-                                                   Записаться на прием к нотариусу можно на Госуслугах по ссылке:
-                                                   https://www.gosuslugi.ru/help/faq/notary/102751 </p>
+                                                   Записаться на прием к нотариусу можно на Госуслугах по ссылке: <br/>
+                                                   <Link
+                                                      to="https://www.gosuslugi.ru/help/faq/notary/102751"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://www.gosuslugi.ru/help/faq/notary/102751
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -428,10 +479,25 @@ class Blocks extends React.Component {
                                                    01.09.2013 - 15.07.2016 - свидетельство о регистрации или выпиской из
                                                    ЕГРН; <br/>
                                                    15.07.2016 - по настоящее время - только выписка из ЕГРН. </p>
+                                                <p>На любой зарегистрированный объект недвижимости можно получить
+                                                   выписку из ЕГРН, даже если у собственника ее никогда не было.<br/>
+                                                   Ознакомиться с законодательством Вы можете по ссылке:<br/>
+                                                   <Link
+                                                      to="https://www.consultant.ru/document/cons_doc_LAW_182661/e064cc95b1bdffa4d12abb92fdfc56dea94198df/"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      Статья 62. Порядок предоставления сведений, содержащихся в Едином
+                                                      государственном реестре недвижимости \ КонсультантПлюс
+                                                   </Link>
+                                                   &nbsp;(ст. 62 ГК РФ)
+                                                </p>
                                                 <p> На любой зарегистрированный объект недвижимости можно получить
                                                    выписку из ЕГРН, даже если у собственника ее никогда не было.
-                                                   Заказать ее Вы можете, перейдя по ссылке:
-                                                   https://rosreestor.net/vipiska-o-perehode-prav</p>
+                                                   Заказать выписку Вы (или Продавец) можете, перейдя по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://rosreestor.net/vipiska-o-perehode-prav"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://rosreestor.net/vipiska-o-perehode-prav
+                                                   </Link></p>
                                              </div>
                                           </div>
                                        )}
@@ -450,7 +516,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №3: Границы объекта </h2>
                                              <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>  
+                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
                                                 <h3>{answers.second.risk2.ans}</h3>
                                              </div>
                                              {answers.second.risk2.number === 1 ? (
@@ -459,7 +525,16 @@ class Blocks extends React.Component {
                                                       <h3>Рекомендации:</h3>
                                                       <p> Есть риск, что межевание не проведено, поэтому: </p>
                                                       <p> Необходимо провести межевание земельного участка и поставить
-                                                         его на кадастровый учет. </p>
+                                                         его на кадастровый учет. Попросите Продавца воспользоваться
+                                                         услугами кадастрового инженера. Он поможет провести проверку
+                                                         межевания. </p>
+                                                      <p> Аккредитованные кадастровые инженеры есть в реестре. </p>
+                                                      <p> Ознакомиться с ним Вы можете по ссылке: </p>
+                                                      <Link
+                                                         to="https://rosreestr.gov.ru/"
+                                                         target="_blank" rel="noopener noreferrer">
+                                                         https://rosreestr.gov.ru/
+                                                      </Link>
                                                    </div>
                                                 </div>
                                              ) : (
@@ -599,7 +674,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск № 6: Юридическая история объекта </h2>
                                              <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.second.risk8.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -762,7 +837,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №11: Продавец-ответчик в судебном споре </h2>
                                              <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.third.risk9.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -839,15 +914,24 @@ class Blocks extends React.Component {
                                  )}
                               </div>
                               <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
-                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                                 {({
+                                      blob,
+                                      url,
+                                      loading,
+                                      error
+                                   }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
                               </PDFDownloadLink>
                               <div>
                                  <h2>
                                     Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
                                     <Link to="/handbook">справочник</Link>!
                                  </h2>
-                                 <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на принятие Вами итогового
+                                 <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на
+                                    принятие Вами итогового
                                     решения по заключению сделки и не несет ответственность за это.</p>
+                                 <div className="warning">
+                                    Вся информация актуальна на {currentDate}
+                                 </div>
                               </div>
                            </div>
                         ) : (
@@ -872,16 +956,29 @@ class Blocks extends React.Component {
                                                 <p> Есть риск претензий со стороны супруга Продавца, поэтому: </p>
                                                 <p> Необходимо уточнить наличие брачного договора между супругами.
                                                    Нотариальное согласие второго супруга не требуется в случае, если
-                                                   заключен брачный договор. </p>
+                                                   заключен брачный договор, в котором прописано условие о праве
+                                                   распоряжения земельным участком. </p>
                                                 <p> Необходимо выяснить, когда земельный участок был приобретен
                                                    продавцом. Если до брака путем личного приобретения, дарения или
                                                    наследства, то второй супруг не может препятствовать совершению
                                                    сделки; если в браке, то второй супруг должен выразить свое согласие
                                                    на продажу, которое будет нотариально заверено. </p>
+                                                <p> Ознакомиться с законодательством вы можете по ссылке:</p>
+                                                <Link
+                                                   to="https://www.consultant.ru/document/cons_doc_LAW_5142/ec0c88d23cfe0b75563d574872c1457827b3607f/?ysclid=lkb23oaxga358628244"
+                                                   target="_blank" rel="noopener noreferrer">
+                                                   ГК РФ Статья 256. Общая собственность супругов \ КонсультантПлюс
+                                                </Link>
+                                                &nbsp;(ч. 1 ст. 256 ГК РФ)
                                                 <p> Попросите Продавца обратиться к нотариусу для получения
                                                    нотариального согласия. <br/>
-                                                   Записаться на прием к нотариусу можно на Госуслугах по ссылке:
-                                                   https://www.gosuslugi.ru/help/faq/notary/102751 </p>
+                                                   Записаться на прием к нотариусу можно на Госуслугах по ссылке: <br/>
+                                                   <Link
+                                                      to="https://www.gosuslugi.ru/help/faq/notary/102751"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://www.gosuslugi.ru/help/faq/notary/102751
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -914,10 +1011,25 @@ class Blocks extends React.Component {
                                                    01.09.2013 - 15.07.2016 - свидетельство о регистрации или выпиской из
                                                    ЕГРН; <br/>
                                                    15.07.2016 - по настоящее время - только выписка из ЕГРН. </p>
+                                                <p>На любой зарегистрированный объект недвижимости можно получить
+                                                   выписку из ЕГРН, даже если у собственника ее никогда не было.<br/>
+                                                   Ознакомиться с законодательством Вы можете по ссылке:<br/>
+                                                   <Link
+                                                      to="https://www.consultant.ru/document/cons_doc_LAW_182661/e064cc95b1bdffa4d12abb92fdfc56dea94198df/"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      Статья 62. Порядок предоставления сведений, содержащихся в Едином
+                                                      государственном реестре недвижимости \ КонсультантПлюс
+                                                   </Link>
+                                                   &nbsp;(ст. 62 ГК РФ)
+                                                </p>
                                                 <p> На любой зарегистрированный объект недвижимости можно получить
                                                    выписку из ЕГРН, даже если у собственника ее никогда не было.
-                                                   Заказать ее Вы можете, перейдя по ссылке:
-                                                   https://rosreestor.net/vipiska-o-perehode-prav</p>
+                                                   Заказать выписку Вы (или Продавец) можете, перейдя по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://rosreestor.net/vipiska-o-perehode-prav"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://rosreestor.net/vipiska-o-perehode-prav
+                                                   </Link></p>
                                              </div>
                                           </div>
                                        )}
@@ -936,7 +1048,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №3: Границы объекта </h2>
                                              <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>  
+                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
                                                 <h3>{answers.second.risk2.ans}</h3>
                                              </div>
                                              {answers.second.risk2.number === 1 ? (
@@ -945,7 +1057,16 @@ class Blocks extends React.Component {
                                                       <h3>Рекомендации:</h3>
                                                       <p> Есть риск, что межевание не проведено, поэтому: </p>
                                                       <p> Необходимо провести межевание земельного участка и поставить
-                                                         его на кадастровый учет. </p>
+                                                         его на кадастровый учет. Попросите Продавца воспользоваться
+                                                         услугами кадастрового инженера. Он поможет провести проверку
+                                                         межевания. </p>
+                                                      <p> Аккредитованные кадастровые инженеры есть в реестре. </p>
+                                                      <p> Ознакомиться с ним Вы можете по ссылке: </p>
+                                                      <Link
+                                                         to="https://rosreestr.gov.ru/"
+                                                         target="_blank" rel="noopener noreferrer">
+                                                         https://rosreestr.gov.ru/
+                                                      </Link>
                                                    </div>
                                                 </div>
                                              ) : (
@@ -1085,7 +1206,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск № 6: Юридическая история объекта </h2>
                                              <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.second.risk8.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -1248,7 +1369,7 @@ class Blocks extends React.Component {
                                           <div>
                                              <h2> Риск №11: Продавец-ответчик в судебном споре </h2>
                                              <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>  
+                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
                                                 <h3>{answers.third.risk9.ans}</h3>
                                              </div>
                                              <div className="Rec">
@@ -1325,7 +1446,7 @@ class Blocks extends React.Component {
                                  )}
                               </div>
                               <div className="notPassed">
-                                 <h3>Обратите внимание, есть ряд рисков, тестирование по которым Вы не прошли! </h3>
+                                 <h3>Есть тестовые вопросы, которые Вы не прошли:</h3>
                                  <div>
                                     {answers.first.risk1.cat === -1 && (
                                        <div>
@@ -1395,14 +1516,23 @@ class Blocks extends React.Component {
                                  </div>
                               </div>
                               <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
-                                 {({ blob, url, loading, error }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
+                                 {({
+                                      blob,
+                                      url,
+                                      loading,
+                                      error
+                                   }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
                               </PDFDownloadLink>
                               <h2>
                                  Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
                                  <Link to="/handbook">справочник</Link>!
                               </h2>
-                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на принятие Вами итогового
+                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на
+                                 принятие Вами итогового
                                  решения по заключению сделки и не несет ответственность за это.</p>
+                              <div className="warning">
+                                 Вся информация актуальна на {currentDate}
+                              </div>
                            </div>
                         )}
                      </div>

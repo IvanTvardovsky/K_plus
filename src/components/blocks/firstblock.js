@@ -67,7 +67,7 @@ class FirstBlock extends React.Component {
       const {FirstData} = this.state;
       return (
          <div className="Risks">
-            <h2 onClick={this.ClickToBlock}>Блок №1 : Документы.</h2>
+            <h2 onClick={this.ClickToBlock}>Документы</h2>
             {this.state.isClicked && (
                <div>
                   <Risk1 onData={this.handleRisk1Data}/>

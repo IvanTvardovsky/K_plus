@@ -7,10 +7,24 @@ class MainPage extends React.Component {
       this.props.onContinue1();
    };
 
+   getCurrentDate() {
+      const currentDate = new Date();
+      const options = {
+         year: "numeric",
+         month: "long",
+         day: "numeric",
+      };
+      return currentDate.toLocaleDateString(undefined, options);
+   }
+
    render() {
+      const currentDate = this.getCurrentDate();
       return (
          <div className="App">
             <Welcome/>
+            <div className="date-info">
+               Вся информация актуальна на {currentDate}
+            </div>
             <Link to="/instrument">
                <button>Продолжить</button>
             </Link>

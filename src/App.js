@@ -8,6 +8,7 @@ import Calculator from "./components/links/calculator";
 import Handbook from "./components/links/handbook";
 import Footer from "./components/footer"
 import Dictionary from "./components/links/dictionary"
+import ScrollToTop from './components/scrollToTop';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
@@ -33,6 +34,7 @@ class App extends React.Component {
 
       return (
          <BrowserRouter>
+            <ScrollToTop/>
             <div>
                <Navbar/>
                <div className="App">
