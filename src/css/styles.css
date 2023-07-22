@@ -6,16 +6,17 @@
 }
 
 body {
-    font-family: 'Proxima Nova', sans-serif; /* Укажите вашу выбранную шрифтовую семью */
+    font-family: 'Proxima Nova', sans-serif;
+    background-color: #bff2bf;
 }
 
 .navbar {
     display: flex;
+    margin: 0;
     justify-content: space-between;
     align-items: center;
     background-color: #1ea823;
     padding: 10px;
-    border: 1px solid rgb(17, 187, 11);
     font-size: x-large;
 }
 
@@ -32,7 +33,7 @@ body {
 }
 
 .navbar-menu {
-    flex-basis: 90%;
+    flex-basis: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +60,7 @@ body {
 
 .navbar-menu-list li a {
     text-decoration: none;
-    color: #f0ecce; /* текст в navbar на постоянке /*
+    color: #f0ecce; /* текст в navbar на постоянке */
 }
 
 .navbar-menu-list li a:hover {
@@ -77,16 +78,16 @@ body {
 }
 
 .Risks {
-    border: 2px solid #b1aeae;
-    padding: 5px;
-    margin: 40px;
+    border: 4px outset #1ea823;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 50px 10%;
 }
 
 .Answer {
     border: 2px solid #39db62;
     margin: 10px;
     background-color: #f9f9f9;
-    border: 1px solid #ccc;
     display: none;
 }
 
@@ -94,8 +95,8 @@ body {
     display: block;
     margin: 10px;
     padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    background-color: #8ed18e;
+    border: 2px solid #609660;
 }
 
 .Question.none{
@@ -111,7 +112,7 @@ body {
     align-items: center;
     margin: 10px;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: blue;
     border: 1px solid #ccc;
 }
 
@@ -121,17 +122,40 @@ body {
 }
 
 .ans-btn {
-    border: none;
-    background-color: #eee;
-    color: #333;
+    background-color: #9dc79d;
+    border-radius: 10px;
+    color: black;
     padding: 5px 10px;
     margin-right: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 70px;
+}
+
+.ans-btn:hover {
+    background-color: #f0ecce;
 }
 
 .ans-btn.active {
-    background-color: #ccc;
+    background-color: #f0ecce;
+}
+
+.continue-btn {
+    background-color: #a2f2a2;
+    border-color: #50b550;
+    border-radius: 9px;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 14px 24px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+.continue-btn:hover {
+    background: #1ea823;
+    color: #f0ecce;
+    box-shadow: inset 0 0 0 2px #3a6b3a;
 }
 
 .Risk {
@@ -139,27 +163,14 @@ body {
     align-items: center;
     margin: 10px;
     padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    background-color: #a1e6a1;
+    border: 2px solid #7ee07e;
+    border-radius: 17px;
 }
 
 .RiskName {
     display: flex;
     align-items: center;
-}
-
-.ans-btn {
-    border: none;
-    background-color: #eee;
-    color: #333;
-    padding: 5px 10px;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.ans-btn.active {
-    background-color: #ccc;
 }
 
 .Docs {

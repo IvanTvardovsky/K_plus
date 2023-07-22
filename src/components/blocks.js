@@ -2,7 +2,6 @@ import React from "react";
 import FirstBlock from "./blocks/firstblock"
 import SecondBlock from "./blocks/secondblock"
 import ThirdBlock from "./blocks/thirdblock";
-import FourthBlock from "./blocks/fourthblock";
 import {BsCheckCircle} from "react-icons/bs"
 import {BsDashCircle} from "react-icons/bs"
 import {BsXCircle} from "react-icons/bs"
@@ -25,6 +24,11 @@ class Blocks extends React.Component {
                   number: -1
                },
                risk10: {
+                  ans: 'none',
+                  cat: -1,
+                  number: -1
+               },
+               risk12: {
                   ans: 'none',
                   cat: -1,
                   number: -1
@@ -77,13 +81,6 @@ class Blocks extends React.Component {
                   ans: 'none',
                   cat: -1,
                   number: -1
-               }
-            },
-            fourth: {
-               risk12: {
-                  ans: 'none',
-                  cat: -1,
-                  number: -1
                },
                risk13: {
                   q1: {
@@ -103,7 +100,6 @@ class Blocks extends React.Component {
       this.handleBlock1 = this.handleBlock1.bind(this)
       this.handleBlock2 = this.handleBlock2.bind(this)
       this.handleBlock3 = this.handleBlock3.bind(this)
-      this.handleBlock4 = this.handleBlock4.bind(this)
       this.ClickToReport = this.ClickToReport.bind(this)
    }
 
@@ -145,6 +141,11 @@ class Blocks extends React.Component {
                   ans: data.risk10Data.ans,
                   cat: data.risk10Data.cat,
                   number: data.risk10Data.number,
+               },
+               risk12: {
+                  ans: data.risk12Data.ans,
+                  cat: data.risk12Data.cat,
+                  number: data.risk12Data.number,
                }
             }
          }
@@ -210,25 +211,9 @@ class Blocks extends React.Component {
                   ans: data.risk9Data.ans,
                   cat: data.risk9Data.cat,
                   number: data.risk9Data.number,
-               }
-            }
-         }
-      }));
-   };
-
-   handleBlock4 = (data) => {
-      this.setState((prevState) => ({
-         answers: {
-            ...prevState.answers,
-            fourth: {
-               ...prevState.answers.fourth,
-               risk12: {
-                  ans: data.risk12Data.ans,
-                  cat: data.risk12Data.cat,
-                  number: data.risk12Data.number,
                },
                risk13: {
-                  ...prevState.answers.fourth.risk13,
+                  ...prevState.answers.third.risk13,
                   q1: {
                      ans: data.risk13Data.risk1.ans,
                      cat: data.risk13Data.risk1.cat,
@@ -255,7 +240,6 @@ class Blocks extends React.Component {
                   <FirstBlock onData={this.handleBlock1}/>
                   <SecondBlock onData={this.handleBlock2}/>
                   <ThirdBlock onData={this.handleBlock3}/>
-                  <FourthBlock onData={this.handleBlock4}/>
                   <div className="reportDiv">
                      <button className="reportBtn" onClick={this.ClickToReport}>Продолжить</button>
                   </div>
@@ -265,16 +249,16 @@ class Blocks extends React.Component {
                   <h1>Отчёт</h1>
                   {((answers.first.risk1.cat < 1) && (answers.first.risk10.cat < 1) && (answers.second.risk2.cat < 1) && (answers.second.risk3.cat < 1)
                      && (answers.second.risk4.cat < 1) && (answers.second.risk8.cat < 1) && (answers.second.risk11.cat < 1) && (answers.third.risk5.cat < 1)
-                     && (answers.third.risk6.cat < 1) && (answers.third.risk7.cat < 1) && (answers.third.risk9.cat < 1) && (answers.fourth.risk12.cat < 1)
-                     && (answers.fourth.risk13.q1.cat < 1) && (answers.fourth.risk13.q2.cat < 1)) ? (
+                     && (answers.third.risk6.cat < 1) && (answers.third.risk7.cat < 1) && (answers.third.risk9.cat < 1) && (answers.first.risk12.cat < 1)
+                     && (answers.third.risk13.q1.cat < 1) && (answers.third.risk13.q2.cat < 1)) ? (
                      <div>
                         {((answers.first.risk1.cat === 0) && (answers.first.risk10.cat === 0) && (answers.second.risk2.cat === 0) && (answers.second.risk3.cat === 0)
                            && (answers.second.risk4.cat === 0) && (answers.second.risk8.cat === 0) && (answers.second.risk11.cat === 0) && (answers.third.risk5.cat === 0)
-                           && (answers.third.risk6.cat === 0) && (answers.third.risk7.cat === 0) && (answers.third.risk9.cat === 0) && (answers.fourth.risk12.cat === 0)
-                           && (answers.fourth.risk13.q1.cat === 0) && (answers.fourth.risk13.q2.cat === 0)) ? (
+                           && (answers.third.risk6.cat === 0) && (answers.third.risk7.cat === 0) && (answers.third.risk9.cat === 0) && (answers.first.risk12.cat === 0)
+                           && (answers.third.risk13.q1.cat === 0) && (answers.third.risk13.q2.cat === 0)) ? (
                            <div>
                               <h2> Риски не выявлены! </h2>
-                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="ЗемельКа отчет.pdf">
                                  {({
                                       blob,
                                       url,
@@ -283,7 +267,7 @@ class Blocks extends React.Component {
                                    }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
                               </PDFDownloadLink>
                               <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
-                                 <Link to="/handbook">справочник</Link>!справочник.
+                                 <Link to="/handbook">справочник</Link>!.
                               </h2>
                               <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на
                                  принятие Вами итогового
@@ -353,12 +337,12 @@ class Blocks extends React.Component {
                                           <h4> Риск №11: Продавец-ответчик в судебном споре</h4>
                                        </div>
                                     )}
-                                    {answers.fourth.risk12.cat === -1 && (
+                                    {answers.first.risk12.cat === -1 && (
                                        <div>
                                           <h4> Риск №12: Генеральная доверенность </h4>
                                        </div>
                                     )}
-                                    {answers.fourth.risk13.q1.cat === -1 && (
+                                    {answers.third.risk13.q1.cat === -1 && (
                                        <div>
                                           <h4> Риск №13: Недееспособность продавца</h4>
                                        </div>
@@ -401,8 +385,8 @@ class Blocks extends React.Component {
                         <h2> Выявлены следующие риски: </h2>
                         {((answers.first.risk1.cat > -1) && (answers.first.risk10.cat > -1) && (answers.second.risk2.cat > -1) && (answers.second.risk3.cat > -1)
                            && (answers.second.risk4.cat > -1) && (answers.second.risk8.cat > -1) && (answers.second.risk11.cat > -1) && (answers.third.risk5.cat > -1)
-                           && (answers.third.risk6.cat > -1) && (answers.third.risk7.cat > -1) && (answers.third.risk9.cat > -1) && (answers.fourth.risk12.cat > -1)
-                           && (answers.fourth.risk13.q1.cat > -1) && (answers.fourth.risk13.q2.cat > -1)) ? (
+                           && (answers.third.risk6.cat > -1) && (answers.third.risk7.cat > -1) && (answers.third.risk9.cat > -1) && (answers.first.risk12.cat > -1)
+                           && (answers.third.risk13.q1.cat > -1) && (answers.third.risk13.q2.cat > -1)) ? (
                            <div>
                               <div className={`riskBlock ${answers.first.risk1.cat > 0 ? 'active' : ''}`}>
                                  {answers.first.risk1.cat > -1 && (
@@ -855,20 +839,20 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.fourth.risk12.cat > 0 ? 'active' : ''}`}>
-                                 {answers.fourth.risk12.cat > -1 && (
+                              <div className={`riskBlock ${answers.first.risk12.cat > 0 ? 'active' : ''}`}>
+                                 {answers.first.risk12.cat > -1 && (
                                     <div>
-                                       {answers.fourth.risk12.cat === 0 ? (
+                                       {answers.first.risk12.cat === 0 ? (
                                           <div className="conclusionOff">
                                              <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.fourth.risk12.ans}</h3>
+                                             <h3>{answers.first.risk12.ans}</h3>
                                           </div>
                                        ) : (
                                           <div>
                                              <h2> Риск №12: Генеральная доверенность </h2>
                                              <div className="conclusion">
                                                 <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.fourth.risk12.ans}</h3>
+                                                <h3>{answers.first.risk12.ans}</h3>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -882,20 +866,20 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.fourth.risk13.q1.cat > 0 ? 'active' : ''}`}>
-                                 {answers.fourth.risk13.q1.cat > -1 && (
+                              <div className={`riskBlock ${answers.third.risk13.q1.cat > 0 ? 'active' : ''}`}>
+                                 {answers.third.risk13.q1.cat > -1 && (
                                     <div>
-                                       {answers.fourth.risk13.q1.cat === 0 ? (
+                                       {answers.third.risk13.q1.cat === 0 ? (
                                           <div className="conclusionOff">
                                              <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.fourth.risk13.q1.cat.ans}</h3>
+                                             <h3>{answers.third.risk13.q1.cat.ans}</h3>
                                           </div>
                                        ) : (
                                           <div>
                                              <h2> Риск №13: Недееспособность продавца </h2>
                                              <div className="conclusion">
                                                 <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.fourth.risk13.q1.ans}</h3>
+                                                <h3>{answers.third.risk13.q1.ans}</h3>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1387,20 +1371,20 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.fourth.risk12.cat > 0 ? 'active' : ''}`}>
-                                 {answers.fourth.risk12.cat > -1 && (
+                              <div className={`riskBlock ${answers.first.risk12.cat > 0 ? 'active' : ''}`}>
+                                 {answers.first.risk12.cat > -1 && (
                                     <div>
-                                       {answers.fourth.risk12.cat === 0 ? (
+                                       {answers.first.risk12.cat === 0 ? (
                                           <div className="conclusionOff">
                                              <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.fourth.risk12.ans}</h3>
+                                             <h3>{answers.first.risk12.ans}</h3>
                                           </div>
                                        ) : (
                                           <div>
                                              <h2> Риск №12: Генеральная доверенность </h2>
                                              <div className="conclusion">
                                                 <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.fourth.risk12.ans}</h3>
+                                                <h3>{answers.first.risk12.ans}</h3>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1414,20 +1398,20 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.fourth.risk13.q1.cat > 0 ? 'active' : ''}`}>
-                                 {answers.fourth.risk13.q1.cat > -1 && (
+                              <div className={`riskBlock ${answers.third.risk13.q1.cat > 0 ? 'active' : ''}`}>
+                                 {answers.third.risk13.q1.cat > -1 && (
                                     <div>
-                                       {answers.fourth.risk13.q1.cat === 0 ? (
+                                       {answers.third.risk13.q1.cat === 0 ? (
                                           <div className="conclusionOff">
                                              <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.fourth.risk13.q1.cat.ans}</h3>
+                                             <h3>{answers.third.risk13.q1.cat.ans}</h3>
                                           </div>
                                        ) : (
                                           <div>
                                              <h2> Риск №13: Недееспособность продавца </h2>
                                              <div className="conclusion">
                                                 <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.fourth.risk13.q1.ans}</h3>
+                                                <h3>{answers.third.risk13.q1.ans}</h3>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1503,12 +1487,12 @@ class Blocks extends React.Component {
                                           <h4> Риск №11: Продавец-ответчик в судебном споре</h4>
                                        </div>
                                     )}
-                                    {answers.fourth.risk12.cat === -1 && (
+                                    {answers.first.risk12.cat === -1 && (
                                        <div>
                                           <h4> Риск №12: Генеральная доверенность </h4>
                                        </div>
                                     )}
-                                    {answers.fourth.risk13.q1.cat === -1 && (
+                                    {answers.third.risk13.q1.cat === -1 && (
                                        <div>
                                           <h4> Риск №13: Недееспособность продавца</h4>
                                        </div>

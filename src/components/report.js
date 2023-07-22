@@ -20,8 +20,8 @@ const Report = ({ answers }) => {
           <Text style={styles.title}>Отчёт</Text>
           {((answers.first.risk1.cat < 1) && (answers.first.risk10.cat < 1) && (answers.second.risk2.cat < 1) && (answers.second.risk3.cat < 1)
               && (answers.second.risk4.cat < 1) && (answers.second.risk8.cat < 1) && (answers.second.risk11.cat < 1) && (answers.third.risk5.cat < 1)
-              && (answers.third.risk6.cat < 1) && (answers.third.risk7.cat < 1) && (answers.third.risk9.cat < 1) && (answers.fourth.risk12.cat < 1)
-              && (answers.fourth.risk13.q1.cat < 1) && (answers.fourth.risk13.q2.cat < 1)) ? (
+              && (answers.third.risk6.cat < 1) && (answers.third.risk7.cat < 1) && (answers.third.risk9.cat < 1) && (answers.first.risk12.cat < 1)
+              && (answers.third.risk13.q1.cat < 1) && (answers.third.risk13.q2.cat < 1)) ? (
               <View>
                 <View>
                   <Text style={styles.subTitle}>Риски не выявлены! </Text>
@@ -92,13 +92,13 @@ const Report = ({ answers }) => {
                     <Text style={[styles.textRisk, { textAlign: 'right' }]}>Риска нет</Text>
                   </View>
                 )}
-                {answers.fourth.risk12.cat === 0 && (
+                {answers.first.risk12.cat === 0 && (
                   <View style={styles.RiskNameGreen}>
                     <Text style={styles.textRisk}>Риск 12: Генеральная доверенность</Text>
                     <Text style={[styles.textRisk, { textAlign: 'right' }]}>Риска нет</Text>
                   </View>
                 )}
-                {answers.fourth.risk13.q1.cat === 0 && (
+                {answers.third.risk13.q1.cat === 0 && (
                   <View style={styles.RiskNameGreen}>
                     <Text style={styles.textRisk}>Риск 13: Недееспособность продавца</Text>
                     <Text style={[styles.textRisk, { textAlign: 'right' }]}>Риска нет</Text>
@@ -109,8 +109,8 @@ const Report = ({ answers }) => {
               <View>
                 {((answers.first.risk1.cat < 2) && (answers.first.risk10.cat < 2) && (answers.second.risk2.cat < 2) && (answers.second.risk3.cat < 2)
                   && (answers.second.risk4.cat < 2) && (answers.second.risk8.cat < 2) && (answers.second.risk11.cat < 2) && (answers.third.risk5.cat < 2)
-                  && (answers.third.risk6.cat < 2) && (answers.third.risk7.cat < 2) && (answers.third.risk9.cat < 2) && (answers.fourth.risk12.cat < 2)
-                  && (answers.fourth.risk13.q1.cat < 2) && (answers.fourth.risk13.q2.cat < 2)) ? (
+                  && (answers.third.risk6.cat < 2) && (answers.third.risk7.cat < 2) && (answers.third.risk9.cat < 2) && (answers.first.risk12.cat < 2)
+                  && (answers.third.risk13.q1.cat < 2) && (answers.third.risk13.q2.cat < 2)) ? (
                     <View>
                       <Text style={styles.subTitle}>Сделка может быть заключена, но выявлены следующие риски: </Text>
                       <View >
@@ -497,9 +497,9 @@ const Report = ({ answers }) => {
                           )}
                       </View>
                       <View >
-                          {answers.fourth.risk12.cat > -1 && (
+                          {answers.first.risk12.cat > -1 && (
                             <View style={styles.riskBlock}>
-                            {answers.fourth.risk12.cat === 0 ? (
+                            {answers.first.risk12.cat === 0 ? (
                               <View style={styles.RiskNameGreen}>
                                 <Text style={styles.textRisk}>Риск 12: Генеральная доверенность</Text>
                                 <Text style={[styles.textRisk, { textAlign: 'right' }]}>Риска нет</Text>
@@ -523,9 +523,9 @@ const Report = ({ answers }) => {
                           )}
                       </View>
                       <View >
-                          {answers.fourth.risk13.q1.cat > -1 && (
+                          {answers.third.risk13.q1.cat > -1 && (
                             <View style={styles.riskBlock}>
-                            {answers.fourth.risk13.q1.cat === 0 ? (
+                            {answers.third.risk13.q1.cat === 0 ? (
                               <View style={styles.RiskNameGreen}>
                                 <Text style={styles.textRisk}>Риск 13: Недееспособность продавца</Text>
                                 <Text style={[styles.textRisk, { textAlign: 'right' }]}>Риска нет</Text>
@@ -944,9 +944,9 @@ const Report = ({ answers }) => {
                           )}
                       </View>
                       <View >
-                          {answers.fourth.risk12.cat > -1 && (
+                          {answers.first.risk12.cat > -1 && (
                             <View style={styles.riskBlock}>
-                            {answers.fourth.risk12.cat === 0 ? (
+                            {answers.first.risk12.cat === 0 ? (
                               <View style={styles.RiskNameGreen}>
                                 <Text style={styles.textRisk}>Риск 12: Генеральная доверенность</Text>
                                 <Text style={[styles.textRisk, { textAlign: 'right' }]}>Риска нет</Text>
@@ -970,9 +970,9 @@ const Report = ({ answers }) => {
                           )}
                       </View>
                       <View >
-                          {answers.fourth.risk13.q1.cat > -1 && (
+                          {answers.third.risk13.q1.cat > -1 && (
                             <View style={styles.riskBlock}>
-                            {answers.fourth.risk13.q1.cat === 0 ? (
+                            {answers.third.risk13.q1.cat === 0 ? (
                               <View style={styles.RiskNameGreen}>
                                 <Text style={styles.textRisk}>Риск 13: Недееспособность продавца</Text>
                                 <Text style={[styles.textRisk, { textAlign: 'right' }]}>Риска нет</Text>

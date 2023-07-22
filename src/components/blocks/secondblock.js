@@ -127,7 +127,7 @@ class SecondBlock extends React.Component {
       const {SecondData} = this.state;
       return (
          <div className="Risks">
-            <h2 onClick={this.ClickToBlock}>Объект</h2>
+            <h2 onClick={this.ClickToBlock} style={{ textAlign: 'center' }}>Объект</h2>
             {this.state.isClicked && (
                <div>
                   <Risk2 onData={this.handleRisk2Data}/>

@@ -1,6 +1,7 @@
 import React from "react";
 import Risk1 from "./block1/risk1";
 import Risk10 from "./block1/risk10";
+import Risk12 from "./block1/risk12";
 
 class FirstBlock extends React.Component {
    constructor(props) {
@@ -17,12 +18,18 @@ class FirstBlock extends React.Component {
                ans: 'none',
                cat: -1,
                number: -1
+            },
+            risk12Data: {
+               ans: 'none',
+               cat: -1,
+               number: -1
             }
          }
       };
       this.ClickToBlock = this.ClickToBlock.bind(this)
       this.handleRisk1Data = this.handleRisk1Data.bind(this)
       this.handleRisk10Data = this.handleRisk10Data.bind(this)
+      this.handleRisk12Data = this.handleRisk12Data.bind(this)
    }
 
    ClickToBlock = () => {
@@ -57,6 +64,19 @@ class FirstBlock extends React.Component {
       }));
    };
 
+   handleRisk12Data = (data) => {
+      this.setState((prevState) => ({
+         FirstData: {
+            ...prevState.FirstData,
+            risk12Data: {
+               ans: data.ans,
+               cat: data.cat,
+               number: data.number,
+            },
+         },
+      }));
+   };
+
    componentDidUpdate(prevProps, prevState) {
       if (this.state.FirstData !== prevState.FirstData) {
          this.props.onData(this.state.FirstData);
@@ -67,11 +87,12 @@ class FirstBlock extends React.Component {
       const {FirstData} = this.state;
       return (
          <div className="Risks">
-            <h2 onClick={this.ClickToBlock}>Документы</h2>
+            <h2 onClick={this.ClickToBlock} style={{ textAlign: 'center' }}>Документы</h2>
             {this.state.isClicked && (
                <div>
                   <Risk1 onData={this.handleRisk1Data}/>
                   <Risk10 onData={this.handleRisk10Data}/>
+                  <Risk12 onData={this.handleRisk12Data}/>
                </div>
             )}
          </div>

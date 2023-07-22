@@ -26,7 +26,7 @@ class MainPage extends React.Component {
                Вся информация актуальна на {currentDate}
             </div>
             <Link to="/instrument">
-               <button>Продолжить</button>
+               <button className="continue-btn">Продолжить</button>
             </Link>
          </div>
       );
