@@ -256,7 +256,151 @@ class Blocks extends React.Component {
                            && (answers.third.risk6.cat === 0) && (answers.third.risk7.cat === 0) && (answers.third.risk9.cat === 0) && (answers.first.risk12.cat === 0)
                            && (answers.third.risk13.q1.cat === 0) && (answers.third.risk13.q2.cat === 0)) ? (
                            <div>
-                              <h2 style={{marginLeft: "2%"}}> Риски не выявлены! </h2>
+                              <h2 style={{marginLeft: "3%"}}> Риски не выявлены! </h2>
+                              {answers.first.risk1.cat === 0 && (
+                                 <div className={`riskBlock ${answers.first.risk1.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Право супруга на объект</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.first.risk10.cat === 0 && (
+                                 <div className={`riskBlock ${answers.first.risk10.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Право собственности продавца</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.first.risk12.cat === 0 && (
+                                 <div className={`riskBlock ${answers.first.risk12.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Генеральная доверенность</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.second.risk2.cat === 0 && (
+                                 <div className={`riskBlock ${answers.second.risk2.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Границы объекта</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.second.risk3.cat === 0 && (
+                                 <div className={`riskBlock ${answers.second.risk3.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Целевое использование объекта</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.second.risk4.cat === 0 && (
+                                 <div className={`riskBlock ${answers.second.risk4.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Экология</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.second.risk8.cat === 0 && (
+                                 <div className={`riskBlock ${answers.second.risk8.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Юридическая история объекта</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.second.risk11.cat === 0 && (
+                                 <div className={`riskBlock ${answers.second.risk11.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Обременения на объект</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.third.risk5.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk5.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Банкротство продавца</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.third.risk6.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk6.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Выплата долгов продавцом</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.third.risk7.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk7.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Причастность к экстремизму и другим преступлениям</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.third.risk9.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk9.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Продавец-Ответчик в судебном споре</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.third.risk13.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk13.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Недееспособность продавца</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+
                               <PDFDownloadLink className="downloadPDF" document={<Report answers={answers}/>}
                                                fileName="ЗемельКа отчет.pdf">
                                  {({
@@ -278,73 +422,216 @@ class Blocks extends React.Component {
                            </div>
                         ) : (
                            <div>
-                              <h2 style={{marginLeft: "2%"}}> Риски не выявлены! </h2>
+                              <h2 style={{marginLeft: "3%"}}> Риски не выявлены! </h2>
+                              {answers.first.risk1.cat === 0 && (
+                                 <div className={`riskBlock ${answers.first.risk1.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Право супруга на объект</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.first.risk10.cat === 0 && (
+                                 <div className={`riskBlock ${answers.first.risk10.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Право собственности продавца</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.first.risk12.cat === 0 && (
+                                 <div className={`riskBlock ${answers.first.risk12.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Генеральная доверенность</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.second.risk2.cat === 0 && (
+                                 <div className={`riskBlock ${answers.second.risk2.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Границы объекта</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.second.risk3.cat === 0 && (
+                                 <div className={`riskBlock ${answers.second.risk3.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Целевое использование объекта</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.second.risk4.cat === 0 && (
+                                 <div className={`riskBlock ${answers.second.risk4.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Экология</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.second.risk8.cat === 0 && (
+                                 <div className={`riskBlock ${answers.second.risk8.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Юридическая история объекта</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.second.risk11.cat === 0 && (
+                                 <div className={`riskBlock ${answers.second.risk11.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Обременения на объект</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.third.risk5.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk5.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Банкротство продавца</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.third.risk6.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk6.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Выплата долгов продавцом</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.third.risk7.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk7.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Причастность к экстремизму и другим преступлениям</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.third.risk9.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk9.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Продавец-Ответчик в судебном споре</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
+                              {answers.third.risk13.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk13.cat === 0 ? 'active' : ''}`}>
+                                    <div className="riskTitle">
+                                       <h2>Риск: Недееспособность продавца</h2>
+                                    </div>
+                                    <div className="conclusionOff">
+                                       <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                       <h2>Риска нет</h2>
+                                    </div>
+                                 </div>
+                              )}
                               <div className="notPassed">
                                  <h3>Есть тестовые вопросы, которые Вы не прошли:</h3>
                                  <div style={{marginLeft: "30px"}}>
                                     {answers.first.risk1.cat === -1 && (
                                        <div>
-                                          <h4> Риск №1: Право супруга на объект</h4>
+                                          <h4> Риск: Право супруга на объект</h4>
                                        </div>
                                     )}
                                     {answers.first.risk10.cat === -1 && (
                                        <div>
-                                          <h4> Риск №2: Право собственности продавца</h4>
+                                          <h4> Риск: Право собственности продавца</h4>
                                        </div>
                                     )}
                                     {answers.second.risk2.cat === -1 && (
                                        <div>
-                                          <h4> Риск №3: Границы объекта </h4>
+                                          <h4> Риск: Границы объекта </h4>
                                        </div>
                                     )}
                                     {answers.second.risk3.cat === -1 && (
                                        <div>
-                                          <h4> Риск №4: Целевое использование объекта</h4>
+                                          <h4> Риск: Целевое использование объекта</h4>
                                        </div>
                                     )}
                                     {answers.second.risk4.cat === -1 && (
                                        <div>
-                                          <h4> Риск №5: Экология</h4>
+                                          <h4> Риск: Экология</h4>
                                        </div>
                                     )}
                                     {answers.second.risk8.cat === -1 && (
                                        <div>
-                                          <h4> Риск №6: Юридическая история объекта</h4>
+                                          <h4> Риск: Юридическая история объекта</h4>
                                        </div>
                                     )}
                                     {answers.second.risk11.cat === -1 && (
                                        <div>
-                                          <h4> Риск №7: Обременения на объект</h4>
+                                          <h4> Риск: Обременения на объект</h4>
                                        </div>
                                     )}
                                     {answers.third.risk5.cat === -1 && (
                                        <div>
-                                          <h4> Риск №8: Банкротство продавца</h4>
+                                          <h4> Риск: Банкротство продавца</h4>
                                        </div>
                                     )}
                                     {answers.third.risk6.cat === -1 && (
                                        <div>
-                                          <h4> Риск №9: Выплата долгов продавцом</h4>
+                                          <h4> Риск: Выплата долгов продавцом</h4>
                                        </div>
                                     )}
                                     {answers.third.risk7.cat === -1 && (
                                        <div>
-                                          <h4> Риск №10: Экстремизм</h4>
+                                          <h4> Риск: Экстремизм</h4>
                                        </div>
                                     )}
                                     {answers.third.risk9.cat === -1 && (
                                        <div>
-                                          <h4> Риск №11: Продавец-ответчик в судебном споре</h4>
+                                          <h4> Риск: Продавец-ответчик в судебном споре</h4>
                                        </div>
                                     )}
                                     {answers.first.risk12.cat === -1 && (
                                        <div>
-                                          <h4> Риск №12: Генеральная доверенность </h4>
+                                          <h4> Риск: Генеральная доверенность </h4>
                                        </div>
                                     )}
                                     {answers.third.risk13.q1.cat === -1 && (
                                        <div>
-                                          <h4> Риск №13: Недееспособность продавца</h4>
+                                          <h4> Риск: Недееспособность продавца</h4>
                                        </div>
                                     )}
                                  </div>
@@ -375,6 +662,10 @@ class Blocks extends React.Component {
                         <h3 className="report-designations">Обозначения:</h3>
                         <div className="reportIcons">
                            <div className="reportIconsInfo">
+                              <BsCheckCircle className="conclusionIconInfo" color="green" size={34}/>
+                              <h3> — &nbsp;Сделка может быть заключена, риска нет</h3>
+                           </div>
+                           <div className="reportIconsInfo">
                               <BsDashCircle className="conclusionIconInfo" color="orange" size={34}/>
                               <h3> — &nbsp;Сделка может быть заключена, но есть риск</h3>
                            </div>
@@ -383,26 +674,35 @@ class Blocks extends React.Component {
                               <h3> — &nbsp;Сделка не может быть заключена</h3>
                            </div>
                         </div>
-                        <h2 style={{marginLeft: "2%"}}> Выявлены следующие риски: </h2>
+                        <h2 style={{marginLeft: "3%"}}> Выявлены следующие риски: </h2>
                         {((answers.first.risk1.cat > -1) && (answers.first.risk10.cat > -1) && (answers.second.risk2.cat > -1) && (answers.second.risk3.cat > -1)
                            && (answers.second.risk4.cat > -1) && (answers.second.risk8.cat > -1) && (answers.second.risk11.cat > -1) && (answers.third.risk5.cat > -1)
                            && (answers.third.risk6.cat > -1) && (answers.third.risk7.cat > -1) && (answers.third.risk9.cat > -1) && (answers.first.risk12.cat > -1)
                            && (answers.third.risk13.q1.cat > -1) && (answers.third.risk13.q2.cat > -1)) ? (
                            <div>
-                              <div className={`riskBlock ${answers.first.risk1.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.first.risk1.cat > -1 ? 'active' : ''}`}>
                                  {answers.first.risk1.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.first.risk1.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.first.risk1.ans}</h3>
+                                          <div className="riskBlockStatus">
+                                             <div className="riskTitle">
+                                                <h2>Риск: Право супруга на объект</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №1: Право супруга на объект </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.first.risk1.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Право супруга на объект</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.first.risk1.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -438,20 +738,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.first.risk10.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.first.risk10.cat > -1 ? 'active' : ''}`}>
                                  {answers.first.risk10.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.first.risk10.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.first.risk10.ans}</h3>
+                                          <div className="riskBlockStatus">
+                                             <div className="riskTitle">
+                                                <h2>Риск: Право собственности продавца</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №2: Право собственности продавца </h2>
-                                             <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.first.risk10.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Право собственности продавца</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="red" size={36}/>
+                                                   <h2>{answers.first.risk10.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -489,20 +798,70 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.second.risk2.cat > 0 ? 'active' : ''}`}>
-                                 {answers.second.risk2.cat > -1 && (
-                                    <div>
-                                       {answers.second.risk2.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.second.risk2.ans}</h3>
+                              <div className={`riskBlock ${answers.first.risk12.cat > -1 ? 'active' : ''}`}>
+                                 {answers.first.risk12.cat > -1 && (
+                                    <div className="riskBlockAct">
+                                       {answers.first.risk12.cat === 0 ? (
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Генеральная доверенность</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №3: Границы объекта </h2>
-                                             <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.second.risk2.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Генеральная доверенность</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="red" size={36}/>
+                                                   <h2>{answers.first.risk12.ans}</h2>
+                                                </div>
+                                             </div>
+                                             <div className="Rec">
+                                                <h3>Рекомендации:</h3>
+                                                <p> Есть риск, что генеральная доверенность не является достоверной,
+                                                   поэтому: </p>
+                                                <p> Проверьте генеральную доверенность по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://reestr-dover.ru/"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://reestr-dover.ru/
+                                                   </Link>
+                                                </p>
+                                             </div>
+                                          </div>
+                                       )}
+                                    </div>
+                                 )}
+                              </div>
+                              <div className={`riskBlock ${answers.second.risk2.cat > -1 ? 'active' : ''}`}>
+                                 {answers.second.risk2.cat > -1 && (
+                                    <div className="riskBlockAct">
+                                       {answers.second.risk2.cat === 0 ? (
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Границы объекта</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
+                                          </div>
+                                       ) : (
+                                          <div>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Границы объекта</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="red" size={36}/>
+                                                   <h2>{answers.second.risk2.ans}</h2>
+                                                </div>
                                              </div>
                                              {answers.second.risk2.number === 1 ? (
                                                 <div>
@@ -554,20 +913,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.second.risk3.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.second.risk3.cat > -1 ? 'active' : ''}`}>
                                  {answers.second.risk3.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.second.risk3.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.second.risk3.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Целевое использование объекта</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №4: Целевое использование объекта </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.second.risk3.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Целевое использование объекта</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.second.risk3.ans}</h2>
+                                                </div>
                                              </div>
                                              {answers.second.risk3.number === 1 ? (
                                                 <div>
@@ -654,20 +1022,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.second.risk4.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.second.risk4.cat > -1 ? 'active' : ''}`}>
                                  {answers.second.risk4.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.second.risk4.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.second.risk4.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Экология</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №5: Экология </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.second.risk4.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Экология</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.second.risk4.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -686,20 +1063,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.second.risk8.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.second.risk8.cat > -1 ? 'active' : ''}`}>
                                  {answers.second.risk8.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.second.risk8.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.second.risk8.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Юридическая история объекта</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск № 6: Юридическая история объекта </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.second.risk8.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Юридическая история объекта</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.second.risk8.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -719,20 +1105,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.second.risk11.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.second.risk11.cat > -1 ? 'active' : ''}`}>
                                  {answers.second.risk11.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.second.risk11.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.second.risk11.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Обременения на объект</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск № 7: Обременения на объект </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.second.risk11.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Обременения на объект</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.second.risk11.ans}</h2>
+                                                </div>
                                              </div>
                                              {answers.second.risk11.number === 1 ? (
                                                 <div>
@@ -771,20 +1166,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.third.risk5.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.third.risk5.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk5.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.third.risk5.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.third.risk5.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Банкротство продавца</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №8: Банкротство продавца </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.third.risk5.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Банкротство продавца</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.third.risk5.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -803,20 +1207,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.third.risk6.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.third.risk6.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk6.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.third.risk6.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.third.risk6.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Выплата долгов продавцом</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №9: Выплата долгов продавцом </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.third.risk6.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Выплата долгов продавцом</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.third.risk6.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -834,20 +1247,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.third.risk7.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.third.risk7.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk7.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.third.risk7.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.third.risk7.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Причастность к экстремизму и другим преступлениям</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №10: Экстремизм</h2>
-                                             <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.third.risk7.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Причастность к экстремизму и другим преступлениям</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="red" size={36}/>
+                                                   <h2>{answers.third.risk7.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -875,20 +1297,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.third.risk9.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.third.risk9.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk9.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.third.risk9.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.third.risk9.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Продавец-Ответчик в судебном споре</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №11: Продавец-ответчик в судебном споре </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.third.risk9.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Продавец-Ответчик в судебном споре</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.third.risk9.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -911,52 +1342,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.first.risk12.cat > 0 ? 'active' : ''}`}>
-                                 {answers.first.risk12.cat > -1 && (
-                                    <div>
-                                       {answers.first.risk12.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.first.risk12.ans}</h3>
-                                          </div>
-                                       ) : (
-                                          <div>
-                                             <h2> Риск №12: Генеральная доверенность </h2>
-                                             <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.first.risk12.ans}</h3>
-                                             </div>
-                                             <div className="Rec">
-                                                <h3>Рекомендации:</h3>
-                                                <p> Есть риск, что генеральная доверенность не является достоверной,
-                                                   поэтому: </p>
-                                                <p> Проверьте генеральную доверенность по ссылке:&nbsp;
-                                                   <Link
-                                                      to="https://reestr-dover.ru/"
-                                                      target="_blank" rel="noopener noreferrer">
-                                                      https://reestr-dover.ru/
-                                                   </Link>
-                                                </p>
-                                             </div>
-                                          </div>
-                                       )}
-                                    </div>
-                                 )}
-                              </div>
-                              <div className={`riskBlock ${answers.third.risk13.q1.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.third.risk13.q1.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk13.q1.cat > -1 && (
-                                    <div>
-                                       {answers.third.risk13.q1.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.third.risk13.q1.cat.ans}</h3>
+                                    <div className="riskBlockAct">
+                                       {answers.third.risk13.cat === 0 ? (
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Недееспособность продавца</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №13: Недееспособность продавца </h2>
-                                             <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.third.risk13.q1.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Недееспособность продавца</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="red" size={36}/>
+                                                   <h2>{answers.third.risk13.q1.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1003,20 +1411,29 @@ class Blocks extends React.Component {
                            </div>
                         ) : (
                            <div>
-                              <div className={`riskBlock ${answers.first.risk1.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.first.risk1.cat > -1 ? 'active' : ''}`}>
                                  {answers.first.risk1.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.first.risk1.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.first.risk1.ans}</h3>
+                                          <div className="riskBlockStatus">
+                                             <div className="riskTitle">
+                                                <h2>Риск: Право супруга на объект</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №1: Право супруга на объект </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.first.risk1.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Право супруга на объект</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.first.risk1.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1052,20 +1469,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.first.risk10.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.first.risk10.cat > -1 ? 'active' : ''}`}>
                                  {answers.first.risk10.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.first.risk10.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.first.risk10.ans}</h3>
+                                          <div className="riskBlockStatus">
+                                             <div className="riskTitle">
+                                                <h2>Риск: Право собственности продавца</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №2: Право собственности продавца </h2>
-                                             <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.first.risk10.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Право собственности продавца</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="red" size={36}/>
+                                                   <h2>{answers.first.risk10.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1103,20 +1529,70 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.second.risk2.cat > 0 ? 'active' : ''}`}>
-                                 {answers.second.risk2.cat > -1 && (
-                                    <div>
-                                       {answers.second.risk2.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.second.risk2.ans}</h3>
+                              <div className={`riskBlock ${answers.first.risk12.cat > -1 ? 'active' : ''}`}>
+                                 {answers.first.risk12.cat > -1 && (
+                                    <div className="riskBlockAct">
+                                       {answers.first.risk12.cat === 0 ? (
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Генеральная доверенность</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №3: Границы объекта </h2>
-                                             <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.second.risk2.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Генеральная доверенность</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="red" size={36}/>
+                                                   <h2>{answers.first.risk12.ans}</h2>
+                                                </div>
+                                             </div>
+                                             <div className="Rec">
+                                                <h3>Рекомендации:</h3>
+                                                <p> Есть риск, что генеральная доверенность не является достоверной,
+                                                   поэтому: </p>
+                                                <p> Проверьте генеральную доверенность по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://reestr-dover.ru/"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://reestr-dover.ru/
+                                                   </Link>
+                                                </p>
+                                             </div>
+                                          </div>
+                                       )}
+                                    </div>
+                                 )}
+                              </div>
+                              <div className={`riskBlock ${answers.second.risk2.cat > -1 ? 'active' : ''}`}>
+                                 {answers.second.risk2.cat > -1 && (
+                                    <div className="riskBlockAct">
+                                       {answers.second.risk2.cat === 0 ? (
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Границы объекта</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
+                                          </div>
+                                       ) : (
+                                          <div>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Границы объекта</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="red" size={36}/>
+                                                   <h2>{answers.second.risk2.ans}</h2>
+                                                </div>
                                              </div>
                                              {answers.second.risk2.number === 1 ? (
                                                 <div>
@@ -1168,20 +1644,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.second.risk3.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.second.risk3.cat > -1 ? 'active' : ''}`}>
                                  {answers.second.risk3.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.second.risk3.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.second.risk3.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Целевое использование объекта</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №4: Целевое использование объекта </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.second.risk3.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Целевое использование объекта</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.second.risk3.ans}</h2>
+                                                </div>
                                              </div>
                                              {answers.second.risk3.number === 1 ? (
                                                 <div>
@@ -1268,20 +1753,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.second.risk4.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.second.risk4.cat > -1 ? 'active' : ''}`}>
                                  {answers.second.risk4.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.second.risk4.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.second.risk4.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Экология</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №5: Экология </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.second.risk4.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Экология</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.second.risk4.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1300,20 +1794,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.second.risk8.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.second.risk8.cat > -1 ? 'active' : ''}`}>
                                  {answers.second.risk8.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.second.risk8.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.second.risk8.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Юридическая история объекта</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск № 6: Юридическая история объекта </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.second.risk8.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Юридическая история объекта</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.second.risk8.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1333,20 +1836,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.second.risk11.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.second.risk11.cat > -1 ? 'active' : ''}`}>
                                  {answers.second.risk11.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.second.risk11.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.second.risk11.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Обременения на объект</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск № 7: Обременения на объект </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.second.risk11.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Обременения на объект</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.second.risk11.ans}</h2>
+                                                </div>
                                              </div>
                                              {answers.second.risk11.number === 1 ? (
                                                 <div>
@@ -1385,20 +1897,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.third.risk5.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.third.risk5.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk5.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.third.risk5.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.third.risk5.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Банкротство продавца</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №8: Банкротство продавца </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.third.risk5.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Банкротство продавца</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.third.risk5.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1417,20 +1938,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.third.risk6.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.third.risk6.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk6.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.third.risk6.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.third.risk6.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Выплата долгов продавцом</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №9: Выплата долгов продавцом </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.third.risk6.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Выплата долгов продавцом</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.third.risk6.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1448,20 +1978,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.third.risk7.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.third.risk7.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk7.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.third.risk7.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.third.risk7.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Причастность к экстремизму и другим преступлениям</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №10: Экстремизм</h2>
-                                             <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.third.risk7.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Причастность к экстремизму и другим преступлениям</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="red" size={36}/>
+                                                   <h2>{answers.third.risk7.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1489,20 +2028,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.third.risk9.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.third.risk9.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk9.cat > -1 && (
-                                    <div>
+                                    <div className="riskBlockAct">
                                        {answers.third.risk9.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.third.risk9.ans}</h3>
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Продавец-Ответчик в судебном споре</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №11: Продавец-ответчик в судебном споре </h2>
-                                             <div className="conclusion">
-                                                <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
-                                                <h3>{answers.third.risk9.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Продавец-Ответчик в судебном споре</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="orange" size={36}/>
+                                                   <h2>{answers.third.risk9.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1525,52 +2073,29 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <div className={`riskBlock ${answers.first.risk12.cat > 0 ? 'active' : ''}`}>
-                                 {answers.first.risk12.cat > -1 && (
-                                    <div>
-                                       {answers.first.risk12.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.first.risk12.ans}</h3>
-                                          </div>
-                                       ) : (
-                                          <div>
-                                             <h2> Риск №12: Генеральная доверенность </h2>
-                                             <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.first.risk12.ans}</h3>
-                                             </div>
-                                             <div className="Rec">
-                                                <h3>Рекомендации:</h3>
-                                                <p> Есть риск, что генеральная доверенность не является достоверной,
-                                                   поэтому: </p>
-                                                <p> Проверьте генеральную доверенность по ссылке:&nbsp;
-                                                   <Link
-                                                      to="https://reestr-dover.ru/"
-                                                      target="_blank" rel="noopener noreferrer">
-                                                      https://reestr-dover.ru/
-                                                   </Link>
-                                                </p>
-                                             </div>
-                                          </div>
-                                       )}
-                                    </div>
-                                 )}
-                              </div>
-                              <div className={`riskBlock ${answers.third.risk13.q1.cat > 0 ? 'active' : ''}`}>
+                              <div className={`riskBlock ${answers.third.risk13.q1.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk13.q1.cat > -1 && (
-                                    <div>
-                                       {answers.third.risk13.q1.cat === 0 ? (
-                                          <div className="conclusionOff">
-                                             <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
-                                             <h3>{answers.third.risk13.q1.cat.ans}</h3>
+                                    <div className="riskBlockAct">
+                                       {answers.third.risk13.cat === 0 ? (
+                                          <div className='riskBlockStatus'>
+                                             <div className="riskTitle">
+                                                <h2>Риск: Недееспособность продавца</h2>
+                                             </div>
+                                             <div className="conclusionOff">
+                                                <BsCheckCircle className="conclusionIcon" color="green" size={36}/>
+                                                <h2>Риска нет</h2>
+                                             </div>
                                           </div>
                                        ) : (
                                           <div>
-                                             <h2> Риск №13: Недееспособность продавца </h2>
-                                             <div className="conclusion">
-                                                <BsXCircle className="conclusionIcon" color="red" size={36}/>
-                                                <h3>{answers.third.risk13.q1.ans}</h3>
+                                             <div className="riskBlockStatus">
+                                                <div className="riskTitle">
+                                                   <h2>Риск: Недееспособность продавца</h2>
+                                                </div>
+                                                <div className="conclusion">
+                                                   <BsDashCircle className="conclusionIcon" color="red" size={36}/>
+                                                   <h2>{answers.third.risk13.q1.ans}</h2>
+                                                </div>
                                              </div>
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
@@ -1598,67 +2123,67 @@ class Blocks extends React.Component {
                                  <div style={{marginLeft: "30px"}}>
                                     {answers.first.risk1.cat === -1 && (
                                        <div>
-                                          <h4> Риск №1: Право супруга на объект</h4>
+                                          <h4> Риск: Право супруга на объект</h4>
                                        </div>
                                     )}
                                     {answers.first.risk10.cat === -1 && (
                                        <div>
-                                          <h4> Риск №2: Право собственности продавца</h4>
+                                          <h4> Риск: Право собственности продавца</h4>
                                        </div>
                                     )}
                                     {answers.second.risk2.cat === -1 && (
                                        <div>
-                                          <h4> Риск №3: Границы объекта </h4>
+                                          <h4> Риск: Границы объекта </h4>
                                        </div>
                                     )}
                                     {answers.second.risk3.cat === -1 && (
                                        <div>
-                                          <h4> Риск №4: Целевое использование объекта</h4>
+                                          <h4> Риск: Целевое использование объекта</h4>
                                        </div>
                                     )}
                                     {answers.second.risk4.cat === -1 && (
                                        <div>
-                                          <h4> Риск №5: Экология</h4>
+                                          <h4> Риск: Экология</h4>
                                        </div>
                                     )}
                                     {answers.second.risk8.cat === -1 && (
                                        <div>
-                                          <h4> Риск №6: Юридическая история объекта</h4>
+                                          <h4> Риск: Юридическая история объекта</h4>
                                        </div>
                                     )}
                                     {answers.second.risk11.cat === -1 && (
                                        <div>
-                                          <h4> Риск №7: Обременения на объект</h4>
+                                          <h4> Риск: Обременения на объект</h4>
                                        </div>
                                     )}
                                     {answers.third.risk5.cat === -1 && (
                                        <div>
-                                          <h4> Риск №8: Банкротство продавца</h4>
+                                          <h4> Риск: Банкротство продавца</h4>
                                        </div>
                                     )}
                                     {answers.third.risk6.cat === -1 && (
                                        <div>
-                                          <h4> Риск №9: Выплата долгов продавцом</h4>
+                                          <h4> Риск: Выплата долгов продавцом</h4>
                                        </div>
                                     )}
                                     {answers.third.risk7.cat === -1 && (
                                        <div>
-                                          <h4> Риск №10: Экстремизм</h4>
+                                          <h4> Риск: Экстремизм</h4>
                                        </div>
                                     )}
                                     {answers.third.risk9.cat === -1 && (
                                        <div>
-                                          <h4> Риск №11: Продавец-ответчик в судебном споре</h4>
+                                          <h4> Риск: Продавец-ответчик в судебном споре</h4>
                                        </div>
                                     )}
                                     {answers.first.risk12.cat === -1 && (
                                        <div>
-                                          <h4> Риск №12: Генеральная доверенность </h4>
+                                          <h4> Риск: Генеральная доверенность </h4>
                                        </div>
                                     )}
                                     {answers.third.risk13.q1.cat === -1 && (
                                        <div>
-                                          <h4> Риск №13: Недееспособность продавца</h4>
+                                          <h4> Риск: Недееспособность продавца</h4>
                                        </div>
                                     )}
                                  </div>
