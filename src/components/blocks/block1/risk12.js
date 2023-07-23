@@ -104,11 +104,13 @@ class Risk12 extends React.Component {
                   <div className="Question">
                      <div className="QuestTool">
                         <p className="bigger" id="perenos">{this.quests[0].question}</p>
-                        <BsQuestionCircleFill
-                           className="QuestIcon"
-                           onMouseEnter={() => this.handleMouseEnter(0)}
-                           onMouseLeave={() => this.handleMouseLeave(0)}
+                        <div>
+                           <BsQuestionCircleFill
+                              className="QuestIcon"
+                              onMouseEnter={() => this.handleMouseEnter(0)}
+                              onMouseLeave={() => this.handleMouseLeave(0)}
                         />
+                        </div>
                         <div className="ToolContainer">
                            <div
                               className="Tooltip"

@@ -197,6 +197,7 @@ body {
     display: flex;
     align-items: center;
     position: relative;
+    white-space: nowrap;
 }
 
 .RiskIcon {
@@ -229,6 +230,7 @@ body {
 .ToolContainer {
     position: relative;
     width: 50%;
+    white-space: normal;
 }
 
 .Rec {
@@ -420,12 +422,25 @@ body {
 
 .conclusion {
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-.conclusionOff {
-    display: none;
-}
+.riskTitle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .conclusionOff {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 
+.riskBlockAct{
+    width: 100%;
+}
 .conclusionIcon {
     display: inline-block;
     margin: 12px;
@@ -447,7 +462,7 @@ body {
 }
 
 .riskBlock.active {
-    display: block;
+    display: flex;
     align-items: center;
     margin-left: 60px;
     margin-right: 50px;
@@ -455,6 +470,19 @@ body {
     padding: 10px 30px;
     border-radius: 20px;
     border: 4px outset #1ea823;
+    justify-content: space-between;
+}
+
+.riskBlockStatus {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.riskBlockGreen {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .riskBlock {
@@ -494,7 +522,7 @@ body {
 .reportIconsInfo{
     display: flex;
     align-items: center;
-    margin-left: 85px;
+    margin-left: 30px;
 }
 
 .reportIcons {
