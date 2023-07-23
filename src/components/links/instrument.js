@@ -7,24 +7,24 @@ class Instrument extends React.Component {
       const {items} = this.props;
       return (
          <div>
-            <p className="bigger"> Перед прохождением тестирования советуем Вам ознакомиться с нашим информационным
+            <p className="bigger" style={{ marginLeft: "2%"}}> Перед прохождением тестирования советуем Вам ознакомиться с нашим информационным
                материалом — &nbsp;
                <Link to="/handbook"><strong>Справочником</strong></Link>. </p>
-            <p className="bigger"> Если же Вам будет непонятен какой-то термин, Вы сможете найти его в нашем &nbsp;
+            <p className="bigger" style={{ marginLeft: "2%"}}> Если же Вам будет непонятен какой-то термин, Вы сможете найти его в нашем &nbsp;
                <Link to="/handbook"><strong>Словаре</strong></Link>. </p>
-            <p className="bigger"> После нажатия кнопки "<strong>Продолжить</strong>" Вам будет представлено тестирование,
+            <p className="bigger" style={{ marginLeft: "2%"}}> После нажатия кнопки "<strong>Продолжить</strong>" Вам будет представлено тестирование,
                сгруппированное по блокам и
                Рискам. <br/>Чтобы открыть окно с риском, Вам необходимо нажать на треугольник <BiSolidRightArrow/> рядом
                с оглавлением. </p>
-            <p className="bigger"> Вы можете закончить тестирование и получить его результаты в любой момент, нажав на
+            <p className="bigger" style={{ marginLeft: "2%"}}> Вы можете закончить тестирование и получить его результаты в любой момент, нажав на
                кнопку "<strong>Продолжить</strong>". Однако, чтобы получить полный перечень рекомендаций, необходимо ответить на все
                вопросы. После окончания тестирования Вы получите отчет на сайте и возможность скачать его в формате
                PDF.</p>
-            <h3>Эти документы потребуются для качественного прохождения тестирования:</h3>
+            <h3 style={{ marginLeft: "2%"}}>Эти документы потребуются для качественного прохождения тестирования:</h3>
             <div>
                {items.map((item, index) => (
                   <div key={index} className="Docs">
-                     <div className="Bullet"></div>
+                     <div className="Bullet" style={{ marginLeft: "3%"}}></div>
                      <label className="Docs bigger">{item.label}</label>
                   </div>
                ))}

@@ -10,7 +10,6 @@ import {PDFDownloadLink} from '@react-pdf/renderer';
 import Report from './report';
 import ScrollToTop from './scrollToTop'
 
-
 class Blocks extends React.Component {
    constructor(props) {
       super(props);
@@ -246,7 +245,7 @@ class Blocks extends React.Component {
                </div>
             ) : (
                <div>
-                  <h1>Отчёт</h1>
+                  <h1 style={{textAlign: "center"}}>Отчёт</h1>
                   {((answers.first.risk1.cat < 1) && (answers.first.risk10.cat < 1) && (answers.second.risk2.cat < 1) && (answers.second.risk3.cat < 1)
                      && (answers.second.risk4.cat < 1) && (answers.second.risk8.cat < 1) && (answers.second.risk11.cat < 1) && (answers.third.risk5.cat < 1)
                      && (answers.third.risk6.cat < 1) && (answers.third.risk7.cat < 1) && (answers.third.risk9.cat < 1) && (answers.first.risk12.cat < 1)
@@ -257,8 +256,9 @@ class Blocks extends React.Component {
                            && (answers.third.risk6.cat === 0) && (answers.third.risk7.cat === 0) && (answers.third.risk9.cat === 0) && (answers.first.risk12.cat === 0)
                            && (answers.third.risk13.q1.cat === 0) && (answers.third.risk13.q2.cat === 0)) ? (
                            <div>
-                              <h2> Риски не выявлены! </h2>
-                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="ЗемельКа отчет.pdf">
+                              <h2 style={{marginLeft: "2%"}}> Риски не выявлены! </h2>
+                              <PDFDownloadLink className="downloadPDF" document={<Report answers={answers}/>}
+                                               fileName="ЗемельКа отчет.pdf">
                                  {({
                                       blob,
                                       url,
@@ -266,7 +266,7 @@ class Blocks extends React.Component {
                                       error
                                    }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
                               </PDFDownloadLink>
-                              <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
+                              <h2 style={{marginLeft: "3%"}}> Ознакомиться с возможными рисками вы можете в разделе{' '}
                                  <Link to="/handbook">справочник</Link>!.
                               </h2>
                               <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на
@@ -278,10 +278,10 @@ class Blocks extends React.Component {
                            </div>
                         ) : (
                            <div>
-                              <h2> Риски не выявлены! </h2>
+                              <h2 style={{marginLeft: "2%"}}> Риски не выявлены! </h2>
                               <div className="notPassed">
                                  <h3>Есть тестовые вопросы, которые Вы не прошли:</h3>
-                                 <div>
+                                 <div style={{marginLeft: "30px"}}>
                                     {answers.first.risk1.cat === -1 && (
                                        <div>
                                           <h4> Риск №1: Право супруга на объект</h4>
@@ -349,7 +349,8 @@ class Blocks extends React.Component {
                                     )}
                                  </div>
                               </div>
-                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                              <PDFDownloadLink className="downloadPDF" document={<Report answers={answers}/>}
+                                               fileName="ЗемельКа отчет.pdf">
                                  {({
                                       blob,
                                       url,
@@ -357,7 +358,7 @@ class Blocks extends React.Component {
                                       error
                                    }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
                               </PDFDownloadLink>
-                              <h2> Ознакомиться с возможными рисками вы можете в разделе{' '}
+                              <h2 style={{marginLeft: "3%"}}> Ознакомиться с возможными рисками вы можете в разделе{' '}
                                  <Link to="/handbook">справочник</Link>.
                               </h2>
                               <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на
@@ -382,7 +383,7 @@ class Blocks extends React.Component {
                               <h3> — &nbsp;Сделка не может быть заключена</h3>
                            </div>
                         </div>
-                        <h2> Выявлены следующие риски: </h2>
+                        <h2 style={{marginLeft: "2%"}}> Выявлены следующие риски: </h2>
                         {((answers.first.risk1.cat > -1) && (answers.first.risk10.cat > -1) && (answers.second.risk2.cat > -1) && (answers.second.risk3.cat > -1)
                            && (answers.second.risk4.cat > -1) && (answers.second.risk8.cat > -1) && (answers.second.risk11.cat > -1) && (answers.third.risk5.cat > -1)
                            && (answers.third.risk6.cat > -1) && (answers.third.risk7.cat > -1) && (answers.third.risk9.cat > -1) && (answers.first.risk12.cat > -1)
@@ -530,9 +531,18 @@ class Blocks extends React.Component {
                                                       <p> Проверьте межевой план и акт согласования границ с помощью
                                                          публичной кадастровой карты
                                                          Росреестра: <br/>
-                                                         Ссылка №1 https://www.gosuslugi.ru/378659/1/info <br/>
-                                                         Ссылка № 2
-                                                         https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
+                                                         Ссылка №1&nbsp;
+                                                         <Link
+                                                            to="https://www.gosuslugi.ru/378659/1/info"
+                                                            target="_blank" rel="noopener noreferrer">
+                                                            https://www.gosuslugi.ru/378659/1/info
+                                                         </Link> <br/>
+                                                         Ссылка №2&nbsp;
+                                                         <Link
+                                                            to="https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844"
+                                                            target="_blank" rel="noopener noreferrer">
+                                                            https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
+                                                         </Link>
                                                       </p>
                                                       <p> Воспользуйтесь услугами кадастрового инженера. Он поможет Вам
                                                          провести проверку межевания. </p>
@@ -586,19 +596,38 @@ class Blocks extends React.Component {
                                                             <p>Проверьте с помощью публичной кадастровой карты
                                                                Росреестра. </p>
                                                             <p>Ссылка №1:</p>
-                                                            <p>https://www.gosuslugi.ru/378659/1/info</p>
+                                                            <p><Link
+                                                               to="https://www.gosuslugi.ru/378659/1/info"
+                                                               target="_blank" rel="noopener noreferrer">
+                                                               https://www.gosuslugi.ru/378659/1/info
+                                                            </Link>
+                                                            </p>
                                                             <p>Ссылка №2:</p>
-                                                            <p>https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844</p>
-
+                                                            <p><Link
+                                                               to="https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844"
+                                                               target="_blank" rel="noopener noreferrer">
+                                                               https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
+                                                            </Link>
+                                                            </p>
                                                             <p>Проверьте генеральный план развития местности,
                                                                утвержденный местной администрацией.
                                                                Например, Генплан Москвы до 2035 г. можно посмотреть по
                                                                ссылке:</p>
-                                                            <p>https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/</p>
+                                                            <p><Link
+                                                               to="https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/"
+                                                               target="_blank" rel="noopener noreferrer">
+                                                               https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/
+                                                            </Link>
+                                                            </p>
                                                             <p>Проверьте Правила землепользования и застройки. Например,
                                                                Правила землепользования и застройки города Москвы можно
                                                                посмотреть по ссылке: </p>
-                                                            <p>https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/</p>
+                                                            <p><Link
+                                                               to="https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/"
+                                                               target="_blank" rel="noopener noreferrer">
+                                                               https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/
+                                                            </Link>
+                                                            </p>
                                                          </div>
                                                       </div>
                                                    ) : (
@@ -608,7 +637,13 @@ class Blocks extends React.Component {
                                                             <p> Есть риск, что объект попадает в зону особого
                                                                назначения, поэтому: </p>
                                                             <p> Проверьте информацию по земельному участку на портале
-                                                               ФГИС ТП по ссылке: https://fgistp.economy.gov.ru/ </p>
+                                                               ФГИС ТП по ссылке:&nbsp;
+                                                               <Link
+                                                                  to="https://fgistp.economy.gov.ru/"
+                                                                  target="_blank" rel="noopener noreferrer">
+                                                                  https://fgistp.economy.gov.ru/
+                                                               </Link>
+                                                            </p>
                                                          </div>
                                                       </div>
                                                    )}
@@ -638,8 +673,13 @@ class Blocks extends React.Component {
                                                 <h3>Рекомендации:</h3>
                                                 <p>Есть риск того, что Вы не проинформированы об экологической ситуации
                                                    земельного участка, поэтому: </p>
-                                                <p>Запросите информацию об экологической ситуации по ссылке:
-                                                   https://www.gosuslugi.ru/72281/1/info</p>
+                                                <p>Запросите информацию об экологической ситуации по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://www.gosuslugi.ru/72281/1/info"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://www.gosuslugi.ru/72281/1/info
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -666,8 +706,13 @@ class Blocks extends React.Component {
                                                 <p> Есть риск того, что Вы не проинформированы о юридической истории
                                                    земельного участка, поэтому: </p>
                                                 <p> Ознакомьтесь с информацией о переходе прав на объект недвижимости,
-                                                   заказав выписку из ЕГРН по ссылке:
-                                                   https://rosreestor.net/vipiska-o-perehode-prav </p>
+                                                   заказав выписку из ЕГРН по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://rosreestor.net/vipiska-o-perehode-prav "
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://rosreestor.net/vipiska-o-perehode-prav
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -745,8 +790,13 @@ class Blocks extends React.Component {
                                                 <h3>Рекомендации:</h3>
                                                 <p> Есть риск, что Продавец является банкротом, поэтому: </p>
                                                 <p> Проверьте наличие Продавца в списках банкротов в соотвествующем
-                                                   реестре:
-                                                   https://old.bankrot.fedresurs.ru/?ysclid=ljpmeb4npx361137021&attempt=2 </p>
+                                                   реестре:&nbsp;
+                                                   <Link
+                                                      to="https://old.bankrot.fedresurs.ru/?ysclid=ljpmeb4npx361137021&attempt=2"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://old.bankrot.fedresurs.ru/?ysclid=ljpmeb4npx361137021&attempt=2
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -771,8 +821,13 @@ class Blocks extends React.Component {
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
                                                 <p> Есть риск, что Продавец является злостным должником, поэтому: </p>
-                                                <p> Проверьте Продавца в соответствующем реестре:
-                                                   https://fssp.gov.ru/ </p>
+                                                <p> Проверьте Продавца в соответствующем реестре:&nbsp;
+                                                   <Link
+                                                      to="https://fssp.gov.ru/"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://fssp.gov.ru/
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -799,10 +854,21 @@ class Blocks extends React.Component {
                                                 <p> Есть риск, что Продавец причастен к экстремизму или иным
                                                    преступлениям, поэтому: </p>
                                                 <p> Проверьте Продавца в соответствующем реестре лиц, причастных к
-                                                   экстремизму:
-                                                   https://www.fedsfm.ru/documents/terr-list?ysclid=ljpmkslzio263245615 </p>
+                                                   экстремизму:&nbsp;
+                                                   <Link
+                                                      to="https://www.fedsfm.ru/documents/terr-list?ysclid=ljpmkslzio263245615"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://www.fedsfm.ru/documents/terr-list?ysclid=ljpmkslzio263245615
+                                                   </Link>
+                                                </p>
                                                 <p> Наличие иных преступлений продавца можно проверить в сервисе МВД
-                                                   "Внимание, розыск!": https://мвд.рф/wanted </p>
+                                                   "Внимание, розыск!":&nbsp;
+                                                   <Link
+                                                      to="https://мвд.рф/wanted"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://мвд.рф/wanted
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -828,11 +894,17 @@ class Blocks extends React.Component {
                                                 <h3>Рекомендации:</h3>
                                                 <p> Есть риск, что Продавец участвует в судебном производстве в качестве
                                                    ответчика, поэтому: </p>
-                                                <p> Проверьте продавца в соответствующем реестре:
-                                                   https://mos-gorsud.ru/mgs/services/cases/first-civil. <br/>
+                                                <p> Проверьте продавца в соответствующем реестре:&nbsp;
+                                                   <Link
+                                                      to="https://mos-gorsud.ru/mgs/services/cases/first-civil"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://mos-gorsud.ru/mgs/services/cases/first-civil
+                                                   </Link>
+                                                   <br/>
                                                    Это нужно для того, чтобы удостовериться, что в отношении продавца
                                                    нет возбужденных судебных дел, которые бы могли угрожать совершению
-                                                   сделки (например, развод). </p>
+                                                   сделки (например, развод).
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -858,8 +930,13 @@ class Blocks extends React.Component {
                                                 <h3>Рекомендации:</h3>
                                                 <p> Есть риск, что генеральная доверенность не является достоверной,
                                                    поэтому: </p>
-                                                <p> Проверьте генеральную доверенность по ссылке:
-                                                   https://reestr-dover.ru/ </p>
+                                                <p> Проверьте генеральную доверенность по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://reestr-dover.ru/"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://reestr-dover.ru/
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -885,8 +962,13 @@ class Blocks extends React.Component {
                                                 <h3>Рекомендации:</h3>
                                                 <p> Есть риск, что Продавец является недееспособным, поэтому:</p>
                                                 <p> Получите выписку из ЕГРН о признании правообладателя недееспособным
-                                                   или ограниченно дееспособным. Инструкция по ссылке:
-                                                   https://www.gosuslugi.ru/help/faq/egrn/101769 </p>
+                                                   или ограниченно дееспособным. Инструкция по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://www.gosuslugi.ru/help/faq/egrn/101769"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://www.gosuslugi.ru/help/faq/egrn/101769
+                                                   </Link>
+                                                </p>
                                                 <p> Запросите у Продавца справки из психоневрологического диспансера и
                                                    наркологического диспансера, чтобы удостовериться в его полной
                                                    дееспособности и снять подозрения о невозможности совершения
@@ -897,7 +979,8 @@ class Blocks extends React.Component {
                                     </div>
                                  )}
                               </div>
-                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                              <PDFDownloadLink className="downloadPDF" document={<Report answers={answers}/>}
+                                               fileName="ЗемельКа отчет.pdf">
                                  {({
                                       blob,
                                       url,
@@ -906,7 +989,7 @@ class Blocks extends React.Component {
                                    }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
                               </PDFDownloadLink>
                               <div>
-                                 <h2>
+                                 <h2 style={{marginLeft: "3%"}}>
                                     Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
                                     <Link to="/handbook">справочник</Link>!
                                  </h2>
@@ -1062,9 +1145,18 @@ class Blocks extends React.Component {
                                                       <p> Проверьте межевой план и акт согласования границ с помощью
                                                          публичной кадастровой карты
                                                          Росреестра: <br/>
-                                                         Ссылка №1 https://www.gosuslugi.ru/378659/1/info <br/>
-                                                         Ссылка № 2
-                                                         https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
+                                                         Ссылка №1&nbsp;
+                                                         <Link
+                                                            to="https://www.gosuslugi.ru/378659/1/info"
+                                                            target="_blank" rel="noopener noreferrer">
+                                                            https://www.gosuslugi.ru/378659/1/info
+                                                         </Link> <br/>
+                                                         Ссылка №2&nbsp;
+                                                         <Link
+                                                            to="https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844"
+                                                            target="_blank" rel="noopener noreferrer">
+                                                            https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
+                                                         </Link>
                                                       </p>
                                                       <p> Воспользуйтесь услугами кадастрового инженера. Он поможет Вам
                                                          провести проверку межевания. </p>
@@ -1118,19 +1210,38 @@ class Blocks extends React.Component {
                                                             <p>Проверьте с помощью публичной кадастровой карты
                                                                Росреестра. </p>
                                                             <p>Ссылка №1:</p>
-                                                            <p>https://www.gosuslugi.ru/378659/1/info</p>
+                                                            <p><Link
+                                                               to="https://www.gosuslugi.ru/378659/1/info"
+                                                               target="_blank" rel="noopener noreferrer">
+                                                               https://www.gosuslugi.ru/378659/1/info
+                                                            </Link>
+                                                            </p>
                                                             <p>Ссылка №2:</p>
-                                                            <p>https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844</p>
-
+                                                            <p><Link
+                                                               to="https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844"
+                                                               target="_blank" rel="noopener noreferrer">
+                                                               https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
+                                                            </Link>
+                                                            </p>
                                                             <p>Проверьте генеральный план развития местности,
                                                                утвержденный местной администрацией.
                                                                Например, Генплан Москвы до 2035 г. можно посмотреть по
                                                                ссылке:</p>
-                                                            <p>https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/</p>
+                                                            <p><Link
+                                                               to="https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/"
+                                                               target="_blank" rel="noopener noreferrer">
+                                                               https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/
+                                                            </Link>
+                                                            </p>
                                                             <p>Проверьте Правила землепользования и застройки. Например,
                                                                Правила землепользования и застройки города Москвы можно
                                                                посмотреть по ссылке: </p>
-                                                            <p>https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/</p>
+                                                            <p><Link
+                                                               to="https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/"
+                                                               target="_blank" rel="noopener noreferrer">
+                                                               https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/
+                                                            </Link>
+                                                            </p>
                                                          </div>
                                                       </div>
                                                    ) : (
@@ -1140,7 +1251,13 @@ class Blocks extends React.Component {
                                                             <p> Есть риск, что объект попадает в зону особого
                                                                назначения, поэтому: </p>
                                                             <p> Проверьте информацию по земельному участку на портале
-                                                               ФГИС ТП по ссылке: https://fgistp.economy.gov.ru/ </p>
+                                                               ФГИС ТП по ссылке:&nbsp;
+                                                               <Link
+                                                                  to="https://fgistp.economy.gov.ru/"
+                                                                  target="_blank" rel="noopener noreferrer">
+                                                                  https://fgistp.economy.gov.ru/
+                                                               </Link>
+                                                            </p>
                                                          </div>
                                                       </div>
                                                    )}
@@ -1170,8 +1287,13 @@ class Blocks extends React.Component {
                                                 <h3>Рекомендации:</h3>
                                                 <p>Есть риск того, что Вы не проинформированы об экологической ситуации
                                                    земельного участка, поэтому: </p>
-                                                <p>Запросите информацию об экологической ситуации по ссылке:
-                                                   https://www.gosuslugi.ru/72281/1/info</p>
+                                                <p>Запросите информацию об экологической ситуации по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://www.gosuslugi.ru/72281/1/info"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://www.gosuslugi.ru/72281/1/info
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -1198,8 +1320,13 @@ class Blocks extends React.Component {
                                                 <p> Есть риск того, что Вы не проинформированы о юридической истории
                                                    земельного участка, поэтому: </p>
                                                 <p> Ознакомьтесь с информацией о переходе прав на объект недвижимости,
-                                                   заказав выписку из ЕГРН по ссылке:
-                                                   https://rosreestor.net/vipiska-o-perehode-prav </p>
+                                                   заказав выписку из ЕГРН по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://rosreestor.net/vipiska-o-perehode-prav "
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://rosreestor.net/vipiska-o-perehode-prav
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -1277,8 +1404,13 @@ class Blocks extends React.Component {
                                                 <h3>Рекомендации:</h3>
                                                 <p> Есть риск, что Продавец является банкротом, поэтому: </p>
                                                 <p> Проверьте наличие Продавца в списках банкротов в соотвествующем
-                                                   реестре:
-                                                   https://old.bankrot.fedresurs.ru/?ysclid=ljpmeb4npx361137021&attempt=2 </p>
+                                                   реестре:&nbsp;
+                                                   <Link
+                                                      to="https://old.bankrot.fedresurs.ru/?ysclid=ljpmeb4npx361137021&attempt=2"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://old.bankrot.fedresurs.ru/?ysclid=ljpmeb4npx361137021&attempt=2
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -1303,8 +1435,13 @@ class Blocks extends React.Component {
                                              <div className="Rec">
                                                 <h3>Рекомендации:</h3>
                                                 <p> Есть риск, что Продавец является злостным должником, поэтому: </p>
-                                                <p> Проверьте Продавца в соответствующем реестре:
-                                                   https://fssp.gov.ru/ </p>
+                                                <p> Проверьте Продавца в соответствующем реестре:&nbsp;
+                                                   <Link
+                                                      to="https://fssp.gov.ru/"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://fssp.gov.ru/
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -1331,10 +1468,21 @@ class Blocks extends React.Component {
                                                 <p> Есть риск, что Продавец причастен к экстремизму или иным
                                                    преступлениям, поэтому: </p>
                                                 <p> Проверьте Продавца в соответствующем реестре лиц, причастных к
-                                                   экстремизму:
-                                                   https://www.fedsfm.ru/documents/terr-list?ysclid=ljpmkslzio263245615 </p>
+                                                   экстремизму:&nbsp;
+                                                   <Link
+                                                      to="https://www.fedsfm.ru/documents/terr-list?ysclid=ljpmkslzio263245615"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://www.fedsfm.ru/documents/terr-list?ysclid=ljpmkslzio263245615
+                                                   </Link>
+                                                </p>
                                                 <p> Наличие иных преступлений продавца можно проверить в сервисе МВД
-                                                   "Внимание, розыск!": https://мвд.рф/wanted </p>
+                                                   "Внимание, розыск!":&nbsp;
+                                                   <Link
+                                                      to="https://мвд.рф/wanted"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://мвд.рф/wanted
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -1360,11 +1508,17 @@ class Blocks extends React.Component {
                                                 <h3>Рекомендации:</h3>
                                                 <p> Есть риск, что Продавец участвует в судебном производстве в качестве
                                                    ответчика, поэтому: </p>
-                                                <p> Проверьте продавца в соответствующем реестре:
-                                                   https://mos-gorsud.ru/mgs/services/cases/first-civil. <br/>
+                                                <p> Проверьте продавца в соответствующем реестре:&nbsp;
+                                                   <Link
+                                                      to="https://mos-gorsud.ru/mgs/services/cases/first-civil"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://mos-gorsud.ru/mgs/services/cases/first-civil
+                                                   </Link>
+                                                   <br/>
                                                    Это нужно для того, чтобы удостовериться, что в отношении продавца
                                                    нет возбужденных судебных дел, которые бы могли угрожать совершению
-                                                   сделки (например, развод). </p>
+                                                   сделки (например, развод).
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -1390,8 +1544,13 @@ class Blocks extends React.Component {
                                                 <h3>Рекомендации:</h3>
                                                 <p> Есть риск, что генеральная доверенность не является достоверной,
                                                    поэтому: </p>
-                                                <p> Проверьте генеральную доверенность по ссылке:
-                                                   https://reestr-dover.ru/ </p>
+                                                <p> Проверьте генеральную доверенность по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://reestr-dover.ru/"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://reestr-dover.ru/
+                                                   </Link>
+                                                </p>
                                              </div>
                                           </div>
                                        )}
@@ -1417,8 +1576,13 @@ class Blocks extends React.Component {
                                                 <h3>Рекомендации:</h3>
                                                 <p> Есть риск, что Продавец является недееспособным, поэтому:</p>
                                                 <p> Получите выписку из ЕГРН о признании правообладателя недееспособным
-                                                   или ограниченно дееспособным. Инструкция по ссылке:
-                                                   https://www.gosuslugi.ru/help/faq/egrn/101769 </p>
+                                                   или ограниченно дееспособным. Инструкция по ссылке:&nbsp;
+                                                   <Link
+                                                      to="https://www.gosuslugi.ru/help/faq/egrn/101769"
+                                                      target="_blank" rel="noopener noreferrer">
+                                                      https://www.gosuslugi.ru/help/faq/egrn/101769
+                                                   </Link>
+                                                </p>
                                                 <p> Запросите у Продавца справки из психоневрологического диспансера и
                                                    наркологического диспансера, чтобы удостовериться в его полной
                                                    дееспособности и снять подозрения о невозможности совершения
@@ -1431,7 +1595,7 @@ class Blocks extends React.Component {
                               </div>
                               <div className="notPassed">
                                  <h3>Есть тестовые вопросы, которые Вы не прошли:</h3>
-                                 <div>
+                                 <div style={{marginLeft: "30px"}}>
                                     {answers.first.risk1.cat === -1 && (
                                        <div>
                                           <h4> Риск №1: Право супруга на объект</h4>
@@ -1499,7 +1663,8 @@ class Blocks extends React.Component {
                                     )}
                                  </div>
                               </div>
-                              <PDFDownloadLink document={<Report answers={answers}/>} fileName="отчет.pdf">
+                              <PDFDownloadLink className="downloadPDF" document={<Report answers={answers}/>}
+                                               fileName="ЗемельКа отчет.pdf">
                                  {({
                                       blob,
                                       url,
@@ -1507,7 +1672,7 @@ class Blocks extends React.Component {
                                       error
                                    }) => (loading ? 'Загрузка документа...' : 'Скачать PDF отчет')}
                               </PDFDownloadLink>
-                              <h2>
+                              <h2 style={{marginLeft: "3%"}}>
                                  Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
                                  <Link to="/handbook">справочник</Link>!
                               </h2>
