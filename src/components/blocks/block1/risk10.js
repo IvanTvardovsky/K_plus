@@ -96,7 +96,7 @@ class Risk10 extends React.Component {
    render() {
       const {ans, click, isClicked, visible} = this.state;
       const tooltips = [
-         `<b>Право собственности</b> - это право гражданина владеть, пользоваться и распоряжаться имуществом.`
+         `<b>Право собственности</b> - это право гражданина владеть, пользоваться и распоряжаться имуществом`
       ];
       return (
          <div className="Risk">

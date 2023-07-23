@@ -88,7 +88,7 @@ class Risk4 extends React.Component {
    render() {
       const {ans, click, isClicked, visible} = this.state;
       const tooltips = [
-         `<b>Экологическая ситуация</b> - это состояние окружающей среды земельного участка, включая наличие полезных ископаемых, загрязняющих веществ в атмосферном воздухе, месторождений пресных подземных вод и др. 
+         `<b>Экологическая ситуация</b> - это состояние окружающей среды земельного участка, включая наличие полезных ископаемых, загрязняющих веществ в атмосферном воздухе, месторождений пресных подземных вод и др 
             <br>`,
       ];
       return (
@@ -105,11 +105,6 @@ class Risk4 extends React.Component {
                   <div className="Question">
                      <div className="QuestTool">
                         <p className="bigger">{this.quests[0].question}</p>
-                        <BsQuestionCircleFill
-                           className="QuestIcon"
-                           onMouseEnter={() => this.handleMouseEnter(0)}
-                           onMouseLeave={() => this.handleMouseLeave(0)}
-                        />
                         <div className="ToolContainer">
                            <div
                               className="Tooltip"

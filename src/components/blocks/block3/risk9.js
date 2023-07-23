@@ -88,7 +88,7 @@ class Risk9 extends React.Component {
     render() {
         const { ans, click, isClicked, visible } = this.state;
         const tooltips = [
-            `Ответчик на момент заключения сделки `
+            `Ответчик на момент заключения сделки`
          ];
         return (
            <div className="Risk">

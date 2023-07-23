@@ -22,7 +22,7 @@ class MainPage extends React.Component {
       return (
          <div className="App">
             <Welcome/>
-            <div className="date-info">
+            <div className="date-info" style={{ marginLeft: '2%'}}>
                Вся информация актуальна на {currentDate}
             </div>
             <Link to="/instrument">

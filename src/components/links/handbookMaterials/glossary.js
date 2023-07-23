@@ -26,7 +26,7 @@ class Glossary extends React.Component {
 
             <div className="glossaryBlock">
                <h2 className="term">Вид разрешенного использования земельного участка</h2>
-               <p className="definition bigger">это характеристика земельного участка, которая определяет, что на
+               <p className="definition bigger">Это характеристика земельного участка, которая определяет, что на
                   участке
                   можно делать (например, строить дом), кадастровую стоимость, затраты на обслуживание.
                </p>
@@ -51,6 +51,12 @@ class Glossary extends React.Component {
                <p className="definition bigger">Это наглядная схема территории, которую можно посмотреть, чтобы избежать
                   соседства
                   с заводами и свалками.</p>
+            </div>
+
+            <div className="glossaryBlock">
+               <h2 className="term">Доверенное лицо</h2>
+               <p className="definition bigger">Это человек, которому доверяют дела и полномочия для выполнения
+                  определенных действий от чужого имени.</p>
             </div>
 
             <div className="glossaryBlock">

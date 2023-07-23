@@ -88,7 +88,7 @@ class Risk6 extends React.Component {
    render() {
       const {ans, click, isClicked, visible} = this.state;
       const tooltips = [
-         `<b>Реестр судебных приставов</b> - это система учета должников, которая находится на официальном сайте ФССП России. `
+         `<b>Реестр судебных приставов</b> - это система учета должников, которая находится на официальном сайте ФССП России`
       ];
       return (
          <div className="Risk">

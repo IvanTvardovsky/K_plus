@@ -88,7 +88,7 @@ class Risk7 extends React.Component {
    render() {
       const {ans, click, isClicked, visible} = this.state;
       const tooltips = [
-         `<b>Экстремизм</b> - это криминальное явление, направленное против основ конституционного строя и безопасности государства. `
+         `<b>Экстремизм</b> - это криминальное явление, направленное против основ конституционного строя и безопасности государства`
       ];
       return (
          <div className="Risk">
