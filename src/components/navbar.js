@@ -16,16 +16,16 @@ class Navbar extends React.Component {
                <nav role="navigation" className="navbar-menu">
                   <ul role="list" className="navbar-menu-list">
                      <li>
-                        <Link to="/instrument" className="highlight-link">Инструмент</Link>
-                     </li>
-                     <li>
-                        <Link to="/calculator" className="highlight-link">Калькулятор</Link>
+                        <Link to="/instrument" className="highlight-link">Анализ рисков</Link>
                      </li>
                      <li>
                         <Link to="/dictionary" className="highlight-link">Словарь</Link>
                      </li>
                      <li>
                         <Link to="/handbook" className="highlight-link">Справочник</Link>
+                     </li>
+                     <li>
+                        <Link to="/calculator" className="highlight-link">Калькулятор</Link>
                      </li>
                   </ul>
                </nav>

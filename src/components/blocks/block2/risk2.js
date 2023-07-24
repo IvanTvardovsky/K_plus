@@ -9,7 +9,7 @@ class Risk2 extends React.Component {
          ans: [false, false, false],
          click: [false, false, false],
          isClicked: false,
-         visible: [false],
+         visible: [false, false],
          riskanswer: {
             ans: 'none',
             cat: -1,
@@ -166,7 +166,7 @@ class Risk2 extends React.Component {
    render() {
       const {ans, click, isClicked, visible} = this.state;
       const tooltips = [
-         `<b>Межевание</b> - это работа кадастрового инженера, которая позволяет определить границы земельного участка в межевом плане и внести данные в ЕГРН`,
+         `<b>Межевание</b> - это работа кадастрового инженера, которая позволяет определить границы земельного участка в межевом плане и внести данные в ЕГРН. `,
          `<b>Выписка из ЕГРН</b> - это документ, который содержит информацию об основных характеристиках объекта, сведения о лицах, у которых есть права на объект, о кадастровой стоимости, обременениях и многом другом.`
       ];
       return (
@@ -231,7 +231,26 @@ class Risk2 extends React.Component {
                      <div>
                         {!ans[1] ? (
                            <div className="Question">
-                              <p className="bigger">{this.quests[2].question}</p>
+                              <div className="QuestTool">
+                                 <p className="bigger">{this.quests[2].question}</p>
+                                 <BsQuestionCircleFill
+                                    className="QuestIcon"
+                                    onMouseEnter={() => this.handleMouseEnter(1)}
+                                    onMouseLeave={() => this.handleMouseLeave(1)}
+                                 />
+                                 <div className="ToolContainer">
+                                    <div
+                                       className="Tooltip"
+                                       onMouseEnter={() => this.handleMouseEnter(1)}
+                                       onMouseLeave={() => this.handleMouseLeave(1)}
+                                       style={{
+                                          display: visible[1] ? "block" : "none"
+                                       }}
+                                       dangerouslySetInnerHTML={{__html: tooltips[1]}}
+                                    >
+                                    </div>
+                                 </div>
+                              </div>
                               <button className={`ans-btn ${click[2] && !ans[2] ? 'active' : ''}`}
                                       onClick={() => this.handleAnswer3('да')}>Да
                               </button>
