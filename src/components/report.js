@@ -35,7 +35,7 @@ const Report = ({ answers }) => {
               && (answers.third.risk13.q1.cat < 1) && (answers.third.risk13.q2.cat < 1)) ? (
               <View>
                 <View>
-                  <Text style={styles.subTitle}>Риски не выявлены! </Text>
+                  <Text style={styles.subTitle}>Нет рисков, сделка  может быть заключена! </Text>
                 </View>
                 {answers.first.risk1.cat === 0 && (
                   <View style={styles.RiskNameGreen}>
@@ -124,8 +124,7 @@ const Report = ({ answers }) => {
                   && (answers.third.risk13.q1.cat < 2) && (answers.third.risk13.q2.cat < 2)) ? (
                     <View>
                       <View>
-                        <Text style={styles.subTitle}>Сделка может быть заключена, но </Text>
-                        <Text style={styles.subTitle}>Выявлены следующие риски: </Text>
+                        <Text style={styles.subTitle}>Есть риски, на которые стоит обратить внимание, но сделка может быть заключена! </Text>
                       </View>
                       <View wrap={false} >
                           {answers.first.risk1.cat > -1 && (
@@ -678,8 +677,7 @@ const Report = ({ answers }) => {
                 ) : (
                   <View>
                     <View>
-                      <Text style={styles.subTitle}>Сделка не может быть заключена! </Text>
-                      <Text style={styles.subTitle}>Выявлены следующие риски: </Text>
+                      <Text style={styles.subTitle}>Есть высокий риск того, что сделка не может быть заключена! </Text>
                     </View>
                     <View>
                       <View wrap={false} >

@@ -682,7 +682,14 @@ class Blocks extends React.Component {
                               <h3> — &nbsp;Сделка не может быть заключена</h3>
                            </div>
                         </div>
-                        <h2 style={{marginLeft: "3%"}}> Выявлены следующие риски: </h2>
+                        {((answers.first.risk1.cat < 2) && (answers.first.risk10.cat < 2) && (answers.second.risk2.cat < 2) && (answers.second.risk3.cat < 2)
+                        && (answers.second.risk4.cat < 2) && (answers.second.risk8.cat < 2) && (answers.second.risk11.cat < 2) && (answers.third.risk5.cat < 2)
+                        && (answers.third.risk6.cat < 2) && (answers.third.risk7.cat < 2) && (answers.third.risk9.cat < 2) && (answers.first.risk12.cat < 2)
+                        && (answers.third.risk13.q1.cat < 2) && (answers.third.risk13.q2.cat < 2)) ? (
+                           <h2 style={{marginLeft: "3%"}}>Есть риски, на которые стоит обратить внимание, но сделка может быть заключена!</h2>
+                        ) : (
+                           <h2 style={{marginLeft: "3%"}}>Есть высокий риск того, что сделка не может быть заключена!</h2>
+                        )}
                         {((answers.first.risk1.cat > -1) && (answers.first.risk10.cat > -1) && (answers.second.risk2.cat > -1) && (answers.second.risk3.cat > -1)
                            && (answers.second.risk4.cat > -1) && (answers.second.risk8.cat > -1) && (answers.second.risk11.cat > -1) && (answers.third.risk5.cat > -1)
                            && (answers.third.risk6.cat > -1) && (answers.third.risk7.cat > -1) && (answers.third.risk9.cat > -1) && (answers.first.risk12.cat > -1)
