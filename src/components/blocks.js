@@ -264,7 +264,7 @@ class Blocks extends React.Component {
                            && (answers.third.risk6.cat === 0) && (answers.third.risk7.cat === 0) && (answers.third.risk9.cat === 0) && (answers.first.risk12.cat === 0)
                            && (answers.third.risk13.q1.cat === 0) && (answers.third.risk13.q2.cat === 0)) ? (
                            <div>
-                              <h2 style={{marginLeft: "3%"}}> Риски не выявлены! </h2>
+                              <h2 style={{marginLeft: "3%"}}> Нет рисков, сделка  может быть заключена! </h2>
                               {answers.first.risk1.cat === 0 && (
                                  <div className={`riskBlock ${answers.first.risk1.cat === 0 ? 'active' : ''}`}>
                                     <div className="riskTitle">
@@ -430,7 +430,7 @@ class Blocks extends React.Component {
                            </div>
                         ) : (
                            <div>
-                              <h2 style={{marginLeft: "3%"}}> Риски не выявлены! </h2>
+                              <h2 style={{marginLeft: "3%"}}> Нет рисков, сделка  может быть заключена!</h2>
                               {answers.first.risk1.cat === 0 && (
                                  <div className={`riskBlock ${answers.first.risk1.cat === 0 ? 'active' : ''}`}>
                                     <div className="riskTitle">
@@ -575,7 +575,7 @@ class Blocks extends React.Component {
                                  </div>
                               )}
                               <div className="notPassed">
-                                 <h3>Есть тестовые вопросы, которые Вы не прошли:</h3>
+                                 <h3>Есть вопросы, на которые Вы не ответили:</h3>
                                  <div style={{marginLeft: "30px"}}>
                                     {answers.first.risk1.cat === -1 && (
                                        <div>
@@ -796,9 +796,9 @@ class Blocks extends React.Component {
                                                    выписку из ЕГРН, даже если у собственника ее никогда не было.
                                                    Заказать выписку Вы (или Продавец) можете, перейдя по ссылке:&nbsp;
                                                    <Link
-                                                      to="https://rosreestor.net/vipiska-o-perehode-prav"
+                                                      to="https://rosreestr.gov.ru/eservices/request_info_from_egrn/"
                                                       target="_blank" rel="noopener noreferrer">
-                                                      https://rosreestor.net/vipiska-o-perehode-prav
+                                                      https://https://rosreestr.gov.ru/eservices/request_info_from_egrn/
                                                    </Link></p>
                                              </div>
                                           </div>
@@ -1102,9 +1102,9 @@ class Blocks extends React.Component {
                                                 <p> Ознакомьтесь с информацией о переходе прав на объект недвижимости,
                                                    заказав выписку из ЕГРН по ссылке:&nbsp;
                                                    <Link
-                                                      to="https://rosreestor.net/vipiska-o-perehode-prav "
+                                                      to="https://rosreestr.gov.ru/eservices/request_info_from_egrn/"
                                                       target="_blank" rel="noopener noreferrer">
-                                                      https://rosreestor.net/vipiska-o-perehode-prav
+                                                      https://rosreestr.gov.ru/eservices/request_info_from_egrn/
                                                    </Link>
                                                 </p>
                                              </div>
@@ -1527,9 +1527,9 @@ class Blocks extends React.Component {
                                                    выписку из ЕГРН, даже если у собственника ее никогда не было.
                                                    Заказать выписку Вы (или Продавец) можете, перейдя по ссылке:&nbsp;
                                                    <Link
-                                                      to="https://rosreestor.net/vipiska-o-perehode-prav"
+                                                      to="https://rosreestr.gov.ru/eservices/request_info_from_egrn/"
                                                       target="_blank" rel="noopener noreferrer">
-                                                      https://rosreestor.net/vipiska-o-perehode-prav
+                                                      https://rosreestr.gov.ru/eservices/request_info_from_egrn/
                                                    </Link></p>
                                              </div>
                                           </div>
@@ -1833,9 +1833,9 @@ class Blocks extends React.Component {
                                                 <p> Ознакомьтесь с информацией о переходе прав на объект недвижимости,
                                                    заказав выписку из ЕГРН по ссылке:&nbsp;
                                                    <Link
-                                                      to="https://rosreestor.net/vipiska-o-perehode-prav "
+                                                      to="https://rosreestr.gov.ru/eservices/request_info_from_egrn/"
                                                       target="_blank" rel="noopener noreferrer">
-                                                      https://rosreestor.net/vipiska-o-perehode-prav
+                                                      https://rosreestr.gov.ru/eservices/request_info_from_egrn/
                                                    </Link>
                                                 </p>
                                              </div>
@@ -2127,7 +2127,7 @@ class Blocks extends React.Component {
                                  )}
                               </div>
                               <div className="notPassed">
-                                 <h3>Есть тестовые вопросы, которые Вы не прошли:</h3>
+                                 <h3>Есть вопросы, на которые Вы не ответили:</h3>
                                  <div style={{marginLeft: "30px"}}>
                                     {answers.first.risk1.cat === -1 && (
                                        <div>

@@ -31,6 +31,7 @@ class Instrument extends React.Component {
       const { visible } = this.state;
       return (
          <div>
+            <h3 style={{marginLeft: '2%'}}>Руководство по использованию сайта</h3>
             <p className="bigger" style={{ marginLeft: "2%"}}> Перед прохождением тестирования советуем Вам ознакомиться с нашим информационным
                материалом — &nbsp;
                <Link to="/handbook"><strong>Справочником</strong></Link>. </p>
