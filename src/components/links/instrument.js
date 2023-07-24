@@ -11,7 +11,7 @@ class Instrument extends React.Component {
                материалом — &nbsp;
                <Link to="/handbook"><strong>Справочником</strong></Link>. </p>
             <p className="bigger" style={{ marginLeft: "2%"}}> Если же Вам будет непонятен какой-то термин, Вы сможете найти его в нашем &nbsp;
-               <Link to="/handbook"><strong>Словаре</strong></Link>. </p>
+               <Link to="/dictionary"><strong>Словаре</strong></Link>. </p>
             <p className="bigger" style={{ marginLeft: "2%"}}> После нажатия кнопки "<strong>Продолжить</strong>" Вам будет представлено тестирование,
                сгруппированное по блокам и
                Рискам. <br/>Чтобы открыть окно с риском, Вам необходимо нажать на треугольник <BiSolidRightArrow/> рядом
