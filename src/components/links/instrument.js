@@ -1,10 +1,34 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import {BiSolidRightArrow} from "react-icons/bi"
+import {BsQuestionCircleFill} from 'react-icons/bs'
+
 
 class Instrument extends React.Component {
+   constructor(props){
+      super(props);
+      this.state = {
+         visible: [false, false, false, false, false, false, false, false],
+      }
+      this.handleMouseEnter = this.handleMouseEnter.bind(this);
+      this.handleMouseLeave = this.handleMouseLeave.bind(this);
+   }
+
+   handleMouseEnter = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = true;
+      this.setState({visible: updatedVisible});
+   };
+
+   handleMouseLeave = (index) => {
+      const updatedVisible = [...this.state.visible];
+      updatedVisible[index] = false;
+      this.setState({visible: updatedVisible});
+   };
+
    render() {
       const {items} = this.props;
+      const { visible } = this.state;
       return (
          <div>
             <p className="bigger" style={{ marginLeft: "2%"}}> Перед прохождением тестирования советуем Вам ознакомиться с нашим информационным
@@ -24,8 +48,31 @@ class Instrument extends React.Component {
             <div>
                {items.map((item, index) => (
                   <div key={index} className="Docs">
-                     <div className="Bullet" style={{ marginLeft: "3%"}}></div>
-                     <label className="Docs bigger">{item.label}</label>
+                     <div className="DocsCont">
+                        <div className="Bullet" style={{ marginLeft: "3%"}}></div>
+                        <label className="Docs bigger">{item.label}</label>
+                        {item.check && (
+                           <div>
+                              <div className="ToolContainerInstr">
+                                 <BsQuestionCircleFill
+                                    className="QuestIcon"
+                                    onMouseEnter={() => this.handleMouseEnter(index)}
+                                    onMouseLeave={() => this.handleMouseLeave(index)}
+                                 />
+                                 <div
+                                    className="TooltipInstr"
+                                    onMouseEnter={() => this.handleMouseEnter(index)}
+                                    onMouseLeave={() => this.handleMouseLeave(index)}
+                                    style={{
+                                       display: visible[index] ? "block" : "none"
+                                    }}
+                                    dangerouslySetInnerHTML={{__html: item.tooltip}}
+                                 >
+                                 </div>
+                              </div>
+                           </div>
+                        )}
+                     </div>
                   </div>
                ))}
                <Link to="/blocks">
