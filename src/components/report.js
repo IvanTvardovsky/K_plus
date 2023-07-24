@@ -11,13 +11,24 @@ Font.register({
   src:
     "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-medium-webfont.ttf"
 });;
+ 
 
 const Report = ({ answers }) => {
+  const currentDate = new Date();
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const date = currentDate.toLocaleDateString(undefined, options);
   return (
     <Document>
       <Page style={styles.page}>
         <View>
-          <Text style={styles.title}>Отчёт</Text>
+          <View style={styles.titleCont}>
+            <Text style={styles.title}>Отчёт</Text>
+            <Text style={[styles.tеxt, { textAlign: 'right' }]}>{date}</Text>
+          </View>
           {((answers.first.risk1.cat < 1) && (answers.first.risk10.cat < 1) && (answers.second.risk2.cat < 1) && (answers.second.risk3.cat < 1)
               && (answers.second.risk4.cat < 1) && (answers.second.risk8.cat < 1) && (answers.second.risk11.cat < 1) && (answers.third.risk5.cat < 1)
               && (answers.third.risk6.cat < 1) && (answers.third.risk7.cat < 1) && (answers.third.risk9.cat < 1) && (answers.first.risk12.cat < 1)
@@ -112,6 +123,10 @@ const Report = ({ answers }) => {
                   && (answers.third.risk6.cat < 2) && (answers.third.risk7.cat < 2) && (answers.third.risk9.cat < 2) && (answers.first.risk12.cat < 2)
                   && (answers.third.risk13.q1.cat < 2) && (answers.third.risk13.q2.cat < 2)) ? (
                     <View>
+                      <View>
+                        <Text style={styles.subTitle}>Сделка может быть заключена, но </Text>
+                        <Text style={styles.subTitle}>Выявлены следующие риски: </Text>
+                      </View>
                       <View wrap={false} >
                           {answers.first.risk1.cat > -1 && (
                             <View style={styles.riskBlock}>
@@ -1292,6 +1307,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     borderRadius: '1px',
     padding: '5px',
+  },
+  titleCont: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   }
 });
   

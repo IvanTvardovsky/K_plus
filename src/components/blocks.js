@@ -101,7 +101,15 @@ class Blocks extends React.Component {
       this.handleBlock3 = this.handleBlock3.bind(this)
       this.ClickToReport = this.ClickToReport.bind(this)
    }
-
+   getCurrentDate() {
+      const currentDate = new Date();
+      const options = {
+         year: "numeric",
+         month: "long",
+         day: "numeric",
+      };
+      return currentDate.toLocaleDateString(undefined, options);
+   }
    scrollToTop = () => {
       window.scrollTo({
          top: 0,
@@ -389,8 +397,8 @@ class Blocks extends React.Component {
                                     </div>
                                  </div>
                               )}
-                              {answers.third.risk13.cat === 0 && (
-                                 <div className={`riskBlock ${answers.third.risk13.cat === 0 ? 'active' : ''}`}>
+                              {answers.third.risk13.q1.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk13.q1.cat === 0 ? 'active' : ''}`}>
                                     <div className="riskTitle">
                                        <h2>Риск: Недееспособность продавца</h2>
                                     </div>
@@ -402,7 +410,7 @@ class Blocks extends React.Component {
                               )}
 
                               <PDFDownloadLink className="downloadPDF" document={<Report answers={answers}/>}
-                                               fileName="ЗемельКа отчет.pdf">
+                                               fileName={"ЗемельКа отчет_" + currentDate}>
                                  {({
                                       blob,
                                       url,
@@ -555,8 +563,8 @@ class Blocks extends React.Component {
                                     </div>
                                  </div>
                               )}
-                              {answers.third.risk13.cat === 0 && (
-                                 <div className={`riskBlock ${answers.third.risk13.cat === 0 ? 'active' : ''}`}>
+                              {answers.third.risk13.q1.cat === 0 && (
+                                 <div className={`riskBlock ${answers.third.risk13.q1.cat === 0 ? 'active' : ''}`}>
                                     <div className="riskTitle">
                                        <h2>Риск: Недееспособность продавца</h2>
                                     </div>
@@ -582,6 +590,11 @@ class Blocks extends React.Component {
                                     {answers.second.risk2.cat === -1 && (
                                        <div>
                                           <h4> Риск: Границы объекта </h4>
+                                       </div>
+                                    )}
+                                    {answers.first.risk12.cat === -1 && (
+                                       <div>
+                                          <h4> Риск: Генеральная доверенность </h4>
                                        </div>
                                     )}
                                     {answers.second.risk3.cat === -1 && (
@@ -624,11 +637,6 @@ class Blocks extends React.Component {
                                           <h4> Риск: Продавец-ответчик в судебном споре</h4>
                                        </div>
                                     )}
-                                    {answers.first.risk12.cat === -1 && (
-                                       <div>
-                                          <h4> Риск: Генеральная доверенность </h4>
-                                       </div>
-                                    )}
                                     {answers.third.risk13.q1.cat === -1 && (
                                        <div>
                                           <h4> Риск: Недееспособность продавца</h4>
@@ -637,7 +645,7 @@ class Blocks extends React.Component {
                                  </div>
                               </div>
                               <PDFDownloadLink className="downloadPDF" document={<Report answers={answers}/>}
-                                               fileName="ЗемельКа отчет.pdf">
+                                               fileName={"ЗемельКа отчет_" + currentDate}>
                                  {({
                                       blob,
                                       url,
@@ -1345,7 +1353,7 @@ class Blocks extends React.Component {
                               <div className={`riskBlock ${answers.third.risk13.q1.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk13.q1.cat > -1 && (
                                     <div className="riskBlockAct">
-                                       {answers.third.risk13.cat === 0 ? (
+                                       {answers.third.risk13.q1.cat === 0 ? (
                                           <div className='riskBlockStatus'>
                                              <div className="riskTitle">
                                                 <h2>Риск: Недееспособность продавца</h2>
@@ -1388,7 +1396,7 @@ class Blocks extends React.Component {
                                  )}
                               </div>
                               <PDFDownloadLink className="downloadPDF" document={<Report answers={answers}/>}
-                                               fileName="ЗемельКа отчет.pdf">
+                                               fileName={"ЗемельКа отчет_" + currentDate}>
                                  {({
                                       blob,
                                       url,
@@ -2076,7 +2084,7 @@ class Blocks extends React.Component {
                               <div className={`riskBlock ${answers.third.risk13.q1.cat > -1 ? 'active' : ''}`}>
                                  {answers.third.risk13.q1.cat > -1 && (
                                     <div className="riskBlockAct">
-                                       {answers.third.risk13.cat === 0 ? (
+                                       {answers.third.risk13.q1.cat === 0 ? (
                                           <div className='riskBlockStatus'>
                                              <div className="riskTitle">
                                                 <h2>Риск: Недееспособность продавца</h2>
@@ -2131,6 +2139,11 @@ class Blocks extends React.Component {
                                           <h4> Риск: Право собственности продавца</h4>
                                        </div>
                                     )}
+                                    {answers.first.risk12.cat === -1 && (
+                                       <div>
+                                          <h4> Риск: Генеральная доверенность </h4>
+                                       </div>
+                                    )}
                                     {answers.second.risk2.cat === -1 && (
                                        <div>
                                           <h4> Риск: Границы объекта </h4>
@@ -2176,11 +2189,6 @@ class Blocks extends React.Component {
                                           <h4> Риск: Продавец-ответчик в судебном споре</h4>
                                        </div>
                                     )}
-                                    {answers.first.risk12.cat === -1 && (
-                                       <div>
-                                          <h4> Риск: Генеральная доверенность </h4>
-                                       </div>
-                                    )}
                                     {answers.third.risk13.q1.cat === -1 && (
                                        <div>
                                           <h4> Риск: Недееспособность продавца</h4>
@@ -2189,7 +2197,7 @@ class Blocks extends React.Component {
                                  </div>
                               </div>
                               <PDFDownloadLink className="downloadPDF" document={<Report answers={answers}/>}
-                                               fileName="ЗемельКа отчет.pdf">
+                                               fileName={"ЗемельКа отчет_" + currentDate}>
                                  {({
                                       blob,
                                       url,
