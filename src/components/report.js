@@ -380,6 +380,29 @@ const Report = ({answers}) => {
                                                       <Text style={styles.text}>Есть риск, что разрешение на
                                                          использование объекта не
                                                          подтверждено официально: </Text>
+                                                      <Text style={styles.text}>Проверьте с помощью публичной
+                                                         кадастровой карты Росреестра. </Text>
+                                                      <Text style={styles.text}>Ссылка №1:</Text>
+                                                      <Link
+                                                         src='https://www.gosuslugi.ru/378659/1/info'
+                                                         style={{
+                                                            fontSize: '12px',
+                                                         }}>
+                                                         https://www.gosuslugi.ru/378659/1/info
+                                                      </Link>
+                                                      <Text style={styles.text}>Ссылка №2:</Text>
+                                                      <Link
+                                                         src='https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844'
+                                                         style={{
+                                                            fontSize: '12px',
+                                                         }}>
+                                                         https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
+                                                      </Link>
+                                                      <Text style={styles.text}>Проверьте генеральный план развития
+                                                         местности,
+                                                         утвержденный местной администрацией.
+                                                         Например, Генплан Москвы до 2035 г. можно посмотреть по
+                                                         ссылке: </Text>
                                                       <Link
                                                          src='https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/'
                                                          style={{
@@ -387,9 +410,10 @@ const Report = ({answers}) => {
                                                          }}>
                                                          https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/
                                                       </Link>
-                                                      <Text style={styles.text}>Есть риск, что разрешение на
-                                                         использование объекта не
-                                                         подтверждено официально: </Text>
+                                                      <Text style={styles.text}>Проверьте Правила землепользования и
+                                                         застройки. Например,
+                                                         Правила землепользования и застройки города Москвы можно
+                                                         посмотреть по ссылке: </Text>
                                                       <Link
                                                          src='https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/'
                                                          style={{
@@ -674,16 +698,22 @@ const Report = ({answers}) => {
                                                 производстве в качестве
                                                 ответчика, поэтому: </Text>
                                              <Text style={styles.text}>Проверьте продавца в соответствующем
-                                                реестре: <br/>
+                                                реестре:
+                                             </Text>
+                                             <Text style={styles.text}>
+                                                <Link src='https://mos-gorsud.ru/mgs/services/cases/first-civil'
+                                                      style={{
+                                                         fontSize: '12px',
+                                                      }}>
+                                                   https://mos-gorsud.ru/mgs/services/cases/first-civil
+                                                </Link>
+                                             </Text>
+                                             <Text style={styles.text}>
                                                 Это нужно для того, чтобы удостовериться, что в отношении продавца
                                                 нет возбужденных судебных дел, которые бы могли угрожать совершению
-                                                сделки (например, развод). </Text>
-                                             <Link src='https://mos-gorsud.ru/mgs/services/cases/first-civil'
-                                                   style={{
-                                                      fontSize: '12px',
-                                                   }}>
-                                                https://mos-gorsud.ru/mgs/services/cases/first-civil
-                                             </Link>
+                                                сделки (например, развод).
+                                             </Text>
+
                                           </View>
                                        </View>
                                     )}
@@ -989,6 +1019,29 @@ const Report = ({answers}) => {
                                                          <Text style={styles.text}>Есть риск, что разрешение на
                                                             использование объекта не
                                                             подтверждено официально: </Text>
+                                                         <Text style={styles.text}>Проверьте с помощью публичной
+                                                            кадастровой карты Росреестра. </Text>
+                                                         <Text style={styles.text}>Ссылка №1:</Text>
+                                                         <Link
+                                                            src='https://www.gosuslugi.ru/378659/1/info'
+                                                            style={{
+                                                               fontSize: '12px',
+                                                            }}>
+                                                            https://www.gosuslugi.ru/378659/1/info
+                                                         </Link>
+                                                         <Text style={styles.text}>Ссылка №2:</Text>
+                                                         <Link
+                                                            src='https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844'
+                                                            style={{
+                                                               fontSize: '12px',
+                                                            }}>
+                                                            https://pkk.rosreestr.ru/?source=subscribe#/search/63.60201437832657,65.56074746184491/4/@bzbws4844
+                                                         </Link>
+                                                         <Text style={styles.text}>Проверьте генеральный план развития
+                                                            местности,
+                                                            утвержденный местной администрацией.
+                                                            Например, Генплан Москвы до 2035 г. можно посмотреть по
+                                                            ссылке: </Text>
                                                          <Link
                                                             src='https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/'
                                                             style={{
@@ -996,9 +1049,10 @@ const Report = ({answers}) => {
                                                             }}>
                                                             https://genplanmos.ru/project/generalnyy_plan_moskvy_do_2035_goda/
                                                          </Link>
-                                                         <Text style={styles.text}>Есть риск, что разрешение на
-                                                            использование объекта не
-                                                            подтверждено официально: </Text>
+                                                         <Text style={styles.text}>Проверьте Правила землепользования и
+                                                            застройки. Например,
+                                                            Правила землепользования и застройки города Москвы можно
+                                                            посмотреть по ссылке: </Text>
                                                          <Link
                                                             src='https://www.mos.ru/mka/documents/pravila-zemlepolzovaniya-i-zastrojki-goroda-moskvy/'
                                                             style={{
@@ -1284,16 +1338,21 @@ const Report = ({answers}) => {
                                                    производстве в качестве
                                                    ответчика, поэтому: </Text>
                                                 <Text style={styles.text}>Проверьте продавца в соответствующем
-                                                   реестре: <br/>
+                                                   реестре:
+                                                </Text>
+                                                <Text style={styles.text}>
+                                                   <Link src='https://mos-gorsud.ru/mgs/services/cases/first-civil'
+                                                         style={{
+                                                            fontSize: '12px',
+                                                         }}>
+                                                      https://mos-gorsud.ru/mgs/services/cases/first-civil
+                                                   </Link>
+                                                </Text>
+                                                <Text style={styles.text}>
                                                    Это нужно для того, чтобы удостовериться, что в отношении продавца
                                                    нет возбужденных судебных дел, которые бы могли угрожать совершению
-                                                   сделки (например, развод). </Text>
-                                                <Link src='https://mos-gorsud.ru/mgs/services/cases/first-civil'
-                                                      style={{
-                                                         fontSize: '12px',
-                                                      }}>
-                                                   https://mos-gorsud.ru/mgs/services/cases/first-civil
-                                                </Link>
+                                                   сделки (например, развод).
+                                                </Text>
                                              </View>
                                           </View>
                                        )}
