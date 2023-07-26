@@ -190,7 +190,8 @@ body {
 .QuestIcon {
     display: inline-block;
     transform: scale(1.5);
-    margin: 10px 0px 10px 10px;
+    margin: 10px 0 10px 10px;
+    z-index: 9999;
 }
 
 .QuestIcon:hover {
@@ -233,9 +234,9 @@ body {
 
 .ToolContainer {
     position: relative;
-    width: 50%;
-    min-width: 400px;
+    width: 60%;
     white-space: normal;
+    word-wrap: break-word;
 }
 
 .TooltipInstr {

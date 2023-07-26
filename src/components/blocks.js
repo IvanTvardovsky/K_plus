@@ -101,6 +101,7 @@ class Blocks extends React.Component {
       this.handleBlock3 = this.handleBlock3.bind(this)
       this.ClickToReport = this.ClickToReport.bind(this)
    }
+
    getCurrentDate() {
       const currentDate = new Date();
       const options = {
@@ -110,6 +111,7 @@ class Blocks extends React.Component {
       };
       return currentDate.toLocaleDateString(undefined, options);
    }
+
    scrollToTop = () => {
       window.scrollTo({
          top: 0,
@@ -264,7 +266,8 @@ class Blocks extends React.Component {
                            && (answers.third.risk6.cat === 0) && (answers.third.risk7.cat === 0) && (answers.third.risk9.cat === 0) && (answers.first.risk12.cat === 0)
                            && (answers.third.risk13.q1.cat === 0) && (answers.third.risk13.q2.cat === 0)) ? (
                            <div>
-                              <h2 style={{marginLeft: "3%"}}> Нет рисков, сделка  может быть заключена! </h2>
+                              <h2 style={{marginLeft: "3%"}}>Исходя из ваших ответов, риски не обнаружены, сделка может
+                                 быть заключена </h2>
                               {answers.first.risk1.cat === 0 && (
                                  <div className={`riskBlock ${answers.first.risk1.cat === 0 ? 'active' : ''}`}>
                                     <div className="riskTitle">
@@ -421,16 +424,18 @@ class Blocks extends React.Component {
                               <h2 style={{marginLeft: "3%"}}> Ознакомиться с возможными рисками вы можете в разделе{' '}
                                  <Link to="/handbook">справочник</Link>!.
                               </h2>
-                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на
-                                 принятие Вами итогового
-                                 решения по заключению сделки и не несет ответственность за это.</p>
+                              <p className="warning">Информируем Вас, что вся представленная информация на сайте
+                                 является справочной, команда “ЗемельКа” не оказывает влияние на
+                                 принятие Вами итогового решения по заключению сделки и не несет юридическую
+                                 ответственность за это</p>
                               <div className="warning">
                                  Вся информация актуальна на {currentDate}
                               </div>
                            </div>
                         ) : (
                            <div>
-                              <h2 style={{marginLeft: "3%"}}> Нет рисков, сделка  может быть заключена!</h2>
+                              <h2 style={{marginLeft: "3%"}}>Исходя из ваших ответов, риски не обнаружены, сделка может
+                                 быть заключена</h2>
                               {answers.first.risk1.cat === 0 && (
                                  <div className={`riskBlock ${answers.first.risk1.cat === 0 ? 'active' : ''}`}>
                                     <div className="riskTitle">
@@ -656,9 +661,10 @@ class Blocks extends React.Component {
                               <h2 style={{marginLeft: "3%"}}> Ознакомиться с возможными рисками вы можете в разделе{' '}
                                  <Link to="/handbook">справочник</Link>.
                               </h2>
-                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на
-                                 принятие Вами итогового
-                                 решения по заключению сделки и не несет ответственность за это.</p>
+                              <p className="warning">Информируем Вас, что вся представленная информация на сайте
+                                 является справочной, команда “ЗемельКа”
+                                 не оказывает влияние на принятие Вами итогового решения по заключению сделки и не несет
+                                 юридическую ответственность за это</p>
                               <div className="warning">
                                  Вся информация актуальна на {currentDate}
                               </div>
@@ -683,12 +689,14 @@ class Blocks extends React.Component {
                            </div>
                         </div>
                         {((answers.first.risk1.cat < 2) && (answers.first.risk10.cat < 2) && (answers.second.risk2.cat < 2) && (answers.second.risk3.cat < 2)
-                        && (answers.second.risk4.cat < 2) && (answers.second.risk8.cat < 2) && (answers.second.risk11.cat < 2) && (answers.third.risk5.cat < 2)
-                        && (answers.third.risk6.cat < 2) && (answers.third.risk7.cat < 2) && (answers.third.risk9.cat < 2) && (answers.first.risk12.cat < 2)
-                        && (answers.third.risk13.q1.cat < 2) && (answers.third.risk13.q2.cat < 2)) ? (
-                           <h2 style={{marginLeft: "3%"}}>Есть риски, на которые стоит обратить внимание, но сделка может быть заключена!</h2>
+                           && (answers.second.risk4.cat < 2) && (answers.second.risk8.cat < 2) && (answers.second.risk11.cat < 2) && (answers.third.risk5.cat < 2)
+                           && (answers.third.risk6.cat < 2) && (answers.third.risk7.cat < 2) && (answers.third.risk9.cat < 2) && (answers.first.risk12.cat < 2)
+                           && (answers.third.risk13.q1.cat < 2) && (answers.third.risk13.q2.cat < 2)) ? (
+                           <h2 style={{marginLeft: "3%"}}>Исходя из ваших ответов, риски обнаружены, но сделка может
+                              заключена</h2>
                         ) : (
-                           <h2 style={{marginLeft: "3%"}}>Есть высокий риск того, что сделка не может быть заключена!</h2>
+                           <h2 style={{marginLeft: "3%"}}>Исходя из ваших ответов, риски обнаружены, сделка не может
+                              быть заключена</h2>
                         )}
                         {((answers.first.risk1.cat > -1) && (answers.first.risk10.cat > -1) && (answers.second.risk2.cat > -1) && (answers.second.risk3.cat > -1)
                            && (answers.second.risk4.cat > -1) && (answers.second.risk8.cat > -1) && (answers.second.risk11.cat > -1) && (answers.third.risk5.cat > -1)
@@ -1416,9 +1424,10 @@ class Blocks extends React.Component {
                                     Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
                                     <Link to="/handbook">справочник</Link>!
                                  </h2>
-                                 <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на
-                                    принятие Вами итогового
-                                    решения по заключению сделки и не несет ответственность за это.</p>
+                                 <p className="warning">Информируем Вас, что вся представленная информация на сайте
+                                    является справочной, команда “ЗемельКа”
+                                    не оказывает влияние на принятие Вами итогового решения по заключению сделки и не
+                                    несет юридическую ответственность за это</p>
                                  <div className="warning">
                                     Вся информация актуальна на {currentDate}
                                  </div>
@@ -2216,9 +2225,10 @@ class Blocks extends React.Component {
                                  Рекомендуем для более подробного ознакомления с рисками перейти в раздел{' '}
                                  <Link to="/handbook">справочник</Link>!
                               </h2>
-                              <p className="warning">Информируем Вас, что команда “ЗемельКа” не оказывает влияние на
-                                 принятие Вами итогового
-                                 решения по заключению сделки и не несет ответственность за это.</p>
+                              <p className="warning">Информируем Вас, что вся представленная информация на сайте
+                                 является справочной, команда “ЗемельКа”
+                                 не оказывает влияние на принятие Вами итогового решения по заключению сделки и не несет
+                                 юридическую ответственность за это</p>
                               <div className="warning">
                                  Вся информация актуальна на {currentDate}
                               </div>
